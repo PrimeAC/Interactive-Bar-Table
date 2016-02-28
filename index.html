@@ -1,32 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>IPM</title>
-  <link rel="shortcut icon" href="ist.png" type="image/x-png"/> <!--insere um icon no topo do separador-->
+  <title>IIPM - Grupo 6</title>
+  <link rel="shortcut icon" href="topLogo.png" type="image/x-png"/> <!--insere um icon no topo do separador-->
 
   <style type="text/css">
-
-    img {
-      width:100px;
-      height:100px;
-    }
+    
     body {
-      font-family: Calibri; 
+      font-family: Arial; 
       text-align: center;
-      background: #0FE9A0;
+      color: #606060 ;
+      background-image: url("cubes.png")
+      
     }
     h1 {
-      color: red;
+      color: white;
     }
     h2 {
       font-family: Arial;
-      color: red;
+   
+    }
+    #header {
+    	background: #3984c5;
+    	height: 210px;
+
+    	
+    }
+    #header a:hover {
+    	color: black;
+    }
+    #header a {
+    	color: white;
+    	text-decoration: none;
     }
 
     #links {
       text-align: center; 
       padding-left: 100px;
       width: 1200px;
+
+    }
+
+    #links a {
+    	color: #606060;
     }
 
     #at {
@@ -49,14 +65,26 @@
       width: 300px;
     }
 
-    div a:hover {
+    div #links a:hover {
       font-size: 20px;
-      color: black;
+      color: #3984c5;
     }
 
-    #logo {
-     width: 300px; 
+    .pictures {
+    	width: 150px;
+    	border-radius: 50%;
     }
+
+    .section h2 {
+    	color: #3984c5;
+
+    }
+
+    .section {
+    	background-color: white;
+    	border-radius: 10%;
+    }
+
   </style>
 
 
@@ -69,24 +97,7 @@
           else document.getElementById(id).style.display = "block";
     }
   </script>
-  <!--<script>
-    function changeImage1() { 
-          var image = document.getElementById("afonso"); 
-                  image.src = "ist182539.jpg";  
-          } 
-  </script> 
-  <script>     
-    function changeImage2() { 
-          var image = document.getElementById("bruno"); 
-                  image.src = "ist182053.jpg";  
-          } 
-  </script>  
-  <script> 
-    function changeImage3() { 
-          var image = document.getElementById("ricardo"); 
-                  image.src = "ist182010.jpg";  
-          } 
-  </script>-->
+  
   <script>
       function changeImage(id) { 
         var image = document.getElementById(id);
@@ -107,28 +118,39 @@
 
 
 <body>
-<img id="logo" src="tecnico.jpg">
-<h1 > <a href="https://fenix.tecnico.ulisboa.pt/disciplinas/IIPM51113/2015-2016/2-semestre"><u>Interfaces Pessoa M&aacute;quina 2015-16</u> </a></h1>
+<div id="header">
+<a href="https://web.tecnico.ulisboa.pt/ist182539/IIPM-Labs">
+<img id="ist" src="logo-ist.png" width="311" height="122">
+</a>
+<h1 > <a href="https://fenix.tecnico.ulisboa.pt/disciplinas/IIPM51113/2015-2016/2-semestre">Interfaces Pessoa M&aacute;quina 2015-16 </a></h1>
+</div>
+<div>
+
 <h2>Grupo 06 - Turno IIPM51113L02</h2>
 
 <table align=center>
+  
+  <tr>
+    <td><img id="afonso" class="pictures" src = "ist182539.jpg" ></td>
+    <td><img id="bruno" class="pictures" src = "ist182053.jpg" ></td> 
+    <td><img id="ricardo" class="pictures" src = "ist182010.jpg" ></td>
+  </tr>
   <tr>
     <td width="33%">Afonso Caetano</td>
+  
     <td width="33%">Bruno Santos</td> 
+ 
     <td width="33%">Ricardo Pereira</td>
     </tr>
     <tr>
-    <td>82539</td>
-    <td>82053</td> 
-    <td>82010</td>
-  </tr>
-  <tr>
-    <td><img id="afonso" onclick="changeImage('afonso')" src = "student1.png" ></td>
-    <td><img id="bruno" onclick="changeImage('bruno')" src = "student2.png" ></td> 
-    <td><img id="ricardo" onclick="changeImage('ricardo')" src = "student3.png" ></td>
+    	<td>82539</td>
+
+    	<td>82053</td> 
+    
+    	<td>82010</td>
   </tr>
 </table>
-
+<div/>
 <div id="links">
 <p>
 
