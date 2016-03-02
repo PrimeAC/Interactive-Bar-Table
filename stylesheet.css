@@ -2,8 +2,9 @@ body {
   font-family: Arial; 
   text-align: center;
   color: #606060 ;
-  background-image: url("cubes.png")
-  
+  background-image: url("cubes.png");
+  width: relative;
+  height:relative;
 }
 h1 {
   color: white;
@@ -42,7 +43,10 @@ div div h2:active {
 #links {
   text-align: center; 
   padding-left: 100px;
-  width: 1200px;
+  /*width: 1200px;*/
+  top: 50%;
+  left: 37%;
+  position:absolute;
 
 }
 
@@ -93,3 +97,5 @@ div #links a:hover {
 img {
 	max-width: 100%;
 }
+
+
