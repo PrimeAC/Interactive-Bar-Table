@@ -2,9 +2,8 @@ body {
   font-family: Arial; 
   text-align: center;
   color: #606060 ;
-  background-image: url("cubes.png");
-  width: relative;
-  height:relative;
+  background-image: url("cubes.png")
+  
 }
 h1 {
   color: white;
@@ -28,9 +27,7 @@ div div h2:active {
 
 #header {
 	background: #3984c5;
-	height: 225px;
-
-	
+	height: 15em;
 }
 #header a:hover {
 	color: black;
@@ -44,10 +41,8 @@ div div h2:active {
   text-align: center; 
   padding-left: 100px;
   /*width: 1200px;*/
-  top: 50%;
-  left: 37%;
-  position:absolute;
-
+	left:5em;
+	position:absolute;
 }
 
 #links a {
@@ -55,23 +50,27 @@ div div h2:active {
 }
 
 #at {
-  float:center;
+  float:left;
   width: 300px;
+  padding-right:5em;
 }
 
 #mc {
-  float:center;
+  float:left;
   width: 300px;
+  padding-right:5em;
 }
 
 #proto {
-  float:center;
+  float:left;
   width: 300px;
+  padding-right:5em;
 }
 
 #au {
-  float:center;
+  float:left;
   width: 300px;
+  padding-right:5em;
 }
 
 div #links a:hover {
@@ -93,9 +92,3 @@ div #links a:hover {
 	background-color: none;
 	border-radius: 10%;
 }
-
-img {
-	max-width: 100%;
-}
-
-
