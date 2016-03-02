@@ -1,0 +1,91 @@
+body {
+  font-family: Arial; 
+  text-align: center;
+  color: #606060 ;
+  background-image: url("cubes.png")
+  
+}
+h1 {
+  color: white;
+}
+h2 {
+  font-family: Arial;
+}
+
+div div h2 {
+  cursor:pointer;
+  /*font-size: 30px;
+  box-shadow: 0 2px 2px #606060 ;
+  border-radius: 10px;*/
+}
+
+div div h2:active {
+  position: relative;
+  top: 2px;
+  box-shadow: none;
+}
+
+#header {
+	background: #3984c5;
+	height: 210px;
+
+	
+}
+#header a:hover {
+	color: black;
+}
+#header a {
+	color: white;
+	text-decoration: none;
+}
+
+#links {
+  text-align: center; 
+  padding-left: 100px;
+  width: 1200px;
+
+}
+
+#links a {
+	color: #606060;
+}
+
+#at {
+  float:center;
+  width: 300px;
+}
+
+#mc {
+  float:center;
+  width: 300px;
+}
+
+#proto {
+  float:center;
+  width: 300px;
+}
+
+#au {
+  float:center;
+  width: 300px;
+}
+
+div #links a:hover {
+  font-size: 20px;
+  color: #3984c5;
+}
+
+.pictures {
+	width: 150px;
+	border-radius: 50%;
+}
+
+.section h2 {
+	color: #3984c5;
+
+}
+
+.section {
+	background-color: none;
+	border-radius: 10%;
+}
