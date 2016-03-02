@@ -24,7 +24,6 @@ div div h2 {
 div div h2:active {
   position: relative;
   top: 2px;
-  box-shadow: none;
 }
 
 #header {
