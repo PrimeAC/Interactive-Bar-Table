@@ -11,31 +11,51 @@
     function toggleVisible(id1, id2) { 
           if(document.getElementById(id1).style.display == "block") {
             document.getElementById(id1).style.display = "none";
-            document.getElementById(id2).style.color="#009de0";
+            document.getElementById(id2).style.color="#808080";
 
           }
 
           else {
             document.getElementById(id1).style.display = "block";
-            document.getElementById(id2).style.color="#224f77";
+            document.getElementById(id2).style.color="#404040";
           }
     }
   </script>
-  
+
   <script>
-      function changeImage(id) { 
-        var image = document.getElementById(id);
-        if(id == "ricardo"){ 
-          image.src = "ist182010.jpg";
+      function changeTextToBlue(id1,id2) {
+        if(id1 == "ricardoName"){ 
+          document.getElementById(id1).style.color = "#009de0";
+          document.getElementById(id2).style.color = "#009de0";
           }
-        if(id == "bruno"){ 
-           image.src = "ist182053.jpg";
+        if(id1 == "brunoName"){ 
+           document.getElementById(id1).style.color = "#009de0";
+           document.getElementById(id2).style.color = "#009de0";
           }
-        if(id == "afonso"){ 
-          image.src = "ist182539.jpg";
+        if(id1 == "afonsoName"){ 
+          document.getElementById(id1).style.color = "#009de0";
+          document.getElementById(id2).style.color = "#009de0";
           }  
-        }
+      }
   </script>
+
+  <script>
+      function changeTextToGrey(id1,id2) {
+        if(id1 == "ricardoName"){ 
+          document.getElementById(id1).style.color = "#808080";
+          document.getElementById(id2).style.color = "#808080";
+          }
+        if(id1 == "brunoName"){ 
+           document.getElementById(id1).style.color = "#808080";
+           document.getElementById(id2).style.color = "#808080";
+          }
+        if(id1 == "afonsoName"){ 
+          document.getElementById(id1).style.color = "#808080";
+          document.getElementById(id2).style.color = "#808080";
+          }  
+      }
+  </script>
+
 
 
 </head>
@@ -55,23 +75,23 @@
 <table align=center>
   
   <tr>
-    <td><img id="afonso" class="pictures" src = "ist182539.jpg" ></td>
-    <td><img id="bruno" class="pictures" src = "ist182053.jpg" ></td> 
-    <td><img id="ricardo" class="pictures" src = "ist182010.jpg" ></td>
+    <td><img id="afonso" onmouseover="changeTextToBlue('afonsoName','afonsoNumber')" onmouseout="changeTextToGrey('afonsoName','afonsoNumber')" class="pictures" src = "ist182539.jpg" ></td>
+    <td><img id="bruno" onmouseover="changeTextToBlue('brunoName','brunoNumber')" onmouseout="changeTextToGrey('brunoName','brunoNumber')" class="pictures" src = "ist182053.jpg" ></td> 
+    <td><img id="ricardo" onmouseover="changeTextToBlue('ricardoName','ricardoNumber')" onmouseout="changeTextToGrey('ricardoName','ricardoNumber')" class="pictures" src = "ist182010.jpg" ></td>
   </tr>
   <tr>
-    <td width="33%">Afonso Caetano</td>
+    <td id="afonsoName" width="33%">Afonso Caetano</td>
   
-    <td width="33%">Bruno Santos</td> 
+    <td id="brunoName" width="33%">Bruno Santos</td> 
  
-    <td width="33%">Ricardo Pereira</td>
+    <td id="ricardoName" width="33%">Ricardo Pereira</td>
     </tr>
     <tr>
-    	<td>82539</td>
+    	<td id="afonsoNumber">82539</td>
 
-    	<td>82053</td> 
+    	<td id="brunoNumber">82053</td> 
     
-    	<td>82010</td>
+    	<td id="ricardoNumber">82010</td>
   </tr>
 </table>
 <div/>

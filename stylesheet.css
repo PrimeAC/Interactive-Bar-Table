@@ -1,7 +1,7 @@
 body {
   font-family: Arial; 
   text-align: center;
-  color: #606060 ;
+  color: #808080;
   background-image: url("cubes.png");
   
   
@@ -16,7 +16,7 @@ h2 {
 
 div div h2:hover {
   cursor:pointer;
-  text-decoration: underline;
+  color: #009de0 !important;
   /*font-size: 30px;
   box-shadow: 0 2px 2px #606060 ;
   border-radius: 10px;*/
@@ -51,7 +51,7 @@ div div h2:active {
 }
 
 #links a {
-	color: #606060;
+	color: #009de0;
 }
 
 #at {
@@ -97,7 +97,8 @@ div div h2:active {
 
 div #links a:hover {
   font-size: 20px;
-  color: #3984c5;
+  color: #404040 !important;
+
 }
 
 .pictures {
@@ -105,12 +106,16 @@ div #links a:hover {
 	border-radius: 50%;
 }
 
+.pictures:hover {
+  opacity: 0.7;
+}
+
 .section h2 {
-	color: #009de0;
+	color: #808080;
 
 }
 
 .section {
-	background-color: none;
+	
 	border-radius: 10%;
 }
