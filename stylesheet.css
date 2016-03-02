@@ -27,7 +27,7 @@ div div h2:active {
 
 #header {
 	background: #3984c5;
-	height: 210px;
+	height: 225px;
 
 	
 }
@@ -91,5 +91,5 @@ div #links a:hover {
 }
 
 img {
-	width: 100%;
+	max-width: 100%;
 }
