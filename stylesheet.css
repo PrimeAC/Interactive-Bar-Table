@@ -2,9 +2,11 @@ body {
   font-family: Arial; 
   text-align: center;
   color: #606060 ;
-  background-image: url("cubes.png")
+  background-image: url("cubes.png");
+  
   
 }
+
 h1 {
   color: white;
 }
@@ -27,7 +29,7 @@ div div h2:active {
 
 #header {
 	background: #3984c5;
-	height: 15em;
+	padding-bottom: 2px;
 }
 #header a:hover {
 	color: black;
@@ -38,11 +40,13 @@ div div h2:active {
 }
 
 #links {
-  text-align: center; 
-  padding-left: 100px;
+  margin-left: auto ;
+  margin-right: auto ;
+  /*text-align: center;*/ 
+  /*padding-left: 100px;*/
   /*width: 1200px;*/
-	left:5em;
-	position:absolute;
+	/*left:5em;
+	position:absolute;*/
 }
 
 #links a {
@@ -50,27 +54,44 @@ div div h2:active {
 }
 
 #at {
-  float:left;
+
+  /*float:left;
   width: 300px;
-  padding-right:5em;
+  /*padding-right:5em;*/
 }
 
 #mc {
-  float:left;
+  /*float:left;
   width: 300px;
-  padding-right:5em;
+  /*padding-right:5em;*/
 }
 
 #proto {
-  float:left;
+  /*float:left;
   width: 300px;
-  padding-right:5em;
+  /*padding-right:5em;*/
 }
 
 #au {
-  float:left;
+  /*float:left;
   width: 300px;
-  padding-right:5em;
+  /*padding-right:5em;*/
+}
+
+#at_inner {
+  display: none;
+}
+
+#mc_inner {
+  display: none;
+}
+
+#proto_inner {
+  display: none;
+}
+
+#au_inner {
+  display: none;
 }
 
 div #links a:hover {
