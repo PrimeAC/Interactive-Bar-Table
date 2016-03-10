@@ -3,8 +3,7 @@ body {
   text-align: center;
   color: #808080;
   background-image: url("cubes.png");
-  
-  
+  margin: 0;
 }
 
 h1 {
