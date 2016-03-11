@@ -13,17 +13,16 @@ h2 {
   font-family: Arial;
 }
 
-div div h2:hover {
+.section:hover {
   cursor:pointer;
   color: #009de0 !important;
-  /*font-size: 30px;
-  box-shadow: 0 2px 2px #606060 ;
-  border-radius: 10px;*/
+  display: inline-block;
 }
 
-div div h2:active {
+.section:active {
   position: relative;
-  top: 2px;
+  top: 0.5mm;
+  display: inline-block;
 }
 
 #header {
@@ -51,31 +50,6 @@ div div h2:active {
 
 #links a {
 	color: #009de0;
-}
-
-#at {
-
-  /*float:left;
-  width: 300px;
-  /*padding-right:5em;*/
-}
-
-#mc {
-  /*float:left;
-  width: 300px;
-  /*padding-right:5em;*/
-}
-
-#proto {
-  /*float:left;
-  width: 300px;
-  /*padding-right:5em;*/
-}
-
-#au {
-  /*float:left;
-  width: 300px;
-  /*padding-right:5em;*/
 }
 
 #at_inner {
@@ -110,11 +84,12 @@ div #links a:hover {
 }
 
 .section h2 {
+  display: inline-block;
 	color: #808080;
 
 }
 
 .section {
-	
+  
 	border-radius: 10%;
 }
