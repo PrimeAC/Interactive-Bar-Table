@@ -1,2 +1,2 @@
 # IIPM-Labs
-Repository for the chair of Introduction to Human-Computer Interfaces with the lab materials.
+Repository for the class of Introduction to Human-Computer Interfaces with the lab materials.
