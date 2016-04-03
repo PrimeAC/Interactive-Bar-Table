@@ -1,0 +1,61 @@
+/*barra fixa no topo*/
+body {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+div {
+	
+	height: 7em;
+	/*background-color: white;*/
+}
+
+div div {
+	float: left;
+	padding-right: 10em;
+	padding-left: 10em;
+}
+
+table img {
+	height: 5em;
+	width: 5em;
+}
+
+table {
+	text-align: center;
+	font-family: Arial,sans-serif;
+	color: white; 
+}
+
+div div:hover {
+	opacity: 0.2;
+}
+
+#barra {
+	background-color: grey;
+}
+
+/*barra fixa no topo*/
+
+/*barra fixa da musica em baixo*/
+#outro1 {
+	height: 2em;
+	border:solid 1px;
+}
+/*barra fixa da musica em baixo*/
+
+/*home*/
+#outro {
+	height: 52em;
+	border:solid 1px;
+}
+/*home*/
+
+/*menu*/
+/*menu*/
+
+/*musica*/
+/*musica*/
+
+/*historico*/
+/*historico*/
