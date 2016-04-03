@@ -19,6 +19,7 @@ div div {
 table img {
 	height: 5em;
 	width: 5em;
+	border-radius: 5px;
 }
 
 table {
@@ -40,14 +41,14 @@ div div:hover {
 /*barra fixa da musica em baixo*/
 #outro1 {
 	height: 2em;
-	border:solid 1px;
+	/*border:solid 1px;*/
 }
 /*barra fixa da musica em baixo*/
 
 /*home*/
 #outro {
 	height: 52em;
-	border:solid 1px;
+	/*border:solid 1px;*/
 }
 /*home*/
 
