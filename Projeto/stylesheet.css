@@ -1,19 +1,10 @@
 /*barra fixa no topo*/
 body {
-	margin-top: 0px;
-	margin-bottom: 0px;
-}
+	margin: 0;
+	font-family: 'Myriad Set Pro', 'Myriad Pro', 'Lucida Grande', Helvetica, 
+		Arial,sans-serif;
+	text-align: center;
 
-div {
-	
-	height: 7em;
-	/*background-color: white;*/
-}
-
-div div {
-	float: left;
-	padding-right: 10em;
-	padding-left: 10em;
 }
 
 table img {
@@ -24,17 +15,38 @@ table img {
 
 table {
 	text-align: center;
-	font-family: Arial,sans-serif;
+	
 	color: white; 
 }
 
-div div:hover {
-	opacity: 0.2;
+#barra a {
+	text-decoration: none;
+}
+#barra {
+	background-color: #333;
+	padding: 1%;
+	display: flex;
+    justify-content: space-between;
 }
 
-#barra {
-	background-color: grey;
+.icones {
+	padding: 2%;
+	border-style: solid;
+	border-width: 5px;
+	border-color: white;
+	border-radius: 25px;
 }
+
+#home {
+	float: left;
+}
+#menu {
+	float: left;
+}
+#musica {
+	float: left;
+}
+
 
 /*barra fixa no topo*/
 
