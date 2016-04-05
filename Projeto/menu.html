@@ -7,6 +7,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--<adapt the page to the dispositive-->
   <meta charset="UTF-8">
 
+
+	<script type="text/javascript">
+		function toggleFooter(id) { 
+	      if(document.getElementById(id).style.height == "4.5%") {
+	        document.getElementById(id).style.height = "12.5%";
+	      }
+
+	      else {
+	        document.getElementById(id).style.height = "4.5%";
+	      }
+			}
+  	</script>
+
   </head>
   <body>
 
@@ -62,6 +75,14 @@
 		</a>
   	</div>
   	<!--fim da barra fixa-->
+
+  	<div id="rodape">
+  		<img id="reticencias" onclick="toggleFooter('rodape')" src="ellipsis.png">
+  		<p><img id="img_reproducao" src="coluna.png"/>
+  		<div class="rod_elementos" id="rod_musica">Música 1</div>
+  		<div class="rod_elementos" id="rod_artista">Artista 1</div>
+  		<div class="rod_elementos" id="rod_tempo">Tempo 1</div></p>
+  	</div>
 
 
   </body>
