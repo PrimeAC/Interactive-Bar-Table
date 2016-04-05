@@ -3,7 +3,7 @@ body {
 	margin: 0;
 	font-family: 'Myriad Set Pro', 'Myriad Pro', 'Lucida Grande', Helvetica, 
 	Arial,sans-serif;
-	text-align: center;
+	
 	background-image: url("mesa.jpg");
 
 }
@@ -18,6 +18,7 @@ table {
 }
 #barra {
 	background-color: #333;
+	opacity: 0.7;
 	padding: 1%;
 	display: flex;
     justify-content: space-between;
@@ -55,16 +56,44 @@ table {
 /*barra fixa no topo*/
 
 /*barra fixa da musica em baixo*/
-#outro1 {
-	height: 2em;
-	/*border:solid 1px;*/
+#rodape {
+	position: fixed;
+	bottom:0;
+	width: 100%;
+	height: 4.5%;
+	background-color: #333;
+	opacity: 0.7;
 }
-/*barra fixa da musica em baixo*/
 
-/*home*/
-#outro {
-	height: 52em;
-	/*border:solid 1px;*/
+#reticencias {
+	display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+#reticencias:hover {
+	cursor: pointer;
+}
+
+#img_reproducao {
+	width: 4%;
+	padding-left: 3%;
+	float: left;
+}
+
+#rodape p {
+	margin: 0px;
+}
+
+#rod_musica {
+	float: left;
+}
+
+#rod_artista {
+	float: left;
+}
+
+.rod_elementos {
+	height: 30px;
 }
 /*home*/
 
