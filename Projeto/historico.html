@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>BarISTa</title>
-  <!--<link rel="shortcut icon" href="topLogo.png" type="image/x-png"/>--> <!--insere um icon no topo do separador-->
+  <link rel="shortcut icon" href="topLogo.png" type="image/x-png"/> <!--insere um icon no topo do separador-->
   <link rel="stylesheet" href="stylesheet.css" type="text/css"/> <!--redireciona para o documento com o css-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--<adapt the page to the dispositive-->
   <meta charset="UTF-8">
@@ -12,50 +12,63 @@
 
   <!--para criar a barra fixa no topo-->
   	<div id="barra">
-  	<a href="index.html">
-	  	<div id="home">
-		  	<table>
-	  			<tr>
-	  				<td>HOME</td>
-	    		</tr>
-	    		<tr>
-	    			<td><img src="home.png"/></td>
-	    		</tr>	
-	    	</table>	
-	  	</div>
+  		<a href="index.html">
+		  	<div class="icones" id="home">
+			  	<table>
+		  			<tr>
+		  				<td><img class = "imagem_icone" src="home.png"/></td>
+		    		</tr>
+		    		<tr>
+		    			<td>Home</td>
+		    		</tr>	
+		    	</table>	
+		  	</div>
+		</a>
 	 </a>
-  	  	<div id="menu">
-  	  		<table>
-	  			<tr>
-	  				<td>MENU</td>
-	    		</tr>
-	    		<tr>
-	    			<td><a href="menu.html"><img src="menu.png"/></td>
-	    		</tr>	
-	    	</table>
-	  	</div>
-	  	<div id="musica">
-	  		<table>
-	  			<tr>
-	  				<td>MUSICA</td>
-	    		</tr>
-	    		<tr>
-	    			<td><a href="musica.html"><img src="music.svg"/></td>
-	    		</tr>	
-	    	</table>
-	  	</div>
-	  	<div id="historico" style="background-color:white;">
-	  		<table>
-	  			<tr>
-	  				<td style="color:black;">HISTÓRICO</td>
-	    		</tr>
-	    		<tr>
-	    			<td><a href="historico.html"><img src="history.jpeg"/></td>
-	    		</tr>	
-	    	</table>
-	  	</div>
+  	  	<a href="menu.html">
+	  	  	<div class="icones" id="menu">
+		  	  		<table>
+				  		<tr>
+				  			<td><img class = "imagem_icone" src="menu.png"/></td>
+				    	</tr>
+			    		<tr> 
+			    			<td>Menu</td>
+			    		</tr>	
+			    	</table>
+		  	</div>
+		</a>
+		<a href="musica.html">
+		  	<div class="icones" id="musica">
+		  		<table>
+			  			<tr>
+			  				<td><img class = "imagem_icone" src="musica.png"/></td>
+			    		</tr>
+		    		<tr> 
+		    			<td>Música</td>
+		    		</tr>	
+		    	</table>
+		  	</div>
+		</a>
+		<a href="historico.html">
+		  	<div class="icones" id="historico" style="border-color: #006df0;">
+		  		<table>
+			  			<tr >
+			  				<td><img class = "imagem_icone" src="historico.png"/></td>
+			    		</tr>
+		    		<tr> 
+		    			<td><b>Histórico</b></td>
+		    		</tr>	
+		    	</table>
+		  	</div>
+		</a>
   	</div>
   	<!--fim da barra fixa-->
+
+  	<div id="outro">
+  	</div>
+
+  	<div id="outro1">
+  	</div>
 
   </body>
  </html>
