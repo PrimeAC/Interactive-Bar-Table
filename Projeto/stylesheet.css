@@ -2,8 +2,9 @@
 body {
 	margin: 0;
 	font-family: 'Myriad Set Pro', 'Myriad Pro', 'Lucida Grande', Helvetica, 
-		Arial,sans-serif;
+	Arial,sans-serif;
 	text-align: center;
+	background-image: url("mesa.jpg");
 
 }
 
