@@ -93,9 +93,23 @@ table {
 }
 
 .rod_elementos {
-	height: 30px;
+	padding-top: 1%;
+	font-size: 175%;
+	color: white;
 }
-/*home*/
+
+#rod_musica {
+	padding-left: 10%;
+}
+
+#rod_artista {
+	padding-left: 25%;
+}
+
+#rod_tempo {
+	padding-left: 85%;
+}
+/*barra fixa da musica em baixo*/
 
 /*menu*/
 /*menu*/
