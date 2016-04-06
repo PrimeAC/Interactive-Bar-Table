@@ -27,7 +27,7 @@
   	<div id="barra">
   		<a href="index.html">
 		  	<div class="icones" id="home" style="border-color: #006df0;">
-			  	<table>
+			  	<table class="header_table">
 		  			<tr>
 		  				<td><img class = "imagem_icone" src="home.png"/></td>
 		    		</tr>
@@ -39,7 +39,7 @@
 		</a>
   	  	<a href="menu.html">
 	  	  	<div class="icones" id="menu">
-		  	  		<table>
+		  	  		<table class="header_table">
 				  		<tr>
 				  			<td><img class = "imagem_icone" src="menu.png"/></td>
 				    	</tr>
@@ -51,7 +51,7 @@
 		</a>
 		<a href="musica.html">
 		  	<div class="icones" id="musica">
-		  		<table>
+		  		<table class="header_table">
 			  			<tr>
 			  				<td><img class = "imagem_icone" src="musica.png"/></td>
 			    		</tr>
@@ -63,7 +63,7 @@
 		</a>
 		<a href="historico.html">
 		  	<div class="icones" id="historico">
-		  		<table>
+		  		<table class="header_table">
 			  			<tr >
 			  				<td><img class = "imagem_icone" src="historico.png"/></td>
 			    		</tr>
@@ -79,10 +79,14 @@
   	<!--inicio da barra de musica no inferior-->
   	<div id="rodape">
   		<img id="reticencias" onclick="toggleFooter('rodape')" src="ellipsis.png">
-  		<p><img id="img_reproducao" src="coluna.png"/>
-  		<div class="rod_elementos" id="rod_musica">Música 1</div>
-  		<div class="rod_elementos" id="rod_artista">Artista 1</div>
-  		<div class="rod_elementos" id="rod_tempo">Tempo 1</div></p>
+  		<table id="rodape_tab">
+  			<tr>
+  				<td id="coluna_img"><img src="coluna.png"></td>
+		  		<td><div class="rod_elementos" id="rod_musica">Música 1</div></td>
+		  		<td><div class="rod_elementos" id="rod_artista">Artista 1</div></td>
+		  		<td><div class="rod_elementos" id="rod_tempo">Tempo 1</div></td>
+		  	</tr>
+		</table>
   	</div>
   	<!--fim da barra de musica no inferior-->
 

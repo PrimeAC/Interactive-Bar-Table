@@ -1,14 +1,14 @@
 /*barra fixa no topo*/
 body {
 	margin: 0;
-	font-family: 'Myriad Set Pro', 'Myriad Pro', 'Lucida Grande', Helvetica, 
+	font-family: 'Myriad Set Pro Medium', 'Myriad Pro', 'Lucida Grande', Helvetica, 
 	Arial,sans-serif;
 	
 	background-image: url("mesa.jpg");
 
 }
 
-table {
+.header_table{
 	text-align: center;
 	color: white; 
 }
@@ -74,42 +74,33 @@ table {
 	cursor: pointer;
 }
 
-#img_reproducao {
+#rodape_tab {
+	width:100%;
+	text-align:center; 
+	color: white;
+}
+
+#coluna_img {
 	width: 3%;
-	padding-left: 3%;
-	float: left;
-	padding-top: 0.2%;
 }
 
-#rodape p {
-	margin: 0px;
-}
-
-#rod_musica {
-	float: left;
-}
-
-#rod_artista {
-	float: left;
+#coluna_img img {
+	width: 100%;
 }
 
 .rod_elementos {
-	padding-top: 1%;
 	font-size: 175%;
 	color: white;
 }
 
 #rod_musica {
-	padding-left: 10%;
+	border-right: 1px solid white;
 }
 
 #rod_artista {
-	padding-left: 25%;
+	border-right: 1px solid white;
 }
 
-#rod_tempo {
-	padding-left: 85%;
-}
 /*barra fixa da musica em baixo*/
 
 /*menu*/
@@ -120,12 +111,19 @@ table {
 
 /*historico*/
 #tabela{
-	max-height: 15%;
-}
-#historicotab {
+	overflow-y: scroll;
 	max-width: 85%;
-	padding-top: 5%;
+	margin-top: 5%;
+	width: 100%;
+	height: 250px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+#historicotab {
+	width: 100%;
 	opacity: 0.65;
+	
 }
 
 table#historicotab th	{
@@ -137,12 +135,21 @@ table#historicotab th	{
 table#historicotab td {
 	background-color:white;
 	color:#333;
-	height:30px;
+	padding: 0.7%;
+}
+
+.primeira_col {
+	text-align: center;
+}
+
+.terceira_col {
+	text-align: center;
 }
 
 #historico_par {
 	font-family: Arial;
 	font-size: 60px;
 	padding-left: 55%;
+	color: white;
 }
 /*historico*/
