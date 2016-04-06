@@ -3,7 +3,7 @@ body {
 	margin: 0;
 	font-family: 'Myriad Set Pro Medium', 'Myriad Pro', 'Lucida Grande', Helvetica, 
 	Arial,sans-serif;
-	
+	overflow-x: hidden;
 	background-image: url("mesa.jpg");
 
 }
@@ -14,7 +14,7 @@ body {
 }
 
 
-#barra a {
+a {
 	text-decoration: none;
 }
 #barra {
@@ -85,6 +85,7 @@ body {
 
 #paga1 {
 	font-size: 150%;
+	color: white;
 }
 
 .button_icone {
@@ -146,6 +147,71 @@ body {
 /*barra fixa da musica em baixo*/
 
 /*menu*/
+
+#submenu {
+	width:100%; 
+	height:12.7cm;
+	text-align: center;
+	font-size: 250%;
+	color: white;
+	padding-right: 0.6cm;
+	padding-left: 0.5cm;
+	border-right: 2px solid white;
+}
+
+.icones_menu {
+	border-style: solid;
+	border-width: 5px;
+	border-color: white;
+	border-radius: 25px;
+	padding: 1cm;
+	text-align: center;
+	background-color: #333;
+	opacity: 0.7;
+}
+
+#produtos{
+	width:100%;
+	height: 12.7cm;
+	text-align: center;
+	font-size: 150%;
+	color: white;
+	border-right: 2px solid white;
+}
+
+#produtos td {
+	padding-left: 1cm;
+	padding-right: 1cm;
+}
+
+.icones_bebidas {
+	border-style: solid;
+	border-width: 5px;
+	border-color: white;
+	border-radius: 25px;
+	padding: 1cm;
+	text-align: center;
+	background-color: #333;
+	opacity: 0.7;
+}
+
+#lista_produtos {
+	width:100%;
+	height: 12.7cm;
+	/*text-align: center;*/
+	color: white;
+}
+
+.icones_lista {
+	border-style: solid;
+	border-width: 5px;
+	border-color: white;
+	border-radius: 25px;
+	padding: 0.3cm;
+	text-align: center;
+	background-color: #333;
+	opacity: 0.7;
+}
 /*menu*/
 
 /*musica*/

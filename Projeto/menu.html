@@ -6,19 +6,8 @@
   <link rel="stylesheet" href="stylesheet.css" type="text/css"/> <!--redireciona para o documento com o css-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--<adapt the page to the dispositive-->
   <meta charset="UTF-8">
-
-
-	<script type="text/javascript">
-		function toggleFooter(id) { 
-	      if(document.getElementById(id).style.height == "4.5%") {
-	        document.getElementById(id).style.height = "12.5%";
-	      }
-
-	      else {
-	        document.getElementById(id).style.height = "4.5%";
-	      }
-			}
-  	</script>
+  
+  <script src="javascript.js"></script> <!--importa o codigo javascript do ficheiro javascript.js-->
 
   </head>
   <body>
@@ -75,15 +64,56 @@
 		</a>
   	</div>
   	<!--fim da barra fixa-->
-
+  	<table>
+  		<tr>
+  			<td>
+		  		<table id="submenu">
+		  			<tr>
+		  				<td><div class="icones_menu">Bebidas</div></td>
+		  			</tr>
+		  			<tr>
+		  				<td><div class="icones_menu">Comida</div></td>
+		  			</tr>
+		  		</table>
+			</td>
+			<td>
+		  		<table id="produtos">
+		  			<tr>
+		  				<td><div class="icones_bebidas">Bebida 1</div></td>
+		  				<td><div class="icones_bebidas">Bebida 2</div></td>
+		  				<td><div class="icones_bebidas">Bebida 3</div></td>
+		  			</tr>
+		  			<tr>
+		  				<td><div class="icones_bebidas">Bebida 4</div></td>
+		  				<td><div class="icones_bebidas">Bebida 5</div></td>
+		  				<td><div class="icones_bebidas">Bebida 6</div></td>
+		  			</tr>
+		  		</table>
+			</td>
+			<td>
+				<table id="lista_produtos">
+					<tr>
+		  				<td><div class="icones_lista">+</div></td>
+		  				<td><div class="icones_lista">1</div></td>
+		  				<td><div class="icones_lista">-</div></td>
+		  				<td><div class="icones_lista">Bebida 1</div></td>
+		  				<td><div class="icones_lista">X</div></td>
+		  			</tr>	
+		  		</table>	
+	  	</tr>
+    </table>
 
   	<!--inicio da barra de musica no inferior-->
   	<div id="rodape">
   		<img id="reticencias" onclick="toggleFooter('rodape')" src="ellipsis.png">
-  		<p><img id="img_reproducao" src="coluna.png"/>
-  		<div class="rod_elementos" id="rod_musica">Música 1</div>
-  		<div class="rod_elementos" id="rod_artista">Artista 1</div>
-  		<div class="rod_elementos" id="rod_tempo">Tempo 1</div></p>
+  		<table id="rodape_tab">
+  			<tr>
+  				<td id="coluna_img"><img src="coluna.png"></td>
+		  		<td><div class="rod_elementos" id="rod_musica">Música 1</div></td>
+		  		<td><div class="rod_elementos" id="rod_artista">Artista 1</div></td>
+		  		<td><div class="rod_elementos" id="rod_tempo">Tempo 1</div></td>
+		  	</tr>
+		</table>
   	</div>
   	<!--fim da barra de musica no inferior-->
 
