@@ -1,0 +1,95 @@
+body {
+  font-family: Arial; 
+  text-align: center;
+  color: #808080;
+  background-image: url("img/cubes.png");
+  margin: 0;
+}
+
+h1 {
+  color: white;
+}
+
+h2 {
+  font-family: Arial;
+}
+
+.section:hover {
+  cursor:pointer;
+  color: #009de0 !important;
+  display: inline-block;
+}
+
+.section:active {
+  position: relative;
+  display: inline-block;
+}
+
+#header {
+  background: #009de0;
+  padding-bottom: 2px;
+}
+#header a:hover {
+  color: black;
+  text-decoration: underline;
+}
+#header a {
+  color: white;
+  text-decoration: none;
+}
+
+#links {
+  margin-left: auto ;
+  margin-right: auto ;
+  /*text-align: center;*/ 
+  /*padding-left: 100px;*/
+  /*width: 1200px;*/
+	/*left:5em;
+	position:absolute;*/
+}
+
+#links a {
+  color: #009de0;
+}
+
+#at_inner {
+  display: none;
+}
+
+#mc_inner {
+  display: none;
+}
+
+#proto_inner {
+  display: none;
+}
+
+#au_inner {
+  display: none;
+}
+
+div #links a:hover {
+  font-size: 20px;
+  color: #404040 !important;
+
+}
+
+.pictures {
+	width: 150px;
+	border-radius: 50%;
+}
+
+.pictures:hover {
+  opacity: 0.7;
+}
+
+.section h2 {
+  display: inline-block;
+  color: #808080;
+  top: 5px;
+}
+
+.section {
+  
+  border-radius: 10%;
+}
