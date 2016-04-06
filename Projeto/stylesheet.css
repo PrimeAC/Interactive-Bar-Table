@@ -75,9 +75,10 @@ table {
 }
 
 #img_reproducao {
-	width: 4%;
+	width: 3%;
 	padding-left: 3%;
 	float: left;
+	padding-top: 0.2%;
 }
 
 #rodape p {
