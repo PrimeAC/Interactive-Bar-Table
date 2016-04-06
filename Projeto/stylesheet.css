@@ -13,6 +13,7 @@ table {
 	color: white; 
 }
 
+
 #barra a {
 	text-decoration: none;
 }
@@ -42,6 +43,7 @@ table {
 	padding-top: 2%;
 }
 
+
 #home {
 	float: left;
 }
@@ -53,7 +55,47 @@ table {
 }
 
 
+
 /*barra fixa no topo*/
+
+/*inicio barra ajuda/pagamento*/
+
+#buttons {
+	padding: 1%;
+	display: flex;
+    justify-content: space-between;
+    margin-top: 25%;
+    margin-left: 2.65%;
+    margin-right: 2.65%;
+}
+
+#ajuda {
+	float: left;
+	background-color: white;
+}
+
+#ajuda1 {
+	color: black;
+}
+
+#pagamento {
+	float:left;
+	background-color: green;
+}
+
+#paga1 {
+	font-size: 150%;
+}
+
+.button_icone {
+	height:100%;
+	width:100%;
+	border-radius: 5px;
+	text-align: center;
+	padding-top: 2%;
+}
+
+/*fim barra ajuda/pagamento*/
 
 /*barra fixa da musica em baixo*/
 #rodape {
