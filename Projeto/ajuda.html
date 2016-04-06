@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BarISTa</title>
+  <link rel="shortcut icon" href="topLogo.png" type="image/x-png"/> <!--insere um icon no topo do separador-->
+  <link rel="stylesheet" href="stylesheet.css" type="text/css"/> <!--redireciona para o documento com o css-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--<adapt the page to the dispositive-->
+  <meta charset="UTF-8">
+
+  <script type="text/javascript">
+      function toggleFooter(id) { 
+        if(document.getElementById(id).style.height == "4.5%") {
+          document.getElementById(id).style.height = "12.5%";
+        }
+
+        else {
+          document.getElementById(id).style.height = "4.5%";
+        }
+      }
+  </script>
+
+  </head>
+  <body>
+
+  <!--para criar a barra fixa no topo-->
+  	<div id="barra">
+  		<a href="index.html">
+		  	<div class="icones" id="home">
+			  	<table  class="header_table">
+		  			<tr>
+		  				<td><img class = "imagem_icone" src="home.png"/></td>
+		    		</tr>
+		    		<tr>
+		    			<td>Home</td>
+		    		</tr>	
+		    	</table>	
+		  	</div>
+		</a>
+  	  	<a href="menu.html">
+	  	  	<div class="icones" id="menu">
+		  	  		<table  class="header_table">
+				  		<tr>
+				  			<td><img class = "imagem_icone" src="menu.png"/></td>
+				    	</tr>
+			    		<tr> 
+			    			<td>Menu</td>
+			    		</tr>	
+			    	</table>
+		  	</div>
+		</a>
+		<a href="musica.html">
+		  	<div class="icones" id="musica">
+		  		<table  class="header_table">
+			  			<tr>
+			  				<td><img class = "imagem_icone" src="musica.png"/></td>
+			    		</tr>
+		    		<tr> 
+		    			<td><b>Música</b></td>
+		    		</tr>	
+		    	</table>
+		  	</div>
+		</a>
+		<a href="historico.html">
+		  	<div class="icones" id="historico">
+		  		<table  class="header_table">
+			  			<tr >
+			  				<td><img class = "imagem_icone" src="historico.png"/></td>
+			    		</tr>
+		    		<tr> 
+		    			<td>Histórico</td>
+		    		</tr>	
+		    	</table>
+		  	</div>
+		</a>
+  	</div>
+  	<!--fim da barra fixa-->
+
+  	<!--inicio tabela ajuda-->
+  	<div id="tabela1">
+	  	<table id="historicotab"  align="center">
+		  <tr>
+		    <td id="colorful1">Home</td>
+		    <td>Funciona como um ambiente de trabalho. Local onde se pode procurar ajuda ou efetuar o pagamento.</td>		
+		  </tr>
+		  <tr>
+		    <td id="colorful1">Menu</td>
+		    <td>Local onde se efetua o pedido. Contém uma secção de comida e outra de bebidas, contendo ainda a descrição e preço de cada componente. É ainda possível verificar o preço do pedido que está a efetuar.</td>		
+		  </tr>
+		  <tr>
+		    <td id="colorful1">Música</td>
+		    <td>Local onde pode consultar a lista de reprodução do bar e a biblioteca de músicas disponíveis. A secção da lista de reprodução permite consultar qual a música a ser tocada no momento e quais as que estão em lista de espera. Se quiser ver uma dada música a ser tocada mais cedo basta clicar no gosto. Pode ainda escolher alguma música da biblioteca de reprodução para integrar a lista de reprodução do bar.</td>		
+		  </tr>
+		  <tr>
+		    <td id="colorful1">Histórico</td>
+		    <td>Local onde pode consultar todos os componentes dos pedidos que foi efetuando ao longo da noite. É ainda apresentado o total do valor a pagar.</td>		
+		  </tr>
+		  <tr>
+		    <td id="colorful1">Pagamento</td>
+		    <td>Local destinado à efetuação do pagamento. É oferecida a possibilidade de pagar com dinheiro ou cartão de crédito/débito.</td>		
+		  </tr>
+		</table>
+	</div>
+	<!--fim tabela ajuda-->
+
+
+  	<!--inicio botão voltar-->
+ 	<div id="back">
+  		<a href="index.html">
+		  	<div class="icones" id="voltar">
+			  	<table>
+		  			<tr>
+		  				<td><img class = "button_icone" src="voltar.png"/></td>
+		  				<td id="voltar1"><b>Voltar</b></td>
+		    		</tr>
+		    	</table>	
+		  	</div>
+		</a>
+	</div>
+	<!--fim botão voltar-->
+
+	<!--inicio da barra de musica no inferior-->
+  	<div id="rodape">
+  		<img id="reticencias" onclick="toggleFooter('rodape')" src="ellipsis.png">
+  		<table id="rodape_tab">
+  			<tr>
+  				<td id="coluna_img"><img src="coluna.png"></td>
+		  		<td><div class="rod_elementos" id="rod_musica">Música 1</div></td>
+		  		<td><div class="rod_elementos" id="rod_artista">Artista 1</div></td>
+		  		<td><div class="rod_elementos" id="rod_tempo">Tempo 1</div></td>
+		  	</tr>
+		</table>
+  	</div>
+  	<!--fim da barra de musica no inferior-->
+
+  </body>
+ </html>

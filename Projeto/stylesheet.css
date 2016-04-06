@@ -230,7 +230,7 @@ a {
 
 #historicotab {
 	width: 100%;
-	opacity: 0.65;
+	opacity: 0.75;
 	
 }
 
@@ -261,3 +261,38 @@ table#historicotab td {
 	color: white;
 }
 /*historico*/
+
+/*ajuda*/
+#voltar {
+	float:left;
+	background-color: #333;
+	opacity: 0.7;
+}
+
+#voltar1 {
+	font-size: 200%;
+	color:white;
+}
+
+#colorful1 {
+	text-align: center;
+	width: 10%;
+}
+
+#tabela1 {
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 85%;
+	margin-top: 5%;
+}
+
+#back {
+	padding: 1%;
+	display: flex;
+    justify-content: space-between;
+    margin-top: 3%;
+    margin-left: 2.65%;
+    margin-right: 2.65%;
+}
+/*ajuda*/
+
