@@ -59,13 +59,22 @@ a {
 
 /*barra fixa no topo*/
 
+/*slogan*/
+#slogan {
+	margin-left: 40%;
+	font-size: 500%;
+	color: #333;
+	margin-top: 2em;
+}
+/*slogan*/
+
 /*inicio barra ajuda/pagamento*/
 
 #buttons {
 	padding: 1%;
 	display: flex;
     justify-content: space-between;
-    margin-top: 25%;
+    margin-top: 8%;
     margin-left: 2.65%;
     margin-right: 2.65%;
 }
@@ -169,6 +178,7 @@ a {
 	text-align: center;
 	background-color: #333;
 	opacity: 0.7;
+	cursor:pointer;
 }
 
 #produtos{
@@ -206,14 +216,16 @@ a {
 	text-align: center;
 	background-color: #333;
 	opacity: 0.7;
+	cursor:pointer;
 }
 
 #lista_produtos {
 	width:100%;
 	height: 12.7cm;
-	/*text-align: center;*/
+	text-align: center;
 	color: white;
 	overflow-y: scroll;
+	float: left;
 
 }
 
@@ -227,6 +239,25 @@ a {
 	background-color: #333;
 	opacity: 0.7;
 }
+
+#add {
+	width: 25%;
+	cursor:pointer;
+}
+#qtd {
+	width: 25%;
+}
+#less {
+	width: 25%;
+	cursor:pointer;
+}
+#item {
+	width:100%;
+}
+#rmv {
+	width: 25%;
+	cursor:pointer;
+} 
 /*menu*/
 
 /*musica*/
@@ -278,79 +309,33 @@ table#historicotab td {
 /*historico*/
 
 /*pagamento*/
-#ola {
-	float: left;
-}
-#tabela_pagamento{
-	overflow-y: scroll;
-	/*
-	
-	display: inline-block;*/
-	width: 50em;
-	margin-top: 4em;
-	height: 18em;
-	margin-left: 4em;
-
-}
-
-#historicotab {
-	width: 100%;
-	opacity: 0.75;
-	
-}
-
-table#historicotab th	{
-    background-color: #333;
-    color: white;
-    height: 50%;
-}
-
-table#historicotab td {
-	background-color:white;
-	color:#333;
-	padding: 0.7%;
-}
-
-.primeira_col {
+#frase1 {
+	margin-top:2em;
 	text-align: center;
-}
-
-.terceira_col {
-	text-align: center;
-}
-
-#opcoes_pagamento {
-	float: right;
-	padding-right: 7em;
-	padding-top: 4em;
-	padding-bottom: 4em;
-	width: 25em;
-	height: 12.7cm;
-}
-
-.icones_pagamento {
-	border-style: solid;
-	border-width: 5px;
-	border-color: white;
-	border-radius: 25px;
-	padding: 1cm;
-	text-align: center;
-	background-color: #333;
-	opacity: 0.7;
-	color: white;
 	font-size: 200%;
 }
-/*
-#historico_par {
-	font-size: 60px;
-	padding-left: 8.5em;
-	padding-top: 5em;
-	color: white;
-	position: absolute;
+
+#frase2 {
+	margin-top:1.5em;
+	text-align: center;
+	font-size: 400%;
+	color: #006df0;
 }
 
+#frase3 {
+	margin-top:3em;
+	text-align: center;
+	font-size: 200%;
+}
 
-}*/
+#pay {
+	background-color: white;
+	margin-top: 1em;
+	margin-left: 45%;
+	opacity: 0.7;
+	width: 5%;
+}
+
 /*pagamento*/
 
 /*ajuda*/
@@ -387,3 +372,22 @@ table#historicotab td {
 }
 /*ajuda*/
 
+/*cancelar/confirmar*/
+#confirmar{
+	background-color: green;
+	margin-top: 20em;
+	margin-left: 80%;
+	width: 100%;
+	cursor: pointer;
+}
+
+#cancelar {
+	background-color: red;
+	float:left;
+	margin-top: 20em;
+	margin-left: 10%;
+	width: 100%;
+	cursor: pointer;
+}
+
+/*cancelar/confirmar*/
