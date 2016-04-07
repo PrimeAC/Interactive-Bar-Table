@@ -6,8 +6,7 @@
   <link rel="stylesheet" href="stylesheet.css" type="text/css"/> <!--redireciona para o documento com o css-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--<adapt the page to the dispositive-->
   <meta charset="UTF-8">
-
-
+  
   <script src="javascript.js"></script> <!--importa o codigo javascript do ficheiro javascript.js-->
 
   </head>
@@ -16,32 +15,32 @@
   <!--para criar a barra fixa no topo-->
   	<div id="barra">
   		<a href="index.html">
-		  	<div class="icones" id="home" style="border-color: #006df0;">
-			  	<table class="header_table">
+		  	<div class="icones" id="home">
+			  	<table  class="header_table">
 		  			<tr>
 		  				<td><img class = "imagem_icone" src="home.png"/></td>
 		    		</tr>
 		    		<tr>
-		    			<td><b>Home</b></td>
+		    			<td>Home</td>
 		    		</tr>	
 		    	</table>	
 		  	</div>
 		</a>
   	  	<a href="bebidas.html">
-	  	  	<div class="icones" id="menu">
-		  	  		<table class="header_table">
+	  	  	<div class="icones" id="menu"  style="border-color: #006df0;">
+		  	  		<table  class="header_table">
 				  		<tr>
 				  			<td><img class = "imagem_icone" src="menu.png"/></td>
 				    	</tr>
 			    		<tr> 
-			    			<td>Menu</td>
+			    			<td><b>Menu</b></td>
 			    		</tr>	
 			    	</table>
 		  	</div>
 		</a>
 		<a href="musica.html">
 		  	<div class="icones" id="musica">
-		  		<table class="header_table">
+		  		<table  class="header_table">
 			  			<tr>
 			  				<td><img class = "imagem_icone" src="musica.png"/></td>
 			    		</tr>
@@ -53,7 +52,7 @@
 		</a>
 		<a href="historico.html">
 		  	<div class="icones" id="historico">
-		  		<table class="header_table">
+		  		<table  class="header_table">
 			  			<tr >
 			  				<td><img class = "imagem_icone" src="historico.png"/></td>
 			    		</tr>
@@ -65,33 +64,52 @@
 		</a>
   	</div>
   	<!--fim da barra fixa-->
-
-  	<!--inicio ajuda/pagamento-->
- 	<div id="buttons">
-  		<a href="ajuda.html">
-		  	<div class="icones" id="ajuda">
-			  	<table>
+  	<table>
+  		<tr>
+  			<td>
+		  		<table id="submenu">
 		  			<tr>
-		  				<td><img class = "button_icone" src="ajuda.png"/></td>
-		    		</tr>
-		    		<tr>
-		    			<td id="ajuda1"><b>Ajuda</b></td>
-		    		</tr>	
-		    	</table>	
-		  	</div>
-		</a>
-  	  	<a href="pagamento.html">
-	  	  	<div class="icones" id="pagamento">
-		  	  		<table>
-				  		<tr>
-				  			<td id="paga1"><b>Pagamento<b></td>
-				  			<td><img class = "button_icone" src="pagamento.png"/></td>
-				    	</tr>
-			    	</table>
-		  	</div>
-		</a> 
-	</div>
-  	<!--fim ajuda/pagamento-->
+		  				<td>
+		  					<a href="bebidas.html">
+		  						<div class="icones_menu" style="border-color: #006df0;">Bebidas</div>
+		  					</a>
+		  				</td>
+		  			</tr>	
+		  			<tr>
+		  				<td>
+		  					<a href="comida.html">
+		  						<div class="icones_menu">Comida</div>
+		  					</a>
+		  				</td>
+		  			</tr>
+		  		</table>
+			</td>
+			<td>
+		  		<table id="produtos">
+		  			<tr>
+		  				<td><div class="icones_bebidas">Bebida 1</div></td>
+		  				<td><div class="icones_bebidas">Bebida 2</div></td>
+		  				<td><div class="icones_bebidas">Bebida 3</div></td>
+		  			</tr>
+		  			<tr>
+		  				<td><div class="icones_bebidas">Bebida 4</div></td>
+		  				<td><div class="icones_bebidas">Bebida 5</div></td>
+		  				<td><div class="icones_bebidas">Bebida 6</div></td>
+		  			</tr>
+		  		</table>
+			</td>
+			<td>
+				<table id="lista_produtos">
+					<tr>
+		  				<td><div class="icones_lista">+</div></td>
+		  				<td><div class="icones_lista">1</div></td>
+		  				<td><div class="icones_lista">-</div></td>
+		  				<td><div class="icones_lista">Bebida 1</div></td>
+		  				<td><div class="icones_lista">X</div></td>
+		  			</tr>	
+		  		</table>	
+	  	</tr>
+    </table>
 
   	<!--inicio da barra de musica no inferior-->
   	<div id="rodape">
