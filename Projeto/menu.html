@@ -69,35 +69,53 @@
   			<td>
 		  		<table id="submenu">
 		  			<tr>
-		  				<td><div class="icones_menu">Bebidas</div></td>
+		  				<td><div class="icones_menu" id="beb" onclick="changeDiv('bebidas','comida')">Bebidas</div></td>
 		  			</tr>
 		  			<tr>
-		  				<td><div class="icones_menu">Comida</div></td>
+		  				<td><div class="icones_menu" id="com" onclick="changeDiv('comida','bebidas')">Comida</div></td>
 		  			</tr>
 		  		</table>
 			</td>
 			<td>
-		  		<table id="produtos">
-		  			<tr>
-		  				<td><div class="icones_bebidas">Bebida 1</div></td>
-		  				<td><div class="icones_bebidas">Bebida 2</div></td>
-		  				<td><div class="icones_bebidas">Bebida 3</div></td>
-		  			</tr>
-		  			<tr>
-		  				<td><div class="icones_bebidas">Bebida 4</div></td>
-		  				<td><div class="icones_bebidas">Bebida 5</div></td>
-		  				<td><div class="icones_bebidas">Bebida 6</div></td>
-		  			</tr>
-		  		</table>
+				<div id="bebidas">
+			  		<table id="produtos">
+			  			<tr>
+			  				<td><div class="icones_bebidas" onclick="addItem('lista_produtos','Bebida 1')">Bebida 1</div></td>
+			  				<td><div class="icones_bebidas" onclick="addItem('lista_produtos','Bebida 2')">Bebida 2</div></td>
+			  				<td><div class="icones_bebidas" onclick="addItem('lista_produtos','Bebida 3')">Bebida 3</div></td>
+			  			</tr>
+			  			<tr>
+			  				<td><div class="icones_bebidas" onclick="addItem('lista_produtos','Bebida 4')">Bebida 4</div></td>
+			  				<td><div class="icones_bebidas" onclick="addItem('lista_produtos','Bebida 5')">Bebida 5</div></td>
+			  				<td><div class="icones_bebidas" onclick="addItem('lista_produtos','Bebida 6')">Bebida 6</div></td>
+			  			</tr>
+			  		</table>
+			  	</div>
+			</td>
+			<td>
+				<div id="comida">
+			  		<table id="produtos">
+			  			<tr>
+			  				<td><div class="icones_bebidas" onclick="addItem('lista_produtos','Comida 1')">Comida 1</div></td>
+			  				<td><div class="icones_bebidas" onclick="addItem('lista_produtos','Comida 2')">Comida 2</div></td>
+			  				<td><div class="icones_bebidas" onclick="addItem('lista_produtos','Comida 3')">Comida 3</div></td>
+			  			</tr>
+			  			<tr>
+			  				<td><div class="icones_bebidas" onclick="addItem('lista_produtos','Comida 4')">Comida 4</div></td>
+			  				<td><div class="icones_bebidas" onclick="addItem('lista_produtos','Comida 5')">Comida 5</div></td>
+			  				<td><div class="icones_bebidas" onclick="addItem('lista_produtos','Comida 6')">Comida 6</div></td>
+			  			</tr>
+			  		</table>
+			  	</div>
 			</td>
 			<td>
 				<table id="lista_produtos">
 					<tr>
-		  				<td><div class="icones_lista">+</div></td>
-		  				<td><div class="icones_lista">1</div></td>
-		  				<td><div class="icones_lista">-</div></td>
-		  				<td><div class="icones_lista">Bebida 1</div></td>
-		  				<td><div class="icones_lista">X</div></td>
+		  				<td><div class="icones_lista" id="add">+</div></td>
+		  				<td><div class="icones_lista" id="qtd">1</div></td>
+		  				<td><div class="icones_lista" id="less">-</div></td>
+		  				<td><div class="icones_lista" id="item">Bebida 1</div></td>
+		  				<td><div class="icones_lista" id="rmv">X</div></td>
 		  			</tr>	
 		  		</table>	
 	  	</tr>
