@@ -213,6 +213,8 @@ a {
 	height: 12.7cm;
 	/*text-align: center;*/
 	color: white;
+	overflow-y: scroll;
+
 }
 
 .icones_lista {

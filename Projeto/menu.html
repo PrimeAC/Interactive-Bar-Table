@@ -64,7 +64,7 @@
 		</a>
   	</div>
   	<!--fim da barra fixa-->
-  	<table>
+  	<table style="position: absolute;width: 100%;hight:100%;"> <!--estes styles se calhar sao precisos tirar noos vossos pc-->
   		<tr>
   			<td>
 		  		<table id="submenu">
@@ -109,15 +109,18 @@
 			  	</div>
 			</td>
 			<td>
-				<table id="lista_produtos">
-					<tr>
-		  				<td><div class="icones_lista" id="add">+</div></td>
-		  				<td><div class="icones_lista" id="qtd">1</div></td>
-		  				<td><div class="icones_lista" id="less">-</div></td>
-		  				<td><div class="icones_lista" id="item">Bebida 1</div></td>
-		  				<td><div class="icones_lista" id="rmv">X</div></td>
-		  			</tr>	
-		  		</table>	
+				<div id="lista_produtos">
+					<table>
+						<tr>
+			  				<td><div class="icones_lista" id="add">+</div></td>
+			  				<td><div class="icones_lista" id="qtd">qtd</div></td>
+			  				<td><div class="icones_lista" id="less">-</div></td>
+			  				<td><div class="icones_lista" id="item">Artigo</div></td>
+			  				<td><div class="icones_lista" id="rmv" onclick="deleteRow('1')">X</div></td>
+			  			</tr>	
+			  		</table>
+			  	</div>
+			</td>	
 	  	</tr>
     </table>
 

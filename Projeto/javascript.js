@@ -17,16 +17,26 @@ function changeDiv(id1,id2)
    {
       d2.style.display = "none";
       d1.style.display = "block";
-      document.getElementById('beb').style.background = "#006df0";
-      document.getElementById('com').style.background = "#333";
+      changeText(id1);
    }
    else
    {
       d1.style.display = "block";
       d2.style.display = "none";
-      document.getElementById('com').style.background = "#006df0";
-      document.getElementById('beb').style.background = "#333";
+      changeText(id1);
    }
+}
+
+
+function changeText(id) {
+	if(id == "bebidas") {
+		document.getElementById('beb').style.background = "#006df0";
+      	document.getElementById('com').style.background = "#333";
+	}
+	else {
+		document.getElementById('com').style.background = "#006df0";
+      	document.getElementById('beb').style.background = "#333";
+	}
 }
 
 /*function addItem(id) {
@@ -47,4 +57,11 @@ function addItem(idTabela,pedido)
 	newRow.insertCell(4).innerHTML = 'X';
 	d.getElementById(idTabela).appendChild(newRow);
 	return false;
+}
+
+
+function deleteRow(row)
+{
+    var i = row.parentNode.parentNode.rowIndex;
+    document.getElementById('lista_produtos').deleteRow(i);
 }
