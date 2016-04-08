@@ -201,10 +201,17 @@ a {
 
 #bebidas {
 	display: block;
+	overflow-y: scroll;
 }
 
 #comida {
 	display: none;
+	overflow-y: scroll;
+}
+
+#header_produtos {
+	width: 100%;
+	padding-right: 1%;
 }
 
 .icones_bebidas {
@@ -221,7 +228,7 @@ a {
 
 #lista_produtos {
 	width:100%;
-	height: 12.7cm;
+	height: 10cm;
 	text-align: center;
 	color: white;
 	overflow-y: scroll;
@@ -375,7 +382,6 @@ table#historicotab td {
 /*cancelar/confirmar*/
 #confirmar{
 	background-color: green;
-	margin-top: 20em;
 	margin-left: 80%;
 	width: 100%;
 	cursor: pointer;
@@ -384,7 +390,6 @@ table#historicotab td {
 #cancelar {
 	background-color: red;
 	float:left;
-	margin-top: 20em;
 	margin-left: 10%;
 	width: 100%;
 	cursor: pointer;

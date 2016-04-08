@@ -64,7 +64,7 @@
 		</a>
   	</div>
   	<!--fim da barra fixa-->
-  	<table style="position: absolute;width: 100%;hight:100%;"> <!--estes styles se calhar sao precisos tirar noos vossos pc-->
+  	<table style="position: absolute;width: 100%;"> <!--estes styles se calhar sao precisos tirar noos vossos pc-->
   		<tr>
   			<td>
 		  		<table id="submenu">
@@ -109,21 +109,36 @@
 			  	</div>
 			</td>
 			<td>
+				<div>	
+					<table id="header_produtos">
+						<tr>
+							<td class="icones_lista">+</td>
+							<td class="icones_lista">qtd</td>
+							<td class="icones_lista">-</td>
+							<td class="icones_lista">Artigo</td>
+							<td class="icones_lista">X</td>
+						</tr>
+					</table>
+				</div>
 				<div id="lista_produtos">
 					<table>
-						<tr>
+						<!--<tr>
 			  				<td><div class="icones_lista" id="add">+</div></td>
 			  				<td><div class="icones_lista" id="qtd">qtd</div></td>
 			  				<td><div class="icones_lista" id="less">-</div></td>
 			  				<td><div class="icones_lista" id="item">Artigo</div></td>
 			  				<td><div class="icones_lista" id="rmv" onclick="deleteRow('1')">X</div></td>
-			  			</tr>	
-			  			<tr>
-			  				<td><div class="icones_lista" id="cancelar"><b>Cancelar</b></div></td>
-	  	  					<td><div class="icones_lista" id="confirmar"><b>Confirmar</b></div></td>
-						</tr>
+			  			</tr>-->
 			  		</table>
 			  	</div>
+			  	<div>
+			  		<table>
+						<tr>
+							<td><div class="icones_lista" id="cancelar" onclick="deleteList('lista_produtos')"><b>Cancelar</b></div></td>
+							<td><div class="icones_lista" id="confirmar"><b>Confirmar</b></div></td>
+						</tr>
+			  		</table>
+			  	</div>	
 			</td>	
 	  	</tr>
     </table>

@@ -45,7 +45,7 @@ function changeText(id) {
 
 	}
 }*/
-
+var cnt = 0;
 var d = document;
 function addItem(idTabela,pedido)
 {
@@ -56,12 +56,20 @@ function addItem(idTabela,pedido)
 	newRow.insertCell(3).innerHTML = pedido;
 	newRow.insertCell(4).innerHTML = 'X';
 	d.getElementById(idTabela).appendChild(newRow);
+  cnt**;
 	return false;
 }
 
 
-function deleteRow(row)
+/*function deleteRow(row)
 {
-    var i = row.parentNode.parentNode.rowIndex;
-    document.getElementById('lista_produtos').deleteRow(i);
+  var i = row.parentNode.parentNode.rowIndex;
+  document.getElementById('lista_produtos').deleteRow(i);
+}*/
+
+function deleteList(idTabela) {
+  var objTR = idTabela.parentNode.parentNode;
+  var objTable = objTR.parentNode;
+  var indexTr = objTR.rowIndex;
+  objTable.deleteRow(indexTr);
 }
