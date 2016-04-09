@@ -31,11 +31,11 @@ function changeDiv(id1,id2)
 function changeText(id) {
 	if(id == "bebidas") {
 		document.getElementById('beb').style.background = "#006df0";
-      	document.getElementById('com').style.background = "#333";
+    document.getElementById('com').style.background = "#333";
 	}
 	else {
 		document.getElementById('com').style.background = "#006df0";
-      	document.getElementById('beb').style.background = "#333";
+    document.getElementById('beb').style.background = "#333";
 	}
 }
 
@@ -56,7 +56,7 @@ function addItem(idTabela,pedido)
 	newRow.insertCell(3).innerHTML = pedido;
 	newRow.insertCell(4).innerHTML = 'X';
 	d.getElementById(idTabela).appendChild(newRow);
-  cnt**;
+  /*cnt**;*/
 	return false;
 }
 
@@ -67,9 +67,22 @@ function addItem(idTabela,pedido)
   document.getElementById('lista_produtos').deleteRow(i);
 }*/
 
-function deleteList(idTabela) {
+/*function deleteList(idTabela) {
   var objTR = idTabela.parentNode.parentNode;
   var objTable = objTR.parentNode;
   var indexTr = objTR.rowIndex;
   objTable.deleteRow(indexTr);
+}*/
+
+
+
+/*tentativa de meter os divs dos produtos a funcionar com procura*/
+function Search() { 
+  var options = {
+    valueNames: [ 'name', 'type', 'price' ]
+  };
+
+  var userList = new List('bebidas', options);
 }
+
+/*tentativa de meter os divs dos produtos a funcionar com procura*/

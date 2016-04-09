@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BarISTa</title>
+  <link rel="shortcut icon" href="topLogo.png" type="image/x-png"/> <!--insere um icon no topo do separador-->
+  <link rel="stylesheet" href="stylesheet.css" type="text/css"/> <!--redireciona para o documento com o css-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--<adapt the page to the dispositive-->
+  <meta charset="UTF-8">
+  
+  <script src="javascript.js"></script> <!--importa o codigo javascript do ficheiro javascript.js-->
+  <script src="http://listjs.com/no-cdn/list.js"></script>
+
+  </head>
+  <body>
+
+  <!--para criar a barra fixa no topo-->
+  	<div id="barra">
+  		<a href="index.html">
+		  	<div class="icones" id="home">
+			  	<table  class="header_table">
+		  			<tr>
+		  				<td><img class = "imagem_icone" src="home.png"/></td>
+		    		</tr>
+		    		<tr>
+		    			<td>Home</td>
+		    		</tr>	
+		    	</table>	
+		  	</div>
+		</a>
+  	  	<a href="menu.html">
+	  	  	<div class="icones" id="menu"  style="border-color: #006df0;">
+		  	  		<table  class="header_table">
+				  		<tr>
+				  			<td><img class = "imagem_icone" src="menu.png"/></td>
+				    	</tr>
+			    		<tr> 
+			    			<td><b>Menu</b></td>
+			    		</tr>	
+			    	</table>
+		  	</div>
+		</a>
+		<a href="musica.html">
+		  	<div class="icones" id="musica">
+		  		<table  class="header_table">
+			  			<tr>
+			  				<td><img class = "imagem_icone" src="musica.png"/></td>
+			    		</tr>
+		    		<tr> 
+		    			<td>Música</td>
+		    		</tr>	
+		    	</table>
+		  	</div>
+		</a>
+		<a href="historico.html">
+		  	<div class="icones" id="historico">
+		  		<table  class="header_table">
+			  			<tr >
+			  				<td><img class = "imagem_icone" src="historico.png"/></td>
+			    		</tr>
+		    		<tr> 
+		    			<td>Histórico</td>
+		    		</tr>	
+		    	</table>
+		  	</div>
+		</a>
+  	</div>
+  	<!--fim da barra fixa-->
+  	<table style="position: absolute;width: 100%;"> <!--estes styles se calhar sao precisos tirar noos vossos pc-->
+  		<tr>
+  			<td>
+		  		<table id="submenu">
+		  			<tr>
+		  				<td><div class="icones_menu" id="beb" onclick="changeDiv('bebidas','comida')">Bebidas</div></td>
+		  			</tr>
+		  			<tr>
+		  				<td><div class="icones_menu" id="com" onclick="changeDiv('comida','bebidas')">Comida</div></td>
+		  			</tr>
+		  		</table>
+			</td>
+			<td>
+				<div id="bebidas">
+			  		<input class="search" placeholder="Search" onclick="Search()" />
+			  		<button class="sort" data-sort="name" onclick="Search()">
+			  			Procurar por nome
+			  		</button>
+			  		<button class="sort" data-sort="price" onclick="Search()">
+			  			Procurar por preço
+			  		</button>
+			  		
+			  		<ul class="list">
+			  			<li>
+			  				<table>
+			  					<tr>
+			  						<td><img src="agua.png"></td>
+						  			<td class="name">Água</td>
+						  			<td class="type">Sem alcool</td>
+						  			<td class="price">2.00€</td>
+						  		</tr>
+						  	</table>
+				  		</li>
+				  		<li>
+				  			<table>
+				  				<tr>
+				  					<td><img src="coca-cola.png"></td>
+						  			<td class="name">Coca-Cola</td>
+						  			<td class="type">Sem alcool</td>
+						  			<td class="price">1.50€</td>
+						  		</tr>
+						  	</table>
+				  		</li>
+				  		<li>
+				  			<h3 class="name">Ice Tea</h3>
+				  			<p class="type">Sem alcool</p>
+				  			<p class="price">1.50€</p>
+				  		</li>
+				  		<li>
+				  			<h3 class="name">Café</h3>
+				  			<p class="type">Sem alcool</p>
+				  			<p class="price">1.00€</p>
+				  		</li>
+				  		<li>
+				  			<h3 class="name">Absinto</h3>
+				  			<p class="type">Com alcool</p>
+				  			<p class="price">2.00€</p>
+				  		</li>
+				  		<li>
+				  			<h3 class="name">Vodka Laranja</h3>
+				  			<p class="type">Com alcool</p>
+				  			<p class="price">2.00€</p>
+				  		</li>
+				  		<li>
+				  			<h3 class="name">Vodka Limão</h3>
+				  			<p class="type">Com alcool</p>
+				  			<p class="price">2.00€</p>
+				  		</li>
+				  		<li>
+				  			<h3 class="name">Vodka Cola</h3>
+				  			<p class="type">Com alcool</p>
+				  			<p class="price">2.00€</p>
+				  		</li>
+				  		<li>
+				  			<h3 class="name">Rum</h3>
+				  			<p class="type">Com alcool</p>
+				  			<p class="price">2.00€</p>
+				  		</li>
+				  		<li>
+				  			<h3 class="name">Somersby de Maçã</h3>
+				  			<p class="type">Com alcool</p>
+				  			<p class="price">2.00€</p>
+				  		</li>
+				  		<li>
+				  			<h3 class="name">Somersby Frutos Vermelhos</h3>
+				  			<p class="type">Com alcool</p>
+				  			<p class="price">2.00€</p>
+				  		</li>
+				  		<li>
+				  			<h3 class="name">Tequila</h3>
+				  			<p class="type">Com alcool</p>
+				  			<p class="price">2.00€</p>
+				  		</li>
+				  		<li>
+				  			<h3 class="name">Whisky</h3>
+				  			<p class="type">Com alcool</p>
+				  			<p class="price">2.00€</p>
+				  		</li>
+				  		<li>
+				  			<h3 class="name">Whisky Cola</h3>
+				  			<p class="type">Com alcool</p>
+				  			<p class="price">2.00€</p>
+				  		</li>
+			  		</ul>
+			  			
+			  	</div>
+			</td>
+			<td>
+				<div id="comida">
+			  		<input class="search" placeholder="Search" onclick="Search()" />
+			  		<button class="sort" data-sort="name" onclick="Search()">
+			  			Procurar por nome
+			  		</button>
+			  		<button class="sort" data-sort="price" onclick="Search()">
+			  			Procurar por preço
+			  		</button>
+			  		
+			  		<ul class="list">
+			  			<li>
+				  			<h3 class="name">Hamburger</h3>
+				  			<p class="price">6.00€</p>
+				  		</li>
+				  		<li>
+				  			<h3 class="name">Cheeseburger</h3>
+				  			<p class="price">6.50€</p>
+				  		</li>
+				  		<li>
+				  			<h3 class="name">Cachorro Quente</h3>
+				  			<p class="price">4.00€</p>
+				  		</li>
+				  		<li>
+				  			<h3 class="name">Bifana</h3>
+				  			<p class="price">4.00€</p>
+				  		</li>
+				  		<li>
+				  			<h3 class="name">Torradas</h3>
+				  			<p class="price">2.00€</p>
+				  		</li>
+				  		<li>
+				  			<h3 class="name">Prego no Pão</h3>
+				  			<p class="price">4.00€</p>
+				  		</li>
+				  		<li>
+				  			<h3 class="name">Amendoins</h3>
+				  			<p class="price">1.00€</p>
+				  		</li>
+				  		<li>
+				  			<h3 class="name">Tremoços</h3>
+				  			<p class="price">1.00€</p>
+				  		</li>
+				  		<li>
+				  			<h3 class="name">Batatas Lays Originais</h3>
+				  			<p class="price">2.00€</p>
+				  		</li>
+				  		<li>
+				  			<h3 class="name">Tiras de Milho</h3>
+				  			<p class="price">2.00€</p>
+				  		</li>
+			  		</ul>
+			  	</div>
+			</td>
+			<td>
+				<div>	
+					<table id="header_produtos">
+						<tr>
+							<td class="icones_lista">+</td>
+							<td class="icones_lista">qtd</td>
+							<td class="icones_lista">-</td>
+							<td class="icones_lista">Artigo</td>
+							<td class="icones_lista">X</td>
+						</tr>
+					</table>
+				</div>
+				<div id="lista_produtos">
+					<table>
+						<!--<tr>
+			  				<td><div class="icones_lista" id="add">+</div></td>
+			  				<td><div class="icones_lista" id="qtd">qtd</div></td>
+			  				<td><div class="icones_lista" id="less">-</div></td>
+			  				<td><div class="icones_lista" id="item">Artigo</div></td>
+			  				<td><div class="icones_lista" id="rmv" onclick="deleteRow('1')">X</div></td>
+			  			</tr>-->
+			  		</table>
+			  	</div>
+			  	<div>
+			  		<table>
+						<tr>
+							<td><div class="icones_lista" id="cancelar" onclick="deleteList('lista_produtos')"><b>Cancelar</b></div></td>
+							<td><div class="icones_lista" id="confirmar"><b>Confirmar</b></div></td>
+						</tr>
+			  		</table>
+			  	</div>	
+			</td>	
+	  	</tr>
+    </table>
+
+  	<!--inicio da barra de musica no inferior-->
+  	<div id="rodape">
+  		<img id="reticencias" onclick="toggleFooter('rodape')" src="ellipsis.png">
+  		<table id="rodape_tab">
+  			<tr>
+  				<td id="coluna_img"><img src="coluna.png"></td>
+		  		<td><div class="rod_elementos" id="rod_musica">Música 1</div></td>
+		  		<td><div class="rod_elementos" id="rod_artista">Artista 1</div></td>
+		  		<td><div class="rod_elementos" id="rod_tempo">Tempo 1</div></td>
+		  	</tr>
+		</table>
+  	</div>
+  	<!--fim da barra de musica no inferior-->
+
+  </body>
+ </html>
