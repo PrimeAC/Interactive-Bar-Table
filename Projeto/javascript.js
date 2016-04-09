@@ -47,8 +47,7 @@ function changeText(id) {
 }*/
 var cnt = 0;
 var d = document;
-function addItem(idTabela,pedido)
-{
+function addItem(idTabela,pedido) {
 	var newRow = d.createElement('tr');
 	newRow.insertCell(0).innerHTML = "+";
 	newRow.insertCell(1).innerHTML = 1;
@@ -77,12 +76,21 @@ function addItem(idTabela,pedido)
 
 
 /*tentativa de meter os divs dos produtos a funcionar com procura*/
-function Search() { 
+function Search(id) { 
   var options = {
-    valueNames: [ 'name', 'type', 'price' ]
+    valueNames: [ 'name', 'type', 'price', 'description' ]
   };
-
-  var userList = new List('bebidas', options);
+  if (id == "bebidas") {
+    var userList = new List('bebidas', options);
+  }
+  else {
+    var userList = new List('comida', options);
+  }
 }
 
 /*tentativa de meter os divs dos produtos a funcionar com procura*/
+
+function confirmationMsg() {
+  alert('Pedido efetuado com sucesso');
+}
+

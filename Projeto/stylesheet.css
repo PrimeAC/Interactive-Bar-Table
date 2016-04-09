@@ -213,7 +213,9 @@ a {
 
 #header_produtos {
 	width: 100%;
-	padding-right: 1%;
+	padding-right: 2%;
+	border: 1px solid black;
+	color: white;
 }
 
 .icones_bebidas {
@@ -236,6 +238,14 @@ a {
 	overflow-y: scroll;
 	float: left;
 
+}
+
+#lista_produtos1 tr {
+	border-style: solid;
+	border-width: 5px;
+	border-color: white;
+	border-radius: 25px;
+	text-align: center;
 }
 
 .icones_lista {
@@ -405,7 +415,7 @@ table#historicotab td {
   font-family:sans-serif;
 }*/
 .list {
-  font-family:sans-serif;
+  font-family:Arial,sans-serif;
   margin:0;
   padding:20px 0 0;
 }
@@ -414,6 +424,11 @@ table#historicotab td {
   background-color: #eee;
   padding:10px;
   box-shadow: inset 0 1px 0 #fff;
+  margin-bottom: 2%;
+}
+
+.list > li:active {
+	background-color: #bfbfbf;
 }
 .avatar {
   max-width: 150px;
@@ -494,5 +509,10 @@ input:focus {
 
 .type {
 	display: none;
+}
+
+.name {
+	font-weight: bold;
+	font-size: 125%;
 }
 /*tentativa de lista com procura*/

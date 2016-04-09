@@ -8,7 +8,7 @@
   <meta charset="UTF-8">
   
   <script src="javascript.js"></script> <!--importa o codigo javascript do ficheiro javascript.js-->
-  <script src="http://listjs.com/no-cdn/list.js"></script>
+  <script src="http://listjs.com/no-cdn/list.js"></script> 
 
   </head>
   <body>
@@ -79,181 +79,268 @@
 			</td>
 			<td>
 				<div id="bebidas">
-			  		<input class="search" placeholder="Search" onclick="Search()" />
-			  		<button class="sort" data-sort="name" onclick="Search()">
+			  		<input class="search" placeholder="Search" onclick="Search('bebidas')" />
+			  		<button class="sort" data-sort="name" onclick="Search('bebidas')">
 			  			Procurar por nome
 			  		</button>
-			  		<button class="sort" data-sort="price" onclick="Search()">
+			  		<button class="sort" data-sort="price" onclick="Search('bebidas')">
 			  			Procurar por preço
 			  		</button>
 			  		
 			  		<ul class="list">
-			  			<li>
+			  			<li onclick="addItem('lista_produtos','Água')" class="icones_bebidas">
 			  				<table>
 			  					<tr>
-			  						<td><img src="agua.png"></td>
 						  			<td class="name">Água</td>
 						  			<td class="type">Sem alcool</td>
 						  			<td class="price">2.00€</td>
 						  		</tr>
 						  	</table>
 				  		</li>
-				  		<li>
+				  		<li onclick="addItem('lista_produtos','Coca-Cola')" class="icones_bebidas">
 				  			<table>
-				  				<tr>
-				  					<td><img src="coca-cola.png"></td>
+			  					<tr>
 						  			<td class="name">Coca-Cola</td>
 						  			<td class="type">Sem alcool</td>
 						  			<td class="price">1.50€</td>
 						  		</tr>
 						  	</table>
 				  		</li>
-				  		<li>
-				  			<h3 class="name">Ice Tea</h3>
-				  			<p class="type">Sem alcool</p>
-				  			<p class="price">1.50€</p>
+				  		<li onclick="addItem('lista_produtos','Ice Tea')" class="icones_bebidas">
+				  			<table>
+			  					<tr>
+						  			<td class="name">Ice Tea</td>
+						  			<td class="type">Sem alcool</td>
+						  			<td class="price">1.50€</td>
+						  		</tr>
+						  	</table>
 				  		</li>
-				  		<li>
-				  			<h3 class="name">Café</h3>
-				  			<p class="type">Sem alcool</p>
-				  			<p class="price">1.00€</p>
+				  		<li onclick="addItem('lista_produtos','Café')" class="icones_bebidas">
+				  			<table>
+			  					<tr>
+						  			<td class="name">Café</td>
+						  			<td class="type">Sem alcool</td>
+						  			<td class="price">1.00€</td>
+						  		</tr>
+						  	</table>
 				  		</li>
-				  		<li>
-				  			<h3 class="name">Absinto</h3>
-				  			<p class="type">Com alcool</p>
-				  			<p class="price">2.00€</p>
+				  		<li onclick="addItem('lista_produtos','Absinto')" class="icones_bebidas">
+				  			<table>
+			  					<tr>
+						  			<td class="name">Absinto</td>
+						  			<td class="type">Com alcool</td>
+						  			<td class="price">2.00€</td>
+						  		</tr>
+						  	</table>
 				  		</li>
-				  		<li>
-				  			<h3 class="name">Vodka Laranja</h3>
-				  			<p class="type">Com alcool</p>
-				  			<p class="price">2.00€</p>
+				  		<li onclick="addItem('lista_produtos','Vodka Laranja')" class="icones_bebidas">
+				  			<table>
+			  					<tr>
+						  			<td class="name">Vodka Laranja</td>
+						  			<td class="type">Com alcool</td>
+						  			<td class="price">2.00€</td>
+						  		</tr>
+						  	</table>
 				  		</li>
-				  		<li>
-				  			<h3 class="name">Vodka Limão</h3>
-				  			<p class="type">Com alcool</p>
-				  			<p class="price">2.00€</p>
+				  		<li onclick="addItem('lista_produtos','Vodka Limão')" class="icones_bebidas">
+				  			<table>
+			  					<tr>
+						  			<td class="name">Vodka Limão</td>
+						  			<td class="type">Com alcool</td>
+						  			<td class="price">2.00€</td>
+						  		</tr>
+						  	</table>
 				  		</li>
-				  		<li>
-				  			<h3 class="name">Vodka Cola</h3>
-				  			<p class="type">Com alcool</p>
-				  			<p class="price">2.00€</p>
+				  		<li onclick="addItem('lista_produtos','Vodka Cola')" class="icones_bebidas">
+				  			<table>
+			  					<tr>
+						  			<td class="name">Vodka Cola</td>
+						  			<td class="type">Com alcool</td>
+						  			<td class="price">2.00€</td>
+						  		</tr>
+						  	</table>
 				  		</li>
-				  		<li>
-				  			<h3 class="name">Rum</h3>
-				  			<p class="type">Com alcool</p>
-				  			<p class="price">2.00€</p>
+				  		<li onclick="addItem('lista_produtos','Rum')" class="icones_bebidas">
+				  			<table>
+			  					<tr>
+						  			<td class="name">Rum</td>
+						  			<td class="type">Com alcool</td>
+						  			<td class="price">2.00€</td>
+						  		</tr>
+						  	</table>
 				  		</li>
-				  		<li>
-				  			<h3 class="name">Somersby de Maçã</h3>
-				  			<p class="type">Com alcool</p>
-				  			<p class="price">2.00€</p>
+				  		<li onclick="addItem('lista_produtos','Somersby de Maçã')" class="icones_bebidas">
+				  			<table>
+			  					<tr>
+						  			<td class="name">Somersby de Maçã</td>
+						  			<td class="type">Com alcool</td>
+						  			<td class="price">2.00€</td>
+						  		</tr>
+						  	</table>
 				  		</li>
-				  		<li>
-				  			<h3 class="name">Somersby Frutos Vermelhos</h3>
-				  			<p class="type">Com alcool</p>
-				  			<p class="price">2.00€</p>
+				  		<li onclick="addItem('lista_produtos','Somersby Frutos Vermelhos')" class="icones_bebidas">
+				  			<table>
+			  					<tr>
+						  			<td class="name">Somersby Frutos Vermelhos</td>
+						  			<td class="type">Com alcool</td>
+						  			<td class="price">2.00€</td>
+						  		</tr>
+						  	</table>
 				  		</li>
-				  		<li>
-				  			<h3 class="name">Tequila</h3>
-				  			<p class="type">Com alcool</p>
-				  			<p class="price">2.00€</p>
+				  		<li onclick="addItem('lista_produtos','Tequila')" class="icones_bebidas">
+				  			<table>
+			  					<tr>
+						  			<td class="name">Tequila</td>
+						  			<td class="type">Com alcool</td>
+						  			<td class="price">2.00€</td>
+						  		</tr>
+						  	</table>
 				  		</li>
-				  		<li>
-				  			<h3 class="name">Whisky</h3>
-				  			<p class="type">Com alcool</p>
-				  			<p class="price">2.00€</p>
+				  		<li onclick="addItem('lista_produtos','Whisky')" class="icones_bebidas">
+				  			<table>
+			  					<tr>
+						  			<td class="name">Whisky</td>
+						  			<td class="type">Com alcool</td>
+						  			<td class="price">2.00€</td>
+						  		</tr>
+						  	</table>
 				  		</li>
-				  		<li>
-				  			<h3 class="name">Whisky Cola</h3>
-				  			<p class="type">Com alcool</p>
-				  			<p class="price">2.00€</p>
+				  		<li onclick="addItem('lista_produtos','Whisky Cola')" class="icones_bebidas">
+				  			<table>
+			  					<tr>
+						  			<td class="name">Whisky Cola</td>
+						  			<td class="type">Com alcool</td>
+						  			<td class="price">2.00€</td>
+						  		
+						  	</tr>
+						  	</table>
 				  		</li>
 			  		</ul>
 			  			
 			  	</div>
 			</td>
 			<td>
-				<div id="comida">
-			  		<input class="search" placeholder="Search" onclick="Search()" />
-			  		<button class="sort" data-sort="name" onclick="Search()">
+				<div id="comida"> 
+			  		<input class="search" placeholder="Search" onclick="Search('comida')" /> <!--escrever para procurar-->
+			  		<button class="sort" data-sort="name" onclick="Search('comida')"> <!--procurar por ordem alfabetica-->
 			  			Procurar por nome
 			  		</button>
-			  		<button class="sort" data-sort="price" onclick="Search()">
+			  		<button class="sort" data-sort="price" onclick="Search('comida')">  <!--procurar por preço-->
 			  			Procurar por preço
 			  		</button>
 			  		
 			  		<ul class="list">
-			  			<li>
-				  			<h3 class="name">Hamburger</h3>
-				  			<p class="price">6.00€</p>
+			  			<li onclick="addItem('lista_produtos','Hamburger')" class="icones_bebidas">
+			  				<table>
+			  					<tr>
+						  			<td class="name">Hamburger</td>
+						  			<td class="price">6.00€</td>
+						  		</tr>
+						  	</table>
+		  					<p class="description_1">Pão, carne de vaca e alface</p>
 				  		</li>
-				  		<li>
-				  			<h3 class="name">Cheeseburger</h3>
-				  			<p class="price">6.50€</p>
+				  		<li onclick="addItem('lista_produtos','Cheeseburger')" class="icones_bebidas">
+				  			<table>
+			  					<tr>
+						  			<td class="name">Cheeseburger</td>
+						  			<td class="price">6.50€</td>
+						  		</tr>
+						  	</table>
+				  			<p class="description">Pão, carne de vaca, queijo e alface</p>
 				  		</li>
-				  		<li>
-				  			<h3 class="name">Cachorro Quente</h3>
-				  			<p class="price">4.00€</p>
+				  		<li onclick="addItem('lista_produtos','Cachorro Quente')" class="icones_bebidas">
+				  			<table>
+			  					<tr>
+						  			<td class="name">Cachorro Quente</td>
+						  			<td class="price">4.00€</td>
+						  		</tr>
+						  	</table>
+						  	<p class="description_1">Pão, salsicha e batata frita</p>
 				  		</li>
-				  		<li>
-				  			<h3 class="name">Bifana</h3>
-				  			<p class="price">4.00€</p>
+				  		<li onclick="addItem('lista_produtos','Bifana')" class="icones_bebidas">
+				  			<table>
+			  					<tr>
+						  			<td class="name">Bifana</td>
+						  			<td class="price">4.00€</td>
+						  		</tr>
+						  	</table>
+						  	<p class="description_1">Pão com carne de porco</p>
 				  		</li>
-				  		<li>
-				  			<h3 class="name">Torradas</h3>
-				  			<p class="price">2.00€</p>
+				  		<li onclick="addItem('lista_produtos','Torradas')" class="icones_bebidas">
+				  			<table>
+			  					<tr>
+						  			<td class="name">Torradas</td>
+						  			<td class="price">2.00€</td>
+						  		</tr>
+						  	</table>
+						  	<p class="description_1">Pão com manteiga</p>
 				  		</li>
-				  		<li>
-				  			<h3 class="name">Prego no Pão</h3>
-				  			<p class="price">4.00€</p>
+				  		<li onclick="addItem('lista_produtos','Prego no Pão')" class="icones_bebidas">
+				  			<table>
+			  					<tr>
+						  			<td class="name">Prego no Pão</td>
+						  			<td class="price">4.00€</td>
+						  		</tr>
+						  	</table>
+						  	<p class="description_1">Pão com carne de vaca</p>
 				  		</li>
-				  		<li>
-				  			<h3 class="name">Amendoins</h3>
-				  			<p class="price">1.00€</p>
+				  		<li onclick="addItem('lista_produtos','Amendoins')" class="icones_bebidas">
+				  			<table>
+			  					<tr>
+						  			<td class="name">Amendoins</td>
+						  			<td class="price">1.00€</td>
+						  		</tr>
+						  	</table>
 				  		</li>
-				  		<li>
-				  			<h3 class="name">Tremoços</h3>
-				  			<p class="price">1.00€</p>
+				  		<li onclick="addItem('lista_produtos','Tremoços')" class="icones_bebidas">
+				  			<table>
+			  					<tr>
+						  			<td class="name">Tremoços</td>
+						  			<td class="price">1.00€</td>
+						  		</tr>
+						  	</table>
 				  		</li>
-				  		<li>
-				  			<h3 class="name">Batatas Lays Originais</h3>
-				  			<p class="price">2.00€</p>
+				  		<li onclick="addItem('lista_produtos1','Lays Originais')" class="icones_bebidas">
+				  			<table>
+			  					<tr>
+						  			<td class="name">Batatas Lays Originais</td>
+						  			<td class="price">2.00€</td>
+						  		</tr>
+						  	</table>
 				  		</li>
-				  		<li>
-				  			<h3 class="name">Tiras de Milho</h3>
-				  			<p class="price">2.00€</p>
+				  		<li onclick="addItem('lista_produtos1','Tiras de Milho')" class="icones_bebidas">
+				  			<table>
+				  				<tr>
+						  			<td class="name">Tiras de Milho</td>
+						  			<td class="price">2.00€</td>
+						  		</tr>
+						  	</table>
 				  		</li>
 			  		</ul>
 			  	</div>
 			</td>
 			<td>
-				<div>	
+				<div style="margin-right: 4%;">	
 					<table id="header_produtos">
 						<tr>
-							<td class="icones_lista">+</td>
-							<td class="icones_lista">qtd</td>
-							<td class="icones_lista">-</td>
-							<td class="icones_lista">Artigo</td>
-							<td class="icones_lista">X</td>
+							<td>+</td>
+							<td>qtd</td>
+							<td>-</td>
+							<td>Artigo</td>
+							<td>X</td>
 						</tr>
 					</table>
 				</div>
 				<div id="lista_produtos">
-					<table>
-						<!--<tr>
-			  				<td><div class="icones_lista" id="add">+</div></td>
-			  				<td><div class="icones_lista" id="qtd">qtd</div></td>
-			  				<td><div class="icones_lista" id="less">-</div></td>
-			  				<td><div class="icones_lista" id="item">Artigo</div></td>
-			  				<td><div class="icones_lista" id="rmv" onclick="deleteRow('1')">X</div></td>
-			  			</tr>-->
+					<table id="lista_produtos1">
+					
 			  		</table>
 			  	</div>
 			  	<div>
 			  		<table>
 						<tr>
 							<td><div class="icones_lista" id="cancelar" onclick="deleteList('lista_produtos')"><b>Cancelar</b></div></td>
-							<td><div class="icones_lista" id="confirmar"><b>Confirmar</b></div></td>
+							<td><div class="icones_lista" id="confirmar" onclick="confirmationMsg()"><b>Confirmar</b></div></td>
 						</tr>
 			  		</table>
 			  	</div>	
