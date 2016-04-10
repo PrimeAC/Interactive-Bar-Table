@@ -39,19 +39,13 @@ function changeText(id) {
 	}
 }
 
-/*function addItem(id) {
-	d = document.getElementById(id);
-	for(int i=0; i<num_linhhas;i++){
-
-	}
-}*/
 var cnt = 0;
 var d = document;
 function addItem(idTabela,pedido) {
   var newRow = d.createElement('tr');
-  newRow.insertCell(0).innerHTML = "+";
+  newRow.insertCell(0).innerHTML = "-";
   newRow.insertCell(1).innerHTML = 1;
-  newRow.insertCell(2).innerHTML = "-";
+  newRow.insertCell(2).innerHTML = "+";
   newRow.insertCell(3).innerHTML = pedido;
   newRow.insertCell(4).innerHTML = 'X';
   d.getElementById(idTabela).appendChild(newRow);
@@ -60,29 +54,23 @@ function addItem(idTabela,pedido) {
 }
 
 
-/*function deleteRow(row)
-{
+/*function deleteRow(row) {
   var i = row.parentNode.parentNode.rowIndex;
   document.getElementById('lista_produtos1').deleteRow(i);
 }*/
 
-/*function deleteList(idTabela) {
-  var objTR = idTabela.parentNode.parentNode;
-  var objTable = objTR.parentNode;
-  var indexTr = objTR.rowIndex;
-  objTable.deleteRow(indexTr);
-}*/
 
-function deleteRow1(row) {
+function deleteRow(row) {
   document.getElementById("lista_produtos1").deleteRow(0);
 }
 
 function deleteList(idTabela) {
   var tab = document.getElementById(idTabela);
-  var row_numb = tab.rows.length;
+  var row_numb = tab.rows.length; 
   for ( var i = 0; i < row_numb; ) {
     tab.deleteRow(i);
-  }
+  }  
+
 }
 
 /*tentativa de meter os divs dos produtos a funcionar com procura*/
@@ -100,7 +88,21 @@ function Search(id) {
 
 /*tentativa de meter os divs dos produtos a funcionar com procura*/
 
-function confirmationMsg() {
-  alert('Pedido efetuado com sucesso');
+function confirmationMsg(idTabela) {
+  var tab = document.getElementById(idTabela);
+  var row_numb = tab.rows.length;
+  if (row_numb > 0) {
+    alert('Pedido efetuado com sucesso');
+    deleteList(idTabela);
+  }
 }
 
+function deleteMsg(idTabela) {
+  var tab = document.getElementById(idTabela);
+  var row_numb = tab.rows.length;
+  if (row_numb > 0) {
+    if (confirm('Tem a certeza que deseja eliminar o pedido?')) {
+      deleteList(idTabela);
+    }  
+  } 
+}

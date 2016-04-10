@@ -91,7 +91,7 @@
 			  		<label class="switch">
 						<input class="switch-input" type="checkbox" />
 						<span class="switch-label" data-on="c/ alcool" data-off="s/ alcool" data-sort="type" onclick="Search('bebidas')"></span> 
-						<span class="switch-handle"></span> 
+						<span class="switch-handle" data-filter="type" onclick="Search('bebidas')"></span> 
 					</label>
 			  		<!--botao de pesquisa por alcool-->
 			  		
@@ -348,7 +348,7 @@
 				<div style="margin-right: 4%;">	
 					<table id="header_produtos">
 						<tr>
-							<td>A Pedir...</td>
+							<td style="color: #333;"><b>A Pedir...</b></td>
 						</tr>
 					</table>
 				</div>
@@ -360,8 +360,8 @@
 			  	<div>
 			  		<table id="conf_can">
 						<tr>
-							<td><div class="icones_lista" id="cancelar" onclick="deleteList('lista_produtos1')"><b>Cancelar</b></div></td>
-							<td><div class="icones_lista" id="confirmar" onclick="confirmationMsg()"><b>Confirmar</b></div></td>
+							<td><div class="icones_lista" id="cancelar" onclick="deleteMsg('lista_produtos1')"><b>Cancelar</b></div></td>
+							<td><div class="icones_lista" id="confirmar" onclick="confirmationMsg('lista_produtos1')"><b>Confirmar</b></div></td>
 						</tr>
 			  		</table>
 			  	</div>	
