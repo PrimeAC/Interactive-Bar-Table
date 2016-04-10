@@ -393,10 +393,12 @@ table#historicotab td {
 /*ajuda*/
 
 /*cancelar/confirmar*/
+#conf_can {
+	width: 100%;
+}
 #confirmar{
 	background-color: green;
-	margin-left: 80%;
-	width: 100%;
+	width: 50%;
 	cursor: pointer;
 }
 
@@ -404,7 +406,7 @@ table#historicotab td {
 	background-color: red;
 	float:left;
 	margin-left: 10%;
-	width: 100%;
+	width: 50%;
 	cursor: pointer;
 }
 
@@ -515,5 +517,17 @@ input:focus {
 .name {
 	font-weight: bold;
 	font-size: 125%;
+}
+
+.icones_bebidas > table {
+	width: 100%;
+}
+
+tr .price {
+	text-align: right;
+}
+
+tr .name {
+	text-align: left;
 }
 /*tentativa de lista com procura*/
