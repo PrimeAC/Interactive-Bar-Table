@@ -41,7 +41,7 @@ function changeText(id) {
 
 var cnt = 0;
 var d = document;
-function addItem(idTabela,pedido) {
+function addItem(idTabela,pedido,preço) {
   var newRow = d.createElement('tr');
   newRow.insertCell(0).innerHTML = "-";
   newRow.insertCell(1).innerHTML = 1;
@@ -50,6 +50,8 @@ function addItem(idTabela,pedido) {
   newRow.insertCell(4).innerHTML = 'X';
   d.getElementById(idTabela).appendChild(newRow);
   /*cnt**;*/
+  cnt += parseFloat(preço);
+  total('header_produtos1', cnt);
   return false;  
 }
 
@@ -67,9 +69,11 @@ function deleteRow(row) {
 function deleteList(idTabela) {
   var tab = document.getElementById(idTabela);
   var row_numb = tab.rows.length; 
+  cnt = 0 ;
+  total('header_produtos1', cnt); 
   for ( var i = 0; i < row_numb; ) {
     tab.deleteRow(i);
-  }  
+  } 
 
 }
 
@@ -105,4 +109,12 @@ function deleteMsg(idTabela) {
       deleteList(idTabela);
     }  
   } 
+}
+
+
+function total(id,cnt) {
+  if (cnt == 0) {
+    document.getElementById(id).innerHTML = "Total: 0€";
+  }
+  document.getElementById(id).innerHTML = "Total:" + cnt +"€";
 }
