@@ -48,22 +48,22 @@ function changeText(id) {
 var cnt = 0;
 var d = document;
 function addItem(idTabela,pedido) {
-	var newRow = d.createElement('tr');
-	newRow.insertCell(0).innerHTML = "+";
-	newRow.insertCell(1).innerHTML = 1;
-	newRow.insertCell(2).innerHTML = "-";
-	newRow.insertCell(3).innerHTML = pedido;
-	newRow.insertCell(4).innerHTML = 'X';
-	d.getElementById(idTabela).appendChild(newRow);
+  var newRow = d.createElement('tr');
+  newRow.insertCell(0).innerHTML = "+";
+  newRow.insertCell(1).innerHTML = 1;
+  newRow.insertCell(2).innerHTML = "-";
+  newRow.insertCell(3).innerHTML = pedido;
+  newRow.insertCell(4).innerHTML = 'X';
+  d.getElementById(idTabela).appendChild(newRow);
   /*cnt**;*/
-	return false;
+  return false;  
 }
 
 
 /*function deleteRow(row)
 {
   var i = row.parentNode.parentNode.rowIndex;
-  document.getElementById('lista_produtos').deleteRow(i);
+  document.getElementById('lista_produtos1').deleteRow(i);
 }*/
 
 /*function deleteList(idTabela) {
@@ -73,7 +73,17 @@ function addItem(idTabela,pedido) {
   objTable.deleteRow(indexTr);
 }*/
 
+function deleteRow1(row) {
+  document.getElementById("lista_produtos1").deleteRow(0);
+}
 
+function deleteList(idTabela) {
+  var tab = document.getElementById(idTabela);
+  var row_numb = tab.rows.length;
+  for ( var i = 0; i < row_numb; ) {
+    tab.deleteRow(i);
+  }
+}
 
 /*tentativa de meter os divs dos produtos a funcionar com procura*/
 function Search(id) { 
