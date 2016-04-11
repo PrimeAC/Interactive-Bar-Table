@@ -39,9 +39,12 @@ function changeText(id) {
 	}
 }
 
-var cnt = 0;
+var valor = 0;
 var d = document;
 function addItem(idTabela,pedido,preço) {
+  var produto = [pedido , preço];
+  alert(produto);
+  sessionStorage.setItem(pedido, preço); //saves to the database, key/value
   var newRow = d.createElement('tr');
   newRow.insertCell(0).innerHTML = "-";
   newRow.insertCell(1).innerHTML = 1;
@@ -49,9 +52,9 @@ function addItem(idTabela,pedido,preço) {
   newRow.insertCell(3).innerHTML = pedido;
   newRow.insertCell(4).innerHTML = 'X';
   d.getElementById(idTabela).appendChild(newRow);
-  /*cnt**;*/
-  cnt += parseFloat(preço);
-  total('header_produtos1', cnt);
+  valor += parseFloat(preço);
+  total('header_produtos1', valor);
+  alert(sessionStorage.getItem('Água'));
   return false;  
 }
 
@@ -69,8 +72,8 @@ function deleteRow(row) {
 function deleteList(idTabela) {
   var tab = document.getElementById(idTabela);
   var row_numb = tab.rows.length; 
-  cnt = 0 ;
-  total('header_produtos1', cnt); 
+  valor = 0 ;
+  total('header_produtos1', valor); 
   for ( var i = 0; i < row_numb; ) {
     tab.deleteRow(i);
   } 
@@ -112,9 +115,16 @@ function deleteMsg(idTabela) {
 }
 
 
-function total(id,cnt) {
-  if (cnt == 0) {
+function total(id,valor) {
+  if (valor == 0) {
     document.getElementById(id).innerHTML = "Total: 0€";
   }
-  document.getElementById(id).innerHTML = "Total:" + cnt +"€";
+  document.getElementById(id).innerHTML = "Total:" + valor +"€";
 }
+
+
+/*session storage*/
+function hist(id) {
+  alert(sessionStorage.getItem(id));
+}
+/*session storage*/
