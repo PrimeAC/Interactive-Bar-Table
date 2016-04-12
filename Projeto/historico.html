@@ -10,7 +10,7 @@
   <script src="javascript.js"></script> <!--importa o codigo javascript do ficheiro javascript.js-->
 
   </head>
-  <body>
+  <body onload="seeHist()">
 
   <!--para criar a barra fixa no topo-->
   	<div id="barra">
@@ -66,78 +66,24 @@
   	<!--fim da barra fixa-->
 
     <!--inicio tabela historico-->
-    <div id="tabela">
+    <div id="tabela" onclick="deleteAllStorage()">
       <table id="historicotab"  align="center">
         <tr id="table_header">
-          <th>Qtd</th>
-          <th>Artigos</th>		
-          <th>Preço</th>
+          <th style="width: 15%">Qtd</th>
+          <th style="width: 65%">Artigos</th>		
+          <th style="width: 20%">Preço</th>
         </tr>
-        <tr>
-          <td class="primeira_col">1</td>
-          <td>1</td>		
-          <td class="terceira_col">1</td>
-        </tr>
-        <tr>
-          <td class="primeira_col">a</td>
-          <td>b</td>		
-          <td class="terceira_col">c</td>
-        </tr>
-        <tr>
-          <td class="primeira_col">d</td>
-          <td>e</td>		
-          <td class="terceira_col">f</td>
-        </tr>
-        <tr>
-          <td class="primeira_col">1</td>
-          <td>1</td>		
-          <td class="terceira_col">1</td>
-        </tr>
-
-        <tr>
-          <td class="primeira_col">i</td>
-          <td>j</td>		
-          <td class="terceira_col">k</td>
-        </tr>
-        <tr>
-          <td class="primeira_col">l</td>
-          <td>m</td>		
-          <td class="terceira_col">n</td>
-        </tr>
-        <tr>
-          <td class="primeira_col">1</td>
-          <td>1</td>		
-          <td class="terceira_col">1</td>
-        </tr>
-        <tr>
-          <td class="primeira_col">o</td>
-          <td></td>		
-          <td class="terceira_col"></td>
-        </tr>
-        <tr>
-          <td class="primeira_col"></td>
-          <td>p</td>		
-          <td class="terceira_col"></td>
-        </tr>
-         <tr>
-          <td class="primeira_col">1</td>
-          <td>1</td>		
-          <td class="terceira_col">1</td>
-        </tr>
-        <tr>
-          <td class="primeira_col"></td>
-          <td>r</td>		
-          <td class="terceira_col"></td>
-        </tr>
-        <tr>
-          <td class="primeira_col">fe</td>
-          <td>f</td>		
-          <td class="terceira_col">f</td>
-        </tr> 
+      </table>
+    </div>
+    <div id="tabela10">
+      <table id="historicotab1" align="center">
+        
       </table>
     </div>
     <!--fim tabela historico-->
-    <p id="historico_par" onclick="hist('Água')">Total:</p>
+    <p id="historico_par" onclick="listAllItems()">Total:</p>
+
+    <p onclick="AddTableRow()">aqui</p>
 
     <!--inicio da barra de musica no inferior-->
     <div id="rodape">

@@ -299,11 +299,17 @@ a {
 
 /*historico*/
 #tabela{
-	overflow-y: scroll;
 	max-width: 85%;
 	margin-top: 5%;
 	width: 100%;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+#tabela10 {
+	overflow-y: scroll;
 	height: 250px;
+	max-width: 85%;
 	margin-right: auto;
 	margin-left: auto;
 }
@@ -314,13 +320,17 @@ a {
 	
 }
 
+#historicotab1 {
+	width: 100%;
+	opacity: 0.75;
+}
 table#historicotab th	{
     background-color: #333;
     color: white;
     height: 50%;
 }
 
-table#historicotab td {
+table#historicotab1 td {
 	background-color:white;
 	color:#333;
 	padding: 0.7%;

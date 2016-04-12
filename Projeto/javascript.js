@@ -41,10 +41,11 @@ function changeText(id) {
 
 var valor = 0;
 var d = document;
+var lista_pro = []; /*guarda os pedidos atuais*/
 function addItem(idTabela,pedido,preço) {
-  var produto = [pedido , preço];
-  alert(produto);
-  sessionStorage.setItem(pedido, preço); //saves to the database, key/value
+  lista_pro.push(pedido);
+  lista_pro.push(preço);
+  alert(lista_pro);
   var newRow = d.createElement('tr');
   newRow.insertCell(0).innerHTML = "-";
   newRow.insertCell(1).innerHTML = 1;
@@ -54,7 +55,6 @@ function addItem(idTabela,pedido,preço) {
   d.getElementById(idTabela).appendChild(newRow);
   valor += parseFloat(preço);
   total('header_produtos1', valor);
-  alert(sessionStorage.getItem('Água'));
   return false;  
 }
 
@@ -73,6 +73,7 @@ function deleteList(idTabela) {
   var tab = document.getElementById(idTabela);
   var row_numb = tab.rows.length; 
   valor = 0 ;
+  alert("ola");
   total('header_produtos1', valor); 
   for ( var i = 0; i < row_numb; ) {
     tab.deleteRow(i);
@@ -80,7 +81,7 @@ function deleteList(idTabela) {
 
 }
 
-/*tentativa de meter os divs dos produtos a funcionar com procura*/
+/*divs dos produtos a funcionar com procura*/
 function Search(id) { 
   var options = {
     valueNames: [ 'name', 'type', 'price', 'description' ]
@@ -93,13 +94,15 @@ function Search(id) {
   }
 }
 
-/*tentativa de meter os divs dos produtos a funcionar com procura*/
+/*divs dos produtos a funcionar com procura*/
 
 function confirmationMsg(idTabela) {
   var tab = document.getElementById(idTabela);
   var row_numb = tab.rows.length;
   if (row_numb > 0) {
     alert('Pedido efetuado com sucesso');
+    /*location.href="index.html";*/
+    storeArray();
     deleteList(idTabela);
   }
 }
@@ -109,11 +112,33 @@ function deleteMsg(idTabela) {
   var row_numb = tab.rows.length;
   if (row_numb > 0) {
     if (confirm('Tem a certeza que deseja eliminar o pedido?')) {
+      emptyArray();
       deleteList(idTabela);
     }  
   } 
 }
 
+function emptyArray() {
+  while(lista_pro.length > 0) {
+    lista_pro.pop();
+    alert(lista_pro);
+  }
+}
+var cnt = 0;
+function storeArray() {
+  cnt++;
+  alert('cnt: '+cnt);
+  sessionStorage.setItem(cnt,  JSON.stringify(lista_pro));
+  emptyArray();
+}
+
+function getArray() {
+  var storedData = sessionStorage.getItem(cnt);
+  if (storedData) {
+    list = JSON.parse(storedData);
+  }
+
+}
 
 function total(id,valor) {
   if (valor == 0) {
@@ -124,7 +149,127 @@ function total(id,valor) {
 
 
 /*session storage*/
-function hist(id) {
+/*function hist(id) {
   alert(sessionStorage.getItem(id));
+}*/
+
+/*(function($) {
+  AddTableRow = function() {
+
+    var newRow = $("<tr>");
+    var cols = "";
+
+    cols += '<td>&nbsp;</td>';
+    cols += '<td>&nbsp;</td>';
+    cols += '<td>&nbsp;</td>';
+    cols += '<td>';
+    cols += '<button onclick="RemoveTableRow(this)" type="button">Remover</button>';
+    cols += '</td>';
+
+    newRow.append(cols);
+    $("#products-table").append(newRow);
+
+    return false;
+  };
+})(jQuery);*/
+
+/*function seeHist(idTabela) {
+  var qtd = 0;
+  var len = sessionStorage.length;
+  alert(len);
+  for (i=0; i<len;++i) {
+    var pedido = sessionStorage.key(i);
+    if  (pedido == "Café") {
+      qtd = sessionStorage.getItem(pedido);
+      addHist(idTabela, parseInt(qtd), pedido, qtd);
+    }
+    else if (pedido == "Coca-Cola" || pedido == "Ice Tea") {
+      var aux = sessionStorage.getItem(pedido);*/ /*guarda o valor*/
+      /*qtd = (parseFloat(aux)/1.50);
+      addHist(idTabela, qtd, pedido, parseFloat(aux));
+    }
+    else {
+      var aux = sessionStorage.getItem(pedido);*/ /*guarda o valor*/
+      /*qtd = (parseFloat(aux)/2);
+      addHist(idTabela, qtd, pedido, parseFloat(aux));
+    }
+  }
+}*/
+
+function seeHist(idTabela) {
+  var qtd = 0;
+  var len = sessionStorage.length;
+  alert(len);
+  for (i=0; i<len;++i) {
+    var key = alert(sessionStorage.key(i));
+    alert(sessionStorage.getItem(key));
+  }
 }
+
+var valor1 = 0;
+function addHist(idTabela, qtd, pedido, preço) {
+  var newRow = d.createElement('tr');
+  newRow.insertCell(0).innerHTML = qtd;
+  newRow.insertCell(1).innerHTML = pedido;
+  newRow.insertCell(2).innerHTML = preço;
+  d.getElementById(idTabela).appendChild(newRow);
+  valor1 += parseFloat(preço);
+  total('historico_par', valor1);
+  return false;
+}
+
+
+function addStorage(pedido, preço) {
+  var preço_p = sessionStorage.getItem(pedido);
+  var preço_p1 = 0;
+  var preço_p2 = 0;
+  var len = sessionStorage.length;
+  /*alert("storage: "+ produto);*/
+  /*alert(sessionStorage.getItem(pedido));*/
+  if (preço_p == null) {
+    sessionStorage.setItem(pedido, preço);
+    alert("primeiro do tipo " + pedido);
+    /*alert("len: " + len);*/
+  }
+  else {
+    /*alert("else");*/
+    /*alert("len: " + len);*/
+    for (var i = 0; i < len; ++i) {  
+      key = sessionStorage.key(i);
+      /*alert("key: " + key);*/ 
+      if (key == pedido) {
+        preço_p1 = parseFloat(preço);
+        /*alert("preço_p1: " + preço_p1);*/
+        preço_p2 = parseFloat(preço_p);
+        /*alert("preço_p2: " + preço_p2);*/
+        preço_p2 += preço_p1;
+        /*alert("preço_p2: " + preço_p2);*/
+        sessionStorage.setItem(pedido, preço_p2); //saves to the database, key/value
+      } 
+    }
+  }
+}
+
+function deleteAllStorage(){ 
+  location.reload(); 
+  sessionStorage.clear();
+}
+
+
+function listAllItems(){  
+    for (i=0; i<sessionStorage.length; i++)  
+    {   
+        key = sessionStorage.key(i);  
+        val = sessionStorage.getItem(key);
+        alert(key + val);   
+    } 
+} 
 /*session storage*/
+
+function end() {
+  alert("S");
+  setTimeout(function(){location.href="index.html"} , 3000);
+}
+
+
+
