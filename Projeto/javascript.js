@@ -44,7 +44,7 @@ var d = document;
 var lista_pro = []; /*guarda os pedidos atuais*/
 function addItem(idTabela,pedido,preço) {
   lista_pro.push(pedido);
-  lista_pro.push(preço);
+  /*lista_pro.push(preço);*/
   alert(lista_pro);
   var newRow = d.createElement('tr');
   newRow.insertCell(0).innerHTML = "-";
@@ -125,17 +125,34 @@ function emptyArray() {
   }
 }
 var cnt = 0;
+var lista_pro_t;
 function storeArray() {
-  cnt++;
-  alert('cnt: '+cnt);
-  sessionStorage.setItem(cnt,  JSON.stringify(lista_pro));
-  emptyArray();
+  var aux = sessionStorage.getItem('lista_hist');
+  alert("aux "+aux);
+  if(aux != null) {
+    list = JSON.parse(aux);
+    lista_pro_t = list.concat(lista_pro);
+    alert('cnt: '+cnt);
+    sessionStorage.setItem(cnt,  JSON.stringify(lista_pro));
+    sessionStorage.setItem("lista_hist",  JSON.stringify(lista_pro_t));
+    emptyArray();  
+  }
+  else {
+    lista_pro_t = lista_pro;
+    alert("inicio da lista_pro_t");
+    sessionStorage.setItem(cnt,  JSON.stringify(lista_pro));
+    sessionStorage.setItem("lista_hist",  JSON.stringify(lista_pro_t));
+    emptyArray();
+  }
 }
 
 function getArray() {
+  alert("sadsf "+cnt);
   var storedData = sessionStorage.getItem(cnt);
   if (storedData) {
+    alert("enter");
     list = JSON.parse(storedData);
+    alert('list: '+list);
   }
 
 }
@@ -196,14 +213,35 @@ function total(id,valor) {
   }
 }*/
 
-function seeHist(idTabela) {
-  var qtd = 0;
-  var len = sessionStorage.length;
-  alert(len);
-  for (i=0; i<len;++i) {
-    var key = alert(sessionStorage.key(i));
-    alert(sessionStorage.getItem(key));
+function seeHist() {
+  var prod_hist = sessionStorage.getItem('lista_hist');
+  if (prod_hist) {
+    list = JSON.parse(prod_hist);
+    var len = list.length;
+    alert('len: ' +len);
+    for(i=0; i < len ; i++) {
+      alert(list[i]);
+      if (list[i] =="Café" || list[i] =="Amendioins" || list[i] =="Tremoços") {
+        addHist('historicotab1', 1, list[i], "1.00€");
+      }
+      else if(list[i] =="Cachorro Quente" || list[i] =="Bifana" || list[i] =="Prego no Pão") {
+        addHist('historicotab1', 1, list[i], "4.00€");
+      }
+      else if (list[i] =="Hamburger") {
+        addHist('historicotab1', 1, list[i], "6.00€");
+      }
+      else if (list[i] =="Cheeseburger") {
+        addHist('historicotab1', 1, list[i], "6.50€");
+      }
+      else if (list[i] =="Coca-Cola" || list[i] =="Ice Tea") {
+        addHist('historicotab1', 1, list[i], "1.50€");
+      }
+      else {
+        addHist('historicotab1', 1, list[i], "2.00€");
+      }
+    }
   }
+  
 }
 
 var valor1 = 0;
