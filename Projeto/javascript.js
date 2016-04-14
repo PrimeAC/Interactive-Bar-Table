@@ -59,20 +59,11 @@ function addItem(idTabela,pedido,preço) {
 }
 
 
-/*function deleteRow(row) {
-  var i = row.parentNode.parentNode.rowIndex;
-  document.getElementById('lista_produtos1').deleteRow(i);
-}*/
-
-
-/*function deleteRow(row) {
-  document.getElementById("lista_produtos1").deleteRow(0);
-}*/
-
 function deleteList(idTabela) {
   var tab = document.getElementById(idTabela);
   var row_numb = tab.rows.length; 
   valor = 0 ;
+  sessionStorage.setItem('valor_prod',0);
   /*alert("ola");*/
   total('header_produtos1', valor); 
   for ( var i = 0; i < row_numb; ) {
@@ -166,52 +157,7 @@ function total(id,valor) {
 
 
 /*session storage*/
-/*function hist(id) {
-  alert(sessionStorage.getItem(id));
-}*/
 
-/*(function($) {
-  AddTableRow = function() {
-
-    var newRow = $("<tr>");
-    var cols = "";
-
-    cols += '<td>&nbsp;</td>';
-    cols += '<td>&nbsp;</td>';
-    cols += '<td>&nbsp;</td>';
-    cols += '<td>';
-    cols += '<button onclick="RemoveTableRow(this)" type="button">Remover</button>';
-    cols += '</td>';
-
-    newRow.append(cols);
-    $("#products-table").append(newRow);
-
-    return false;
-  };
-})(jQuery);*/
-
-/*function seeHist(idTabela) {
-  var qtd = 0;
-  var len = sessionStorage.length;
-  alert(len);
-  for (i=0; i<len;++i) {
-    var pedido = sessionStorage.key(i);
-    if  (pedido == "Café") {
-      qtd = sessionStorage.getItem(pedido);
-      addHist(idTabela, parseInt(qtd), pedido, qtd);
-    }
-    else if (pedido == "Coca-Cola" || pedido == "Ice Tea") {
-      var aux = sessionStorage.getItem(pedido);*/ /*guarda o valor*/
-      /*qtd = (parseFloat(aux)/1.50);
-      addHist(idTabela, qtd, pedido, parseFloat(aux));
-    }
-    else {
-      var aux = sessionStorage.getItem(pedido);*/ /*guarda o valor*/
-      /*qtd = (parseFloat(aux)/2);
-      addHist(idTabela, qtd, pedido, parseFloat(aux));
-    }
-  }
-}*/
 
 function seeHist() {
   var prod_hist = sessionStorage.getItem('lista_hist');
@@ -266,7 +212,6 @@ function addStorage(pedido, preço) {
   /*alert(sessionStorage.getItem(pedido));*/
   if (preço_p == null) {
     sessionStorage.setItem(pedido, preço);
-    alert("primeiro do tipo " + pedido);
     /*alert("len: " + len);*/
   }
   else {
@@ -298,8 +243,7 @@ function listAllItems(){
     for (i=0; i<sessionStorage.length; i++)  
     {   
         key = sessionStorage.key(i);  
-        val = sessionStorage.getItem(key);
-        alert(key + val);   
+        val = sessionStorage.getItem(key);  
     } 
 } 
 /*session storage*/
@@ -363,9 +307,16 @@ var valor2 = 0; /*valor do pedido*/
 function addMoreRows(idTabela, pedido,preço) { 
   /*var quantidade = 0;*/
   /*var flag = 0;*/
+  valor2 = sessionStorage.getItem('valor_prod');
+  if(valor2 > 0) {
+    var valor3 = parseFloat(valor2); 
+  }
+  else{
+    var valor3 = 0;
+  }
+  alert('val '+valor3);
   var valor1 = 0;
   lista_pro.push(pedido);
-  alert(lista_pro.length);
   /*alert(lista_pro + lista_pro.length);*/ 
  /* for(i=0;i<lista_pro.length;i++) {
     if(lista_pro[i] == pedido) {
@@ -375,20 +326,98 @@ function addMoreRows(idTabela, pedido,preço) {
       alert("aux "+aux);
       if(aux != null) {
         var atual = document.getElementById(pedido+'qtd').innerHTML;
-        alert(atual+'atual');
         document.getElementById(pedido+'qtd').innerHTML = parseFloat(atual)+1;
         valor1 += parseFloat(preço);
-        valor2 += valor1;
-        total('header_produtos1', valor2);
+        valor3 += valor1;
+        var valor_prod = sessionStorage.setItem('valor_prod', valor3);
+        total('header_produtos1', valor3);
       }
       else {
-        /*rowCount = pedido;
-        alert('rowCount '+rowCount);*/
-        var recRow = '<tr id="'+pedido+'"><td id="'+pedido+'qtd">'+rowQtd+'</td><td>'+pedido+'</td><td><a href="javascript:void(0);" onclick="removeRow('+pedido+');">X</a></td></tr>'; 
+        if(pedido == "Água"){
+          rowCount = 1;
+        }
+        if(pedido == "Coca-Cola"){
+          rowCount = 2;
+        }
+        if(pedido == "Ice-Tea"){
+          rowCount = 3;
+        }
+        if(pedido == "Café"){
+          rowCount = 4;
+        }
+        if(pedido == "Absinto"){
+          rowCount = 5;
+        }
+        if(pedido == "Vodka_Laranja"){
+          rowCount = 6;
+        }
+        if(pedido == "Vodka_Limão"){
+          rowCount = 7;
+        }
+        if(pedido == "Vodka_Cola"){
+          rowCount = 8;
+        }
+        if(pedido == "Rum"){
+          rowCount = 9;
+        }
+        if(pedido == "Somersby_de_Maçã"){
+          rowCount = 10;
+        }
+        if(pedido == "Somersby_Frutos_Vermelhos"){
+          rowCount = 11;
+        }
+        if(pedido == "Tequila"){
+          rowCount = 12;
+        }
+        if(pedido == "Whisky"){
+          rowCount = 13;
+        }
+        if(pedido == "Whisky_Cola"){
+          rowCount = 14;
+        }
+        if(pedido == "Vinho_Branco"){
+          rowCount = 15;
+        }
+        if(pedido == "Vinho_Tinto"){
+          rowCount = 16;
+        }
+        if(pedido == "Hamburger"){
+          rowCount = 17;
+        }
+        if(pedido == "Cheeseburger"){
+          rowCount = 18;
+        }
+        if(pedido == "Cachorro_Quente"){
+          rowCount = 19;
+        }
+        if(pedido == "Bifana"){
+          rowCount = 20;
+        }
+        if(pedido == "Torradas"){
+          rowCount = 21;
+        }
+        if(pedido == "Prego_no_Pão"){
+          rowCount = 22;
+        }
+        if(pedido == "Amendoins"){
+          rowCount = 23;
+        }
+        if(pedido == "Tremoços"){
+          rowCount = 24;
+        }
+        if(pedido == "Lays_Originais"){
+          rowCount = 25;
+        }
+        if(pedido == "Tiras_de_Milho"){
+          rowCount = 26;
+        }
+
+        var recRow = '<tr id="'+pedido+'"><td id="'+pedido+'qtd">'+rowQtd+'</td><td>'+pedido+'</td><td><a href="javascript:void(0);" onclick="removeRow('+rowCount+');">X</a></td></tr>'; 
         jQuery('#lista_produtos1').append(recRow); 
         valor1 += parseFloat(preço);
-        valor2 += valor1;
-        total('header_produtos1', valor2);
+        valor3 += valor1;
+        var valor_prod = sessionStorage.setItem('valor_prod', valor3);
+        total('header_produtos1', valor3);
       }
       
     /*}
@@ -406,14 +435,123 @@ function addMoreRows(idTabela, pedido,preço) {
 
 
 
-function removeRow(removeNum) {
-  alert("remover "+removeNum);
-  var aux = document.getElementById(removeNum);
-  alert(aux);
-  for(i=0;i<lista_pro.length;i++) {
-    if(lista_pro[i] == removeNum) {
+function removeRow(removeNum) { 
+  if(removeNum == 1){
+    rowCount = "Água";
+  }
+  if(removeNum == 2){
+    rowCount = "Coca-Cola";
+  }
+  if(removeNum == 3){
+    rowCount = "Ice-Tea";
+  }
+  if(removeNum == 4){
+    rowCount = "Café";
+  }
+  if(removeNum == 5){
+    rowCount = "Absinto";
+  }
+  if(removeNum == 6){
+    rowCount = "Vodka_Laranja";
+  }
+  if(removeNum == 7){
+    rowCount = "Vodka_Limão";
+  }
+  if(removeNum == 8){
+    rowCount = "Vodka_Cola";
+  }
+  if(removeNum == 9){
+    rowCount = "Rum";
+  }
+  if(removeNum == 10){
+    rowCount = "Somersby_de_Maçã";
+  }
+  if(removeNum == 11){
+    rowCount = "Somersby_Frutos_Vermelhos";
+  }
+  if(removeNum == 12){
+    rowCount = "Tequila";
+  }
+  if(removeNum == 13){
+    rowCount = "Whisky";
+  }
+  if(removeNum == 14){
+    rowCount = "Whisky_Cola";
+  }
+  if(removeNum == 15){
+    rowCount = "Vinho_Branco";
+  }
+  if(removeNum == 16){
+    rowCount = "Vinho_Tinto";
+  }
+  if(removeNum == 17){
+    rowCount = "Hamburger";
+  }
+  if(removeNum == 18){
+    rowCount = "Cheeseburger";
+  }
+  if(removeNum == 19){
+    rowCount = "Cachorro_Quente";
+  }
+  if(removeNum == 20){
+    rowCount = "Bifana";
+  }
+  if(removeNum == 21){
+    rowCount = "Torradas";
+  }
+  if(removeNum == 22){
+    rowCount = "Prego_no_Pão";
+  }
+  if(removeNum == 23){
+    rowCount = "Amendoins";
+  }
+  if(removeNum == 24){
+    rowCount = "Tremoços";
+  }
+  if(removeNum == 25){
+    rowCount = "Lays_Originais";
+  }
+  if(removeNum == 26){
+    rowCount = "Tiras_de_Milho";
+  }
+  var a_eliminar = 0;
+  for(i=0;i<lista_pro.length;) {
+    if(lista_pro[i] == rowCount) {
       lista_pro.splice(i, 1);
+      if (rowCount =="Café" || rowCount =="Amendioins" || rowCount =="Tremoços") {
+        a_eliminar += 1.00;
+      }
+      else if(rowCount =="Cachorro_Quente" || rowCount =="Bifana" || rowCount =="Prego_no_Pão") {
+        a_eliminar += 4.00;
+      }
+      else if (rowCount =="Hamburger") {
+        a_eliminar += 6.00;
+      }
+      else if (rowCount =="Cheeseburger") {
+        a_eliminar += 6.50;
+      }
+      else if (rowCount =="Coca-Cola" || rowCount =="Ice-Tea") {
+        a_eliminar += 1.50;
+      }
+      else {
+        a_eliminar += 2.00;
+      }
     }
-  } 
-  jQuery('#'+removeNum).remove(); 
+    else{
+      i++;
+    }
+  }
+  valor2 = sessionStorage.getItem('valor_prod');
+  totalNeg('header_produtos1', a_eliminar, valor2); 
+  jQuery('#'+rowCount).remove(); 
 } 
+
+
+function totalNeg(id,valor, total) {
+  if (valor == 0) {
+    document.getElementById(id).innerHTML = "Total: 0€";
+  }
+  var aux = parseFloat(total)-parseFloat(valor);
+  sessionStorage.setItem('valor_prod', aux);
+  document.getElementById(id).innerHTML = "Total:" + aux +"€";
+}
