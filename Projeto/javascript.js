@@ -91,8 +91,8 @@ function confirmationMsg(idTabela) {
   var tab = document.getElementById(idTabela);
   var row_numb = tab.rows.length;
   if (row_numb > 0) {
-    alert('Pedido efetuado com sucesso');
-    /*location.href="index.html";*/
+    alert('Pedido efetuado com sucesso!');
+    location.href="historico.html";
     storeArray();
     deleteList(idTabela);
   }
@@ -112,25 +112,21 @@ function deleteMsg(idTabela) {
 function emptyArray() {
   while(lista_pro.length > 0) {
     lista_pro.pop();
-    /*alert(lista_pro);*/
   }
 }
 var cnt = 0;
 var lista_pro_t;
 function storeArray() {
   var aux = sessionStorage.getItem('lista_hist');
-  alert("aux "+aux);
   if(aux != null) {
     list = JSON.parse(aux);
     lista_pro_t = list.concat(lista_pro);
-    alert('cnt: '+cnt);
     sessionStorage.setItem(cnt,  JSON.stringify(lista_pro));
     sessionStorage.setItem("lista_hist",  JSON.stringify(lista_pro_t));
     emptyArray();  
   }
   else {
     lista_pro_t = lista_pro;
-    alert("inicio da lista_pro_t");
     sessionStorage.setItem(cnt,  JSON.stringify(lista_pro));
     sessionStorage.setItem("lista_hist",  JSON.stringify(lista_pro_t));
     emptyArray();
@@ -164,32 +160,29 @@ function seeHist() {
   if (prod_hist) {
     list = JSON.parse(prod_hist);
     var len = list.length;
-    alert('len: ' +len);
     for(i=0; i < len ; i++) {
-      alert(list[i]);
       if (list[i] =="Café" || list[i] =="Amendioins" || list[i] =="Tremoços") {
-        addHist('historicotab1', 1, list[i], "1.00€");
+        addHist('historicotab', 1, list[i], "1.00€");
       }
       else if(list[i] =="Cachorro Quente" || list[i] =="Bifana" || list[i] =="Prego no Pão") {
-        addHist('historicotab1', 1, list[i], "4.00€");
+        addHist('historicotab', 1, list[i], "4.00€");
       }
       else if (list[i] =="Hamburger") {
-        addHist('historicotab1', 1, list[i], "6.00€");
+        addHist('historicotab', 1, list[i], "6.00€");
       }
       else if (list[i] =="Cheeseburger") {
-        addHist('historicotab1', 1, list[i], "6.50€");
+        addHist('historicotab', 1, list[i], "6.50€");
       }
       else if (list[i] =="Coca-Cola" || list[i] =="Ice Tea") {
-        addHist('historicotab1', 1, list[i], "1.50€");
+        addHist('historicotab', 1, list[i], "1.50€");
       }
       else {
-        addHist('historicotab1', 1, list[i], "2.00€");
+        addHist('historicotab', 1, list[i], "2.00€");
       }
     }
   }
   
 }
-
 var valor1 = 0;
 function addHist(idTabela, qtd, pedido, preço) {
   var newRow = d.createElement('tr');
@@ -201,6 +194,84 @@ function addHist(idTabela, qtd, pedido, preço) {
   total('historico_par', valor1);
   return false;
 }
+
+/*function seeHist() {
+  valor2 = sessionStorage.getItem('lista_hist');
+  if(valor2 > 0) {
+    var valor3 = parseFloat(valor2); 
+  }
+  else{
+    var valor3 = 0;
+  }
+  alert('val '+valor3);
+  var valor1 = 0;
+  if (prod_hist) {
+    list = JSON.parse(prod_hist);
+    var len = list.length;
+    for(i=0; i < len ; i++) {
+
+      var aux =document.getElementById(pedido+'qtd');
+      alert("aux "+aux);
+      if(aux != null) {
+        var atual = document.getElementById(pedido+'qtd').innerHTML;
+        document.getElementById(pedido+'qtd').innerHTML = parseFloat(atual)+1;
+        valor1 += parseFloat(preço);
+        valor3 += valor1;
+        var valor_prod = sessionStorage.setItem('valor_prod', valor3);
+        total('header_produtos1', valor3);
+      }
+    }
+      else {
+
+        var recRow = '<tr id="'+pedido+'"><td id="'+pedido+'qtd">'+rowQtd+'</td><td>'+pedido+'</td><td><a href="javascript:void(0);" onclick="removeRow('+rowCount+');">X</a></td></tr>'; 
+        jQuery('#lista_produtos1').append(recRow); 
+        valor1 += parseFloat(preço);
+        valor3 += valor1;
+        var valor_prod = sessionStorage.setItem('valor_prod', valor3);
+        total('header_produtos1', valor3);
+      }
+  
+}
+
+function addHist(idTabela, pedido,preço) { 
+  
+  valor2 = sessionStorage.getItem('lista_hist');
+  if (valor2) {
+    list = JSON.parse(prod_hist);
+    var len = list.length;
+    for(i=0; i < len ; i++) {
+      if(valor2 > 0) {
+        var valor3 = parseFloat(valor2); 
+      }
+      else{
+        var valor3 = 0;
+      }
+
+      alert('val '+valor3);
+      var valor1 = 0;
+      var aux =document.getElementById(pedido+'qtd');
+      alert("aux "+aux);
+
+      if(aux != null) {
+        var atual = document.getElementById(pedido+'qtd').innerHTML;
+        document.getElementById(pedido+'qtd').innerHTML = parseFloat(atual)+1;
+        valor1 += parseFloat(preço);
+        valor3 += valor1;
+        var valor_prod = sessionStorage.setItem('valor_prod', valor3);
+        total('header_produtos1', valor3);
+      }
+      else {
+
+        var recRow = '<tr id="'+pedido+'"><td id="'+pedido+'qtd">'+rowQtd+'</td><td>'+pedido+'</td><td><a href="javascript:void(0);" onclick="removeRow('+rowCount+');">X</a></td></tr>'; 
+        jQuery('#lista_produtos1').append(recRow); 
+        valor1 += parseFloat(preço);
+        valor3 += valor1;
+        var valor_prod = sessionStorage.setItem('valor_prod', valor3);
+        total('header_produtos1', valor3);
+      }
+    }
+  }
+}*/
 
 
 function addStorage(pedido, preço) {
@@ -249,8 +320,9 @@ function listAllItems(){
 /*session storage*/
 
 function end() {
-  alert("S");
-  setTimeout(function(){location.href="index.html"} , 3000);
+  alert("entrei");
+  location.href="index.html";
+  deleteAllStorage();
 }
 
 
@@ -314,7 +386,6 @@ function addMoreRows(idTabela, pedido,preço) {
   else{
     var valor3 = 0;
   }
-  alert('val '+valor3);
   var valor1 = 0;
   lista_pro.push(pedido);
   /*alert(lista_pro + lista_pro.length);*/ 
@@ -323,7 +394,6 @@ function addMoreRows(idTabela, pedido,preço) {
       quantidade++;
       flag = 1;*/
       var aux =document.getElementById(pedido+'qtd');
-      alert("aux "+aux);
       if(aux != null) {
         var atual = document.getElementById(pedido+'qtd').innerHTML;
         document.getElementById(pedido+'qtd').innerHTML = parseFloat(atual)+1;
@@ -412,7 +482,7 @@ function addMoreRows(idTabela, pedido,preço) {
           rowCount = 26;
         }
 
-        var recRow = '<tr id="'+pedido+'"><td id="'+pedido+'qtd">'+rowQtd+'</td><td>'+pedido+'</td><td><a href="javascript:void(0);" onclick="removeRow('+rowCount+');">X</a></td></tr>'; 
+        var recRow = '<tr id="'+pedido+'"><td><a href="javascript:void(0);" onclick="removeRow('+rowCount+');">-</a></td><td id="'+pedido+'qtd">'+rowQtd+'</td><td>'+pedido+'</td><td><a href="javascript:void(0);" onclick="removeRow('+rowCount+');">X</a></td></tr>'; 
         jQuery('#lista_produtos1').append(recRow); 
         valor1 += parseFloat(preço);
         valor3 += valor1;
@@ -554,4 +624,30 @@ function totalNeg(id,valor, total) {
   var aux = parseFloat(total)-parseFloat(valor);
   sessionStorage.setItem('valor_prod', aux);
   document.getElementById(id).innerHTML = "Total:" + aux +"€";
+}
+
+
+function refresh() {
+  total('header_produtos1', 0);
+  sessionStorage.setItem('valor_prod',0);
+}
+
+function changePage(id) {
+  if(confirm('Tem a certeza que deseja mudar de página? Ao sair perderá o pedido atual.')) {
+    if(id == 'home') {
+      sessionStorage.setItem('valor_prod',0);
+      location.href = "index.html";
+    }
+    else if(id == 'musica') {
+      sessionStorage.setItem('valor_prod',0);
+      location.href = "musica.html";
+    }
+    else if(id == 'historico') {
+      sessionStorage.setItem('valor_prod',0);
+      location.href = "historico.html";
+    }
+    else{
+      alert(id+" errado");
+    }
+  }
 }
