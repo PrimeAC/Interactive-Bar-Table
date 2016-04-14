@@ -255,17 +255,10 @@ a {
 	opacity: 0.7;
 }
 
-/*#lista_produtos1 tr {/* /*para a lista com jquery*/
-	/*border-style: solid;
-	border-width: 5px;
-	border-color: white;
-	border-radius: 25px;
-	text-align: center;
+#lista_produtos1 a { /*para a lista com jquery*/
+	font-size: 100%;
 	color: #333;
-	font-size: 135%;
-	background-color: #eee;
-	opacity: 0.7;
-}*/
+}
 
 
 .icones_lista {

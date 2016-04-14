@@ -352,37 +352,68 @@ var rowQtd = 1;
     var recRow = '<tr id="rowCount'+rowCount+'"><td>'+rowQtd+'</td><td>'+pedido+'</td><td><a href="javascript:void(0);" onclick="removeRow('+rowCount+');">Delete</a></td></tr>'; 
     jQuery('#lista_produtos1').append(recRow);
   } 
-}*/
+}
 
+function removeRow(removeNum) {
+alert("remover "+removeNum);
+  jQuery('#rowCount'+removeNum).remove(); 
+} */
+
+var valor2 = 0; /*valor do pedido*/
 function addMoreRows(idTabela, pedido,preço) { 
-  /*alert('rowCount0: '+rowCount);*/
-  alert('rowQtd '+rowQtd);
+  /*var quantidade = 0;*/
+  /*var flag = 0;*/
+  var valor1 = 0;
   lista_pro.push(pedido);
-  alert(lista_pro);
-  if(lista_pro.length > 1) {
-    for(i=0;i<lista_pro.length;i++) {
-      if(lista_pro[i] == pedido) {
-        
-        
+  alert(lista_pro.length);
+  /*alert(lista_pro + lista_pro.length);*/ 
+ /* for(i=0;i<lista_pro.length;i++) {
+    if(lista_pro[i] == pedido) {
+      quantidade++;
+      flag = 1;*/
+      var aux =document.getElementById(pedido+'qtd');
+      alert("aux "+aux);
+      if(aux != null) {
+        var atual = document.getElementById(pedido+'qtd').innerHTML;
+        alert(atual+'atual');
+        document.getElementById(pedido+'qtd').innerHTML = parseFloat(atual)+1;
+        valor1 += parseFloat(preço);
+        valor2 += valor1;
+        total('header_produtos1', valor2);
       }
       else {
-        /*rowCount ++;*/
-        alert('rowCount1: '+rowCount);
-        var recRow = '<tr id="'+pedido+'"><td>'+rowQtd+'</td><td>'+pedido+'</td><td><a href="javascript:void(0);" onclick="removeRow('+rowCount+');">Delete</a></td></tr>'; 
+        /*rowCount = pedido;
+        alert('rowCount '+rowCount);*/
+        var recRow = '<tr id="'+pedido+'"><td id="'+pedido+'qtd">'+rowQtd+'</td><td>'+pedido+'</td><td><a href="javascript:void(0);" onclick="removeRow('+pedido+');">X</a></td></tr>'; 
         jQuery('#lista_produtos1').append(recRow); 
+        valor1 += parseFloat(preço);
+        valor2 += valor1;
+        total('header_produtos1', valor2);
       }
-    }
-  }
-  else {
-    alert('primeiro');
-    /*rowCount ++;*/
-    var recRow = '<tr id="'+pedido+'"><td>'+rowQtd+'</td><td>'+pedido+'</td><td><a href="javascript:void(0);" onclick="removeRow('+rowCount+');">Delete</a></td></tr>'; 
-    jQuery('#lista_produtos1').append(recRow);
-  } 
+      
+    /*}
+  }*/
+  /*if(flag == 0) {
+    alert('primeiro do tipo');
+    rowCount = pedido;
+    var recRow = '<tr id="'+pedido+'"><td id="'+pedido+'qtd">'+rowQtd+'</td><td>'+pedido+'</td><td><a href="javascript:void(0);" onclick="removeRow('+rowCount+');">X</a></td></tr>'; 
+    jQuery('#lista_produtos1').append(recRow); 
+    valor1 += parseFloat(preço);
+    valor2 += valor1;
+    total('header_produtos1', valor2);
+  } */
 }
 
 
 
-function removeRow(removeNum) { 
-  jQuery('#rowCount'+removeNum).remove(); 
+function removeRow(removeNum) {
+  alert("remover "+removeNum);
+  var aux = document.getElementById(removeNum);
+  alert(aux);
+  for(i=0;i<lista_pro.length;i++) {
+    if(lista_pro[i] == removeNum) {
+      lista_pro.splice(i, 1);
+    }
+  } 
+  jQuery('#'+removeNum).remove(); 
 } 
