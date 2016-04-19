@@ -164,7 +164,7 @@ function seeHist() {
       if (list[i] =="Café" || list[i] =="Amendioins" || list[i] =="Tremoços") {
         addHist('historicotab', 1, list[i], "1.00€");
       }
-      else if(list[i] =="Cachorro Quente" || list[i] =="Bifana" || list[i] =="Prego no Pão") {
+      else if(list[i] =="Cachorro_Quente" || list[i] =="Bifana" || list[i] =="Prego_no_Pão") {
         addHist('historicotab', 1, list[i], "4.00€");
       }
       else if (list[i] =="Hamburger") {
@@ -173,7 +173,7 @@ function seeHist() {
       else if (list[i] =="Cheeseburger") {
         addHist('historicotab', 1, list[i], "6.50€");
       }
-      else if (list[i] =="Coca-Cola" || list[i] =="Ice Tea") {
+      else if (list[i] =="Coca-Cola" || list[i] =="Ice-Tea") {
         addHist('historicotab', 1, list[i], "1.50€");
       }
       else {
@@ -482,7 +482,7 @@ function addMoreRows(idTabela, pedido,preço) {
           rowCount = 26;
         }
 
-        var recRow = '<tr id="'+pedido+'"><td><a href="javascript:void(0);" onclick="removeRow('+rowCount+');">-</a></td><td id="'+pedido+'qtd">'+rowQtd+'</td><td>'+pedido+'</td><td><a href="javascript:void(0);" onclick="removeRow('+rowCount+');">X</a></td></tr>'; 
+        var recRow = '<tr id="'+pedido+'"><td><a href="javascript:void(0);" onclick="decrementItem('+rowCount+');">-</a></td><td id="'+pedido+'qtd">'+rowQtd+'</td><td>'+pedido+'</td><td><a href="javascript:void(0);" onclick="removeRow('+rowCount+');">X</a></td></tr>'; 
         jQuery('#lista_produtos1').append(recRow); 
         valor1 += parseFloat(preço);
         valor3 += valor1;
@@ -506,6 +506,123 @@ function addMoreRows(idTabela, pedido,preço) {
 
 
 function removeRow(removeNum) { 
+  decode(removeNum);
+  var a_eliminar = 0;
+  for(i=0;i<lista_pro.length;) {
+    if(lista_pro[i] == rowCount) {
+      lista_pro.splice(i, 1);
+      if (rowCount =="Café" || rowCount =="Amendioins" || rowCount =="Tremoços") {
+        a_eliminar += 1.00;
+      }
+      else if(rowCount =="Cachorro_Quente" || rowCount =="Bifana" || rowCount =="Prego_no_Pão") {
+        a_eliminar += 4.00;
+      }
+      else if (rowCount =="Hamburger") {
+        a_eliminar += 6.00;
+      }
+      else if (rowCount =="Cheeseburger") {
+        a_eliminar += 6.50;
+      }
+      else if (rowCount =="Coca-Cola" || rowCount =="Ice-Tea") {
+        a_eliminar += 1.50;
+      }
+      else {
+        a_eliminar += 2.00;
+      }
+    }
+    else{
+      i++;
+    }
+  }
+  valor2 = sessionStorage.getItem('valor_prod');
+  totalNeg('header_produtos1', a_eliminar, valor2); 
+  jQuery('#'+rowCount).remove(); 
+} 
+
+
+function totalNeg(id,valor, total) {
+  if (valor == 0) {
+    document.getElementById(id).innerHTML = "Total: 0€";
+  }
+  var aux = parseFloat(total)-parseFloat(valor);
+  sessionStorage.setItem('valor_prod', aux);
+  document.getElementById(id).innerHTML = "Total:" + aux +"€";
+}
+
+
+function refresh() {
+  total('header_produtos1', 0);
+  sessionStorage.setItem('valor_prod',0);
+}
+
+function changePage(id) {
+  if(lista_pro.length > 0) {  
+    if(confirm('Tem a certeza que deseja mudar de página? Ao sair perderá o pedido atual.')) {
+      sessionStorage.setItem('valor_prod',0);
+    }
+  }
+  if(id == 'home') {
+    location.href = "index.html";
+  }
+  else if(id == 'musica') {
+    location.href = "musica.html";
+  }
+  else if(id == 'historico') {
+    location.href = "historico.html";
+  }
+}
+
+
+function decrementItem(removeNum) { 
+  decode(removeNum);
+  var a_eliminar = 0;
+  for(i=0;i<lista_pro.length;) {
+    if(lista_pro[i] == rowCount) {
+      lista_pro.splice(i, 1);
+      if (rowCount =="Café" || rowCount =="Amendioins" || rowCount =="Tremoços") {
+        a_eliminar += 1.00;
+        break;
+      }
+      else if(rowCount =="Cachorro_Quente" || rowCount =="Bifana" || rowCount =="Prego_no_Pão") {
+        a_eliminar += 4.00;
+        break;
+      }
+      else if (rowCount =="Hamburger") {
+        a_eliminar += 6.00;
+        break;
+      }
+      else if (rowCount =="Cheeseburger") {
+        a_eliminar += 6.50;
+        break;
+      }
+      else if (rowCount =="Coca-Cola" || rowCount =="Ice-Tea") {
+        a_eliminar += 1.50;
+        break;
+      }
+      else {
+        a_eliminar += 2.00;
+        break;
+      }
+    }
+    else{
+      i++;
+    }
+  }
+  var atual = document.getElementById(rowCount+'qtd').innerHTML;
+  if(atual > 1) {
+    document.getElementById(rowCount+'qtd').innerHTML = parseFloat(atual)-1;
+  }
+  else {
+    jQuery('#'+rowCount).remove();
+  }
+  valor2 = sessionStorage.getItem('valor_prod');
+  totalNeg('header_produtos1', a_eliminar, valor2); 
+   
+}
+
+
+
+function decode(removeNum) {
   if(removeNum == 1){
     rowCount = "Água";
   }
@@ -583,71 +700,5 @@ function removeRow(removeNum) {
   }
   if(removeNum == 26){
     rowCount = "Tiras_de_Milho";
-  }
-  var a_eliminar = 0;
-  for(i=0;i<lista_pro.length;) {
-    if(lista_pro[i] == rowCount) {
-      lista_pro.splice(i, 1);
-      if (rowCount =="Café" || rowCount =="Amendioins" || rowCount =="Tremoços") {
-        a_eliminar += 1.00;
-      }
-      else if(rowCount =="Cachorro_Quente" || rowCount =="Bifana" || rowCount =="Prego_no_Pão") {
-        a_eliminar += 4.00;
-      }
-      else if (rowCount =="Hamburger") {
-        a_eliminar += 6.00;
-      }
-      else if (rowCount =="Cheeseburger") {
-        a_eliminar += 6.50;
-      }
-      else if (rowCount =="Coca-Cola" || rowCount =="Ice-Tea") {
-        a_eliminar += 1.50;
-      }
-      else {
-        a_eliminar += 2.00;
-      }
-    }
-    else{
-      i++;
-    }
-  }
-  valor2 = sessionStorage.getItem('valor_prod');
-  totalNeg('header_produtos1', a_eliminar, valor2); 
-  jQuery('#'+rowCount).remove(); 
-} 
-
-
-function totalNeg(id,valor, total) {
-  if (valor == 0) {
-    document.getElementById(id).innerHTML = "Total: 0€";
-  }
-  var aux = parseFloat(total)-parseFloat(valor);
-  sessionStorage.setItem('valor_prod', aux);
-  document.getElementById(id).innerHTML = "Total:" + aux +"€";
-}
-
-
-function refresh() {
-  total('header_produtos1', 0);
-  sessionStorage.setItem('valor_prod',0);
-}
-
-function changePage(id) {
-  if(confirm('Tem a certeza que deseja mudar de página? Ao sair perderá o pedido atual.')) {
-    if(id == 'home') {
-      sessionStorage.setItem('valor_prod',0);
-      location.href = "index.html";
-    }
-    else if(id == 'musica') {
-      sessionStorage.setItem('valor_prod',0);
-      location.href = "musica.html";
-    }
-    else if(id == 'historico') {
-      sessionStorage.setItem('valor_prod',0);
-      location.href = "historico.html";
-    }
-    else{
-      alert(id+" errado");
-    }
   }
 }
