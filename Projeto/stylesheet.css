@@ -307,8 +307,7 @@ a {
 }
 /*menu*/
 
-/*musica*/
-/*musica*/
+
 
 /*historico*/
 #tabela{
@@ -576,3 +575,19 @@ tr .name {
 }
 /*lista com procura*/
 
+
+/*musica*/
+tr .time {
+	text-align: right;
+}
+
+tr .artist {
+	text-align: middle;
+}
+
+#bib {
+	background-color: #006df0;
+}
+
+
+/*musica*/

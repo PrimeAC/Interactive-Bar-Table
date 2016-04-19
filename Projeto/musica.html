@@ -7,6 +7,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--<adapt the page to the dispositive-->
   <meta charset="UTF-8">
 
+  <script src="javascript.js"></script> <!--importa o codigo javascript do ficheiro javascript.js-->
+  <!--<script src="http://listjs.com/no-cdn/list.js"></script> -->
+  <script src="list.js"></script>
+
+  <script src="jquery.js">></script> 
+
   </head>
   <body>
 
@@ -63,6 +69,332 @@
   	</div>
   	<!--fim da barra fixa-->
 
+  		<table style="position: absolute;width: 100%;"> <!--estes styles se calhar sao precisos tirar noos vossos pc-->
+  		<tr>
+  			<td style="width: 30%;">
+		  		<table id="submenu">
+		  			<tr>
+		  				<td><div class="icones_menu" id="bib" onclick="changeDiv('Biblioteca de músicas','Playlist')">Biblioteca de músicas</div></td>
+		  			</tr>
+		  			<tr>
+		  				<td><div class="icones_menu" id="play" onclick="changeDiv('Playlist','Biblioteca de músicas')">Playlist</div></td>
+		  			</tr>
+		  		</table>
+			</td>
+			<td>
+				<div id="Biblioteca de músicas">
+			  		<input class="search" placeholder="Search" onclick="Search('Biblioteca de músicas')" />
+			  		<button class="sort" data-sort="name" onclick="Search('Biblioteca de músicas')">
+			  			Ordenar por nome
+			  		</button>
+			  		<button class="sort" data-sort="price" onclick="Search('Biblioteca de músicas')">
+			  			Ordenar por preço
+			  		</button>
+
+			  		
+			  		<ul class="list">
+			  			<li onclick="addMoreRows('lista_produtos1','7 Years','Lukas Graham')" class="icones_bebidas">
+			  				<table>
+			  					<tr>
+			  						<td id="add"><img src="add.png"/></td>
+						  			<td class="name">7 Years</td>
+						  			<td class="artist">Lukas Graham</td>
+						  			<td class="type">Soul</td>
+						  			<td class="time">4:00</td>
+						  		</tr>
+						  	</table>
+				  		</li>
+				  		<li onclick="addMoreRows('lista_produtos1','Coca-Cola','1.50')" class="icones_bebidas">
+				  			<table>
+			  					<tr>
+			  						<td id="add"><img src="add.png"/></td>
+						  			<td class="name">Hey Brother</td>
+						  			<td class="artist">Avicii</td>
+						  			<td class="type">Electro</td>
+						  			<td class="time">4:24</td>
+						  		</tr>
+						  	</table>
+				  		</li>
+				  		<li onclick="addMoreRows('lista_produtos1','Ice-Tea','1.50')" class="icones_bebidas">
+				  			<table>
+			  					<tr>
+			  						<td id="add"><img src="add.png"/></td>
+			  						<td id="td_img"><img src="ice_tea.png" id="img_menu"/></td>
+						  			<td class="name">Ice Tea</td>
+						  			<td class="type">Sem alcool</td>
+						  			<td class="price">1.50€</td>
+						  		</tr>
+						  	</table>
+				  		</li>
+				  		<li onclick="addMoreRows('lista_produtos1','Café','1.00')" class="icones_bebidas">
+				  			<table>
+			  					<tr>
+			  						<td id="add"><img src="add.png"/></td>
+			  						<td id="td_img"><img src="cafe.png" id="img_menu"/></td>
+						  			<td class="name">Café</td>
+						  			<td class="type">Sem alcool</td>
+						  			<td class="price">1.00€</td>
+						  		</tr>
+						  	</table>
+				  		</li>
+				  		<li onclick="addMoreRows('lista_produtos1','Absinto','2.00')" class="icones_bebidas">
+				  			<table>
+			  					<tr>
+			  						<td id="add"><img src="add.png"/></td>
+			  						<td id="td_img"><img src="absinto.png" id="img_menu"/></td>
+						  			<td class="name">Absinto</td>
+						  			<td class="type">Com alcool</td>
+						  			<td class="price">2.00€</td>
+						  		</tr>
+						  	</table>
+				  		</li>
+				  		<li onclick="addMoreRows('lista_produtos1','Vodka_Laranja','2.00')" class="icones_bebidas">
+				  			<table>
+			  					<tr>
+			  						<td id="add"><img src="add.png"/></td>
+			  						<td id="td_img"><img src="vodka.png" id="img_menu"/></td>
+						  			<td class="name">Vodka Laranja</td>
+						  			<td class="type">Com alcool</td>
+						  			<td class="price">2.00€</td>
+						  		</tr>
+						  	</table>
+				  		</li>
+				  		<li onclick="addMoreRows('lista_produtos1','Vodka_Limão','2.00')" class="icones_bebidas">
+				  			<table>
+			  					<tr>
+			  						<td id="add"><img src="add.png"/></td>
+			  						<td id="td_img"><img src="vodka.png" id="img_menu"/></td>
+						  			<td class="name">Vodka Limão</td>
+						  			<td class="type">Com alcool</td>
+						  			<td class="price">2.00€</td>
+						  		</tr>
+						  	</table>
+				  		</li>
+				  		<li onclick="addMoreRows('lista_produtos1','Vodka_Cola','2.00')" class="icones_bebidas">
+				  			<table>
+			  					<tr>
+			  						<td id="add"><img src="add.png"/></td>
+			  						<td id="td_img"><img src="vodka.png" id="img_menu"/></td>
+						  			<td class="name">Vodka Cola</td>
+						  			<td class="type">Com alcool</td>
+						  			<td class="price">2.00€</td>
+						  		</tr>
+						  	</table>
+				  		</li>
+				  		<li onclick="addMoreRows('lista_produtos1','Rum','2.00')" class="icones_bebidas">
+				  			<table>
+			  					<tr>
+			  						<td id="add"><img src="add.png"/></td>
+			  						<td id="td_img"><img src="rum.png" id="img_menu"/></td>
+						  			<td class="name">Rum</td>
+						  			<td class="type">Com alcool</td>
+						  			<td class="price">2.00€</td>
+						  		</tr>
+						  	</table>
+				  		</li>
+				  		<li onclick="addMoreRows('lista_produtos1','Somersby_de_Maçã','2.00')" class="icones_bebidas">
+				  			<table>
+			  					<tr>
+			  						<td id="add"><img src="add.png"/></td>
+			  						<td id="td_img"><img src="somersby_m.png" id="img_menu"/></td>
+						  			<td class="name">Somersby de Maçã</td>
+						  			<td class="type">Com alcool</td>
+						  			<td class="price">2.00€</td>
+						  		</tr>
+						  	</table>
+				  		</li>
+				  		<li onclick="addMoreRows('lista_produtos1','Somersby_Frutos_Vermelhos','2.00')" class="icones_bebidas">
+				  			<table>
+			  					<tr>
+			  						<td id="add"><img src="add.png"/></td>
+			  						<td id="td_img"><img src="somersby_f.png" id="img_menu"/></td>
+						  			<td class="name">Somersby Frutos Vermelhos</td>
+						  			<td class="type">Com alcool</td>
+						  			<td class="price">2.00€</td>
+						  		</tr>
+						  	</table>
+				  		</li>
+				  		<li onclick="addMoreRows('lista_produtos1','Tequila','2.00')" class="icones_bebidas">
+				  			<table>
+			  					<tr>
+			  						<td id="add"><img src="add.png"/></td>
+			  						<td id="td_img"><img src="tequila.png" id="img_menu"/></td>
+						  			<td class="name">Tequila</td>
+						  			<td class="type">Com alcool</td>
+						  			<td class="price">2.00€</td>
+						  		</tr>
+						  	</table>
+				  		</li>
+				  		<li onclick="addMoreRows('lista_produtos1','Whisky','2.00')" class="icones_bebidas">
+				  			<table>
+			  					<tr>
+			  						<td id="add"><img src="add.png"/></td>
+			  						<td id="td_img"><img src="whisky.png" id="img_menu"/></td>
+						  			<td class="name">Whisky</td>
+						  			<td class="type">Com alcool</td>
+						  			<td class="price">2.00€</td>
+						  		</tr>
+						  	</table>
+				  		</li>
+				  		<li onclick="addMoreRows('lista_produtos1','Whisky_Cola','2.00')" class="icones_bebidas">
+				  			<table>
+			  					<tr>
+			  						<td id="add"><img src="add.png"/></td>
+			  						<td id="td_img"><img src="whisky_cola.png" id="img_menu"/></td>
+						  			<td class="name">Whisky Cola</td>
+						  			<td class="type">Com alcool</td>
+						  			<td class="price">2.00€</td>
+						  		</tr>
+						  	</table>
+				  		</li>
+				  		<li onclick="addMoreRows('lista_produtos1','Vinho_Branco','2.00')" class="icones_bebidas">
+				  			<table>
+			  					<tr>
+			  						<td id="add"><img src="add.png"/></td>
+			  						<td id="td_img"><img src="vinho_branco.png" id="img_menu"/></td>
+						  			<td class="name">Vinho Branco</td>
+						  			<td class="type">Com alcool</td>
+						  			<td class="price">2.00€</td>
+						  		</tr>
+						  	</table>
+				  		</li>
+				  		<li onclick="addMoreRows('lista_produtos1','Vinho_Tinto','2.00')" class="icones_bebidas">
+				  			<table>
+			  					<tr>
+			  						<td id="add"><img src="add.png"/></td>
+			  						<td id="td_img"><img src="vinho_tinto.png" id="img_menu"/></td>
+						  			<td class="name">Vinho Tinto</td>
+						  			<td class="type">Com alcool</td>
+						  			<td class="price">2.00€</td>
+						  		</tr>
+						  	</table>
+				  		</li>
+			  		</ul>
+			  			
+			  	</div>
+			</td>
+			<td>
+				<div id="Playlist"> 
+			  		<input class="search" placeholder="Search" onclick="Search('Playlist')" /> <!--escrever para procurar-->
+			  		<button class="sort" data-sort="name" onclick="Search('Playlist')"> <!--procurar por ordem alfabetica-->
+			  			Ordenar por nome
+			  		</button>
+			  		<button class="sort" data-sort="price" onclick="Search('Playlist')">  <!--procurar por preço-->
+			  			Ordenar por preço
+			  		</button>
+			  		
+			  		<ul class="list">
+			  			<li onclick="addMoreRows('lista_produtos1','Hamburger','6.00')" class="icones_bebidas">
+			  				<table>
+			  					<tr>
+			  						<td id="add"><img src="add.png"/></td>
+			  						<td id="td_img"><img src="sem_queijo.png" id="img_menu"/></td>
+						  			<td class="name">Hamburger</td>
+						  			<td class="price">6.00€</td>
+						  		</tr>
+						  	</table>
+		  					<p class="description_1">Pão, carne de vaca, alface e tomate</p>
+				  		</li>
+				  		<li onclick="addMoreRows('lista_produtos1','Cheeseburger','6.50')" class="icones_bebidas">
+				  			<table>
+			  					<tr>
+			  						<td id="add"><img src="add.png"/></td>
+			  						<td id="td_img"><img src="com_queijo.png" id="img_menu"/></td>
+						  			<td class="name">Cheeseburger</td>
+						  			<td class="price">6.50€</td>
+						  		</tr>
+						  	</table>
+				  			<p class="description">Pão, carne de vaca, queijo, alface e tomate</p>
+				  		</li>
+				  		<li onclick="addMoreRows('lista_produtos1','Cachorro_Quente','4.00')" class="icones_bebidas">
+				  			<table>
+			  					<tr>
+			  						<td id="add"><img src="add.png"/></td>
+			  						<td id="td_img"><img src="cachorro.png" id="img_menu"/></td>
+						  			<td class="name">Cachorro Quente</td>
+						  			<td class="price">4.00€</td>
+						  		</tr>
+						  	</table>
+						  	<p class="description_1">Pão, salsicha e batata frita</p>
+				  		</li>
+				  		<li onclick="addMoreRows('lista_produtos1','Bifana','4.00')" class="icones_bebidas">
+				  			<table>
+			  					<tr>
+			  						<td id="add"><img src="add.png"/></td>
+			  						<td id="td_img"><img src="bifana.png" id="img_menu"/></td>
+						  			<td class="name">Bifana</td>
+						  			<td class="price">4.00€</td>
+						  		</tr>
+						  	</table>
+						  	<p class="description_1">Pão com carne de porco</p>
+				  		</li>
+				  		<li onclick="addMoreRows('lista_produtos1','Torradas','2.00')" class="icones_bebidas">
+				  			<table>
+			  					<tr>
+			  						<td id="add"><img src="add.png"/></td>
+			  						<td id="td_img"><img src="torradas.png" id="img_menu"/></td>
+						  			<td class="name">Torradas</td>
+						  			<td class="price">2.00€</td>
+						  		</tr>
+						  	</table>
+						  	<p class="description_1">Pão com manteiga</p>
+				  		</li>
+				  		<li onclick="addMoreRows('lista_produtos1','Prego_no_Pão','4.00')" class="icones_bebidas">
+				  			<table>
+			  					<tr>
+			  						<td id="add"><img src="add.png"/></td>
+			  						<td id="td_img"><img src="prego.png" id="img_menu"/></td>
+						  			<td class="name">Prego no Pão</td>
+						  			<td class="price">4.00€</td>
+						  		</tr>
+						  	</table>
+						  	<p class="description_1">Pão com carne de vaca</p>
+				  		</li>
+				  		<li onclick="addMoreRows('lista_produtos1','Amendoins','1.00')" class="icones_bebidas">
+				  			<table>
+			  					<tr>
+			  						<td id="add"><img src="add.png"/></td>
+			  						<td id="td_img"><img src="amendoins.png" id="img_menu"/></td>
+						  			<td class="name">Amendoins</td>
+						  			<td class="price">1.00€</td>
+						  		</tr>
+						  	</table>
+				  		</li>
+				  		<li onclick="addMoreRows('lista_produtos1','Tremoços','1.00')" class="icones_bebidas">
+				  			<table>
+			  					<tr>
+			  						<td id="add"><img src="add.png"/></td>
+			  						<td id="td_img"><img src="tremoços.png" id="img_menu"/></td>
+						  			<td class="name">Tremoços</td>
+						  			<td class="price">1.00€</td>
+						  		</tr>
+						  	</table>
+				  		</li>
+				  		<li onclick="addMoreRows('lista_produtos1','Lays_Originais','2.00')" class="icones_bebidas">
+				  			<table>
+			  					<tr>
+			  						<td id="add"><img src="add.png"/></td>
+			  						<td id="td_img"><img src="lays.png" id="img_menu"/></td>
+						  			<td class="name">Batatas Lays Originais</td>
+						  			<td class="price">2.00€</td>
+						  		</tr>
+						  	</table>
+				  		</li>
+				  		<li onclick="addMoreRows('lista_produtos1','Tiras_de_Milho', '2.00')" class="icones_bebidas">
+				  			<table>
+				  				<tr>
+				  					<td id="add"><img src="add.png"/></td>
+				  					<td id="td_img"><img src="tiras.png" id="img_menu"/></td>
+						  			<td class="name">Tiras de Milho</td>
+						  			<td class="price">2.00€</td>
+						  		</tr>
+						  	</table>
+				  		</li>
+			  		</ul>
+			  	</div>
+			</td>	
+	  	</tr>
+    </table>
 
   </body>
  </html>
