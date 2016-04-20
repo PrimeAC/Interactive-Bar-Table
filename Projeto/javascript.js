@@ -718,7 +718,7 @@ function decode(removeNum) {
 
 
 function addToPlay(idTabela, musica, artista, tempo) {
-	var recRow = '<li id="'+musica+'" class="icones_bebidas"><table><tr><td id="'+musica+'qtd" style="width:15%;"><a href="javascript:void(0);" onclick="Like('+rowCount+');"><img src="like_azul.png" class="add"/></a></td><td style="width:45%;" class="name">'+musica+'</td><td style="width:25%;" class="artist">'+artista+'</td><td style="width:15%;">'+tempo+'</td></tr></table></li>'; 
+	var recRow = '<li id="'+musica+'" class="icones_bebidas"><table><tr><td id="'+musica+'qtd" style="width:15%;"><a href="javascript:void(0);" onclick="Like('+rowCount+');"><img src="add.png" class="add"/></a></td><td style="width:45%;" class="name">'+musica+'</td><td style="width:25%;" class="artist">'+artista+'</td><td style="width:15%;">'+tempo+'</td></tr></table></li>'; 
     jQuery("#"+idTabela).append(recRow); 
     
 }
