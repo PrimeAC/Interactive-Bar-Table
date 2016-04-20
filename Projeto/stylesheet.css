@@ -579,15 +579,22 @@ tr .name {
 /*musica*/
 tr .time {
 	text-align: right;
+	width: 20%;
 }
 
 tr .artist {
-	text-align: middle;
+	margin-left: auto;
+	width: 40%;
 }
 
-#bib {
-	background-color: #006df0;
+.artist {
+	font-weight: bold;
+	font-size: 125%;
 }
 
+.time {
+	font-weight: bold;
+	font-size: 125%;
+}
 
 /*musica*/
