@@ -72,13 +72,13 @@
   		<!--fim da barra fixa-->
   	<table style="position: absolute;width: 100%;"> <!--estes styles se calhar sao precisos tirar noos vossos pc-->
   		<tr>
-  			<td style="width: 30%;">
+  			<td style="width:20%;">
 		  		<table id="submenu">
 		  			<tr>
-		  				<td><div class="icones_menu" id="beb" onclick="changeDiv('bebidas','comida')">Biblioteca de músicas</div></td>
+		  				<td><div class="icones_menu" id="beb" onclick="changeDiv('bebidas','comida')">Playlist</div></td>
 		  			</tr>
 		  			<tr>
-		  				<td><div class="icones_menu" id="com" onclick="changeDiv('comida','bebidas')">Playlist</div></td>
+		  				<td><div class="icones_menu" id="com" onclick="changeDiv('comida','bebidas')">Músicas</div></td>
 		  			</tr>
 		  		</table>
 			</td>
@@ -86,179 +86,180 @@
 				<div id="bebidas">
 			  		<input class="search" placeholder="Search" onclick="Search('bebidas')" />
 			  		<button class="sort" data-sort="name" onclick="Search('bebidas')">
-			  			Pesquisar por musica
+			  			Ordenar por música
 			  		</button>
+  		
+					<td>
+						<div id="comida"> 
+					  		<input class="search" placeholder="Search" onclick="Search('comida')" /> <!--escrever para procurar-->
+					  		<button class="sort" data-sort="name" onclick="Search('comida')"> <!--procurar por ordem alfabetica-->
+					  			Ordenar por música
+					  		</button>
 
-			  		
-			  		<ul class="list">
-			  			<li onclick="" class="icones_bebidas">
-			  				<table>
-			  					<tr>
-			  						<td id="add"><img src="add.png"/></td>
-						  			<td class="name">7 Years</td>
-						  			<td class="artist">Lukas Graham</td>
-						  			<td class="time">4:00</td>
-						  		</tr>
-						  	</table>
-				  		</li>
-				  		<li onclick="" class="icones_bebidas">
-				  			<table>
-			  					<tr>
-			  						<td id="add"><img src="add.png"/></td>
-			  						<td class="name">Makeup</td>
-						  			<td class="artist">AGIR</td>
-						  			<td class="time">4:00</td>
-						  	</table>
-				  		</li>
-				  		<li onclick="" class="icones_bebidas">
-				  			<table>
-			  					<tr>
-			  						<td id="add"><img src="add.png"/></td>
-			  						<td class="name">Faded</td>
-						  			<td class="artist">Alan Walker</td>
-						  			<td class="time">3:33</td>
-						  		</tr>
-						  	</table>
-				  		</li>
-				  		<li onclick="" class="icones_bebidas">
-				  			<table>
-			  					<tr>
-			  						<td id="add"><img src="add.png"/></td>
-						  			<td class="name">Amnesia</td>
-						  			<td class="artist">5 Seconds of Summer</td>
-						  			<td class="time">4:12</td>
-						  		</tr>
-						  	</table>
-				  		</li>
-				  		<li onclick="" class="icones_bebidas">
-				  			<table>
-			  					<tr>
-			  						<td id="add"><img src="add.png"/></td>
-						  			<td class="name">Lonely</td>
-						  			<td class="artist">Akon</td>
-						  			<td class="time">4:24</td>
-						  		</tr>
-						  	</table>
-				  		</li>
-				  		<li onclick="" class="icones_bebidas">
-				  			<table>
-			  					<tr>
-			  						<td id="add"><img src="add.png"/></td>
-			  						<td class="name">That's How You Know</td>
-						  			<td class="artist">Nico & Vinz</td>
-						  			<td class="time">4:04</td>
-						  		</tr>
-						  	</table>
-				  		</li>
-				  		<li onclick="" class="icones_bebidas">
-				  			<table>
-			  					<tr>
-			  						<td id="add"><img src="add.png"/></td>
-			  						<td class="name">Hollow</td>
-						  			<td class="artist">Tory Kelly</td>
-						  			<td class="time">3:40</td>
-						  		</tr>
-						  	</table>
-				  		</li>
-				  		<li onclick="" class="icones_bebidas">
-				  			<table>
-			  					<tr>
-			  						<td id="add"><img src="add.png"/></td>
-			  						<td class="name">Rock Botom</td>
-						  			<td class="artist">Hailee Steinfeld</td>
-						  			<td class="time">3:37</td>
-						  		</tr>
-						  	</table>
-				  		</li>
-				  		<li onclick="" class="icones_bebidas">
-				  			<table>
-			  					<tr>
-			  						<td id="add"><img src="add.png"/></td>
-			  						<td class="name">We Belong Together</td>
-						  			<td class="artist">Mariah Carey</td>
-						  			<td class="time">3:25</td>
-						  		</tr>
-						  	</table>
-				  		</li>
-				  		<li onclick="" class="icones_bebidas">
-				  			<table>
-			  					<tr>
-			  						<td id="add"><img src="add.png"/></td>
-			  						<td class="name">Take On Me</td>
-						  			<td class="artist">a-ha</td>
-						  			<td class="time">3:48</td>
-						  		</tr>
-						  	</table>
-				  		</li>
-				  		<li onclick="" class="icones_bebidas">
-				  			<table>
-			  					<tr>
-			  						<td id="add"><img src="add.png"/></td>
-						  			<td class="name">She Will Be Loved</td>
-						  			<td class="artist">Maroon 5</td>
-						  			<td class="time">4:27</td>
-						  		</tr>
-						  	</table>
-				  		</li>
-				  		<li onclick="" class="icones_bebidas">
-				  			<table>
-			  					<tr>
-			  						<td id="add"><img src="add.png"/></td>
-			  						<td class="name">Thousand Miles</td>
-						  			<td class="artist">Vanessa Carlton</td>
-						  			<td class="time">4:29</td>
-						  		</tr>
-						  	</table>
-				  		</li>
-				  		<li onclick="" class="icones_bebidas">
-				  			<table>
-			  					<tr>
-			  						<td id="add"><img src="add.png"/></td>
-			  						<td class="name">The Scientist</td>
-						  			<td class="artist">Coldplay</td>
-						  			<td class="time">4:25</td>
-						  		</tr>
-						  	</table>
-				  		</li>
-				  		<li onclick="" class="icones_bebidas">
-				  			<table>
-			  					<tr>
-			  						<td id="add"><img src="add.png"/></td>
-			  						<td class="name">Big Girls Don't Cry</td>
-						  			<td class="artist">Fergie</td>
-						  			<td class="time">5:06</td>
-						  		</tr>
-						  	</table>
-				  		</li>
-				  		<li onclick="" class="icones_bebidas">
-				  			<table>
-			  					<tr>
-			  						<td id="add"><img src="add.png"/></td>
-			  						<td class="name">Just The Way You Are</td>
-						  			<td class="artist">Bruno Mars</td>
-						  			<td class="time">4:02</td>
-						  	</table>
-				  		</li>
-				  		<li onclick="" class="icones_bebidas">
-				  			<table>
-			  					<tr>
-			  						<td id="add"><img src="add.png"/></td>
-			  						<td class="name">Animals</td>
-						  			<td class="artist">Martin Garrix</td>
-						  			<td class="time">3:12</td>
-						  		</tr>
-						  	</table>
-				  		</li>
-			  		</ul>
-			  			
-			  	</div>
-			</td>
-			<td>
-				<div id="comida"> 
-			  		<input class="search" placeholder="Search" onclick="Search('comida')" /> <!--escrever para procurar-->
-			  		<button class="sort" data-sort="name" onclick="Search('comida')"> <!--procurar por ordem alfabetica-->
-			  			Pesquisar por música
-			  		</button>
+					  					  		<ul class="list">
+					  			<li onclick="" class="icones_bebidas">
+					  				<table>
+					  					<tr>
+					  						<td id="add"><img src="add.png"/></td>
+								  			<td class="name">7 Years</td>
+								  			<td class="artist">Lukas Graham</td>
+								  			<td class="time">4:00</td>
+								  		</tr>
+								  	</table>
+						  		</li>
+						  		<li onclick="" class="icones_bebidas">
+						  			<table>
+					  					<tr>
+					  						<td id="add"><img src="add.png"/></td>
+					  						<td class="name">Makeup</td>
+								  			<td class="artist">AGIR</td>
+								  			<td class="time">4:00</td>
+								  	</table>
+						  		</li>
+						  		<li onclick="" class="icones_bebidas">
+						  			<table>
+					  					<tr>
+					  						<td id="add"><img src="add.png"/></td>
+					  						<td class="name">Faded</td>
+								  			<td class="artist">Alan Walker</td>
+								  			<td class="time">3:33</td>
+								  		</tr>
+								  	</table>
+						  		</li>
+						  		<li onclick="" class="icones_bebidas">
+						  			<table>
+					  					<tr>
+					  						<td id="add"><img src="add.png"/></td>
+								  			<td class="name">Amnesia</td>
+								  			<td class="artist">5 Seconds of Summer</td>
+								  			<td class="time">4:12</td>
+								  		</tr>
+								  	</table>
+						  		</li>
+						  		<li onclick="" class="icones_bebidas">
+						  			<table>
+					  					<tr>
+					  						<td id="add"><img src="add.png"/></td>
+								  			<td class="name">Lonely</td>
+								  			<td class="artist">Akon</td>
+								  			<td class="time">4:24</td>
+								  		</tr>
+								  	</table>
+						  		</li>
+						  		<li onclick="" class="icones_bebidas">
+						  			<table>
+					  					<tr>
+					  						<td id="add"><img src="add.png"/></td>
+					  						<td class="name">That's How You Know</td>
+								  			<td class="artist">Nico & Vinz</td>
+								  			<td class="time">4:04</td>
+								  		</tr>
+								  	</table>
+						  		</li>
+						  		<li onclick="" class="icones_bebidas">
+						  			<table>
+					  					<tr>
+					  						<td id="add"><img src="add.png"/></td>
+					  						<td class="name">Hollow</td>
+								  			<td class="artist">Tory Kelly</td>
+								  			<td class="time">3:40</td>
+								  		</tr>
+								  	</table>
+						  		</li>
+						  		<li onclick="" class="icones_bebidas">
+						  			<table>
+					  					<tr>
+					  						<td id="add"><img src="add.png"/></td>
+					  						<td class="name">Rock Botom</td>
+								  			<td class="artist">Hailee Steinfeld</td>
+								  			<td class="time">3:37</td>
+								  		</tr>
+								  	</table>
+						  		</li>
+						  		<li onclick="" class="icones_bebidas">
+						  			<table>
+					  					<tr>
+					  						<td id="add"><img src="add.png"/></td>
+					  						<td class="name">We Belong Together</td>
+								  			<td class="artist">Mariah Carey</td>
+								  			<td class="time">3:25</td>
+								  		</tr>
+								  	</table>
+						  		</li>
+						  		<li onclick="" class="icones_bebidas">
+						  			<table>
+					  					<tr>
+					  						<td id="add"><img src="add.png"/></td>
+					  						<td class="name">Take On Me</td>
+								  			<td class="artist">a-ha</td>
+								  			<td class="time">3:48</td>
+								  		</tr>
+								  	</table>
+						  		</li>
+						  		<li onclick="" class="icones_bebidas">
+						  			<table>
+					  					<tr>
+					  						<td id="add"><img src="add.png"/></td>
+								  			<td class="name">She Will Be Loved</td>
+								  			<td class="artist">Maroon 5</td>
+								  			<td class="time">4:27</td>
+								  		</tr>
+								  	</table>
+						  		</li>
+						  		<li onclick="" class="icones_bebidas">
+						  			<table>
+					  					<tr>
+					  						<td id="add"><img src="add.png"/></td>
+					  						<td class="name">Thousand Miles</td>
+								  			<td class="artist">Vanessa Carlton</td>
+								  			<td class="time">4:29</td>
+								  		</tr>
+								  	</table>
+						  		</li>
+						  		<li onclick="" class="icones_bebidas">
+						  			<table>
+					  					<tr>
+					  						<td id="add"><img src="add.png"/></td>
+					  						<td class="name">The Scientist</td>
+								  			<td class="artist">Coldplay</td>
+								  			<td class="time">4:25</td>
+								  		</tr>
+								  	</table>
+						  		</li>
+						  		<li onclick="" class="icones_bebidas">
+						  			<table>
+					  					<tr>
+					  						<td id="add"><img src="add.png"/></td>
+					  						<td class="name">Big Girls Don't Cry</td>
+								  			<td class="artist">Fergie</td>
+								  			<td class="time">5:06</td>
+								  		</tr>
+								  	</table>
+						  		</li>
+						  		<li onclick="" class="icones_bebidas">
+						  			<table>
+					  					<tr>
+					  						<td id="add"><img src="add.png"/></td>
+					  						<td class="name">Just The Way You Are</td>
+								  			<td class="artist">Bruno Mars</td>
+								  			<td class="time">4:02</td>
+								  	</table>
+						  		</li>
+						  		<li onclick="" class="icones_bebidas">
+						  			<table>
+					  					<tr>
+					  						<td id="add"><img src="add.png"/></td>
+					  						<td class="name">Animals</td>
+								  			<td class="artist">Martin Garrix</td>
+								  			<td class="time">3:12</td>
+								  		</tr>
+								  	</table>
+						  		</li>
+					  		</ul>
+					  			
+					  	</div>
+					</td>
+
 			</td>
 	  	</tr>
     </table>
