@@ -55,7 +55,18 @@ a {
 	float: left;
 }
 
-
+#menu:hover {
+	cursor: pointer;
+}
+#home:hover {
+	cursor: pointer;
+}
+#historico:hover {
+	cursor: pointer;
+}
+#musica:hover {
+	cursor: pointer;
+}
 
 /*barra fixa no topo*/
 
@@ -307,8 +318,7 @@ a {
 }
 /*menu*/
 
-/*musica*/
-/*musica*/
+
 
 /*historico*/
 #tabela{
@@ -574,5 +584,31 @@ tr .price {
 tr .name {
 	text-align: left;
 }
+tr .artist {
+	text-align: left;
+}
 /*lista com procura*/
 
+
+/*musica*/
+tr .time {
+	text-align: right;
+	width: 20%;
+}
+
+tr .artist {
+	margin-left: auto;
+	width: 40%;
+}
+
+.artist {
+	font-weight: bold;
+	font-size: 125%;
+}
+
+.time {
+	font-weight: bold;
+	font-size: 125%;
+}
+
+/*musica*/

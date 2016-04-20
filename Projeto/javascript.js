@@ -75,7 +75,7 @@ function deleteList(idTabela) {
 /*divs dos produtos a funcionar com procura*/
 function Search(id) { 
   var options = {
-    valueNames: [ 'name', 'type', 'price', 'description' ]
+    valueNames: [ 'name', 'type', 'price', 'description' , 'artist']
   };
   if (id == "bebidas") {
     var userList = new List('bebidas', options);
@@ -556,19 +556,32 @@ function refresh() {
 }
 
 function changePage(id) {
-  if(lista_pro.length > 0) {  
-    if(confirm('Tem a certeza que deseja mudar de página? Ao sair perderá o pedido atual.')) {
-      sessionStorage.setItem('valor_prod',0);
+  if(id != 'menu') {
+    if(lista_pro.length > 0) {  
+      if(confirm('Tem a certeza que deseja mudar de página? Ao sair perderá o pedido atual.')) {
+        sessionStorage.setItem('valor_prod',0);
+        if(id == 'home') {
+	      location.href = "index.html";
+	    }
+	    else if(id == 'musica') {
+	      location.href = "musica.html";
+	    }
+	    else if(id == 'historico') {
+	      location.href = "historico.html";
+	    }
+      }
     }
-  }
-  if(id == 'home') {
-    location.href = "index.html";
-  }
-  else if(id == 'musica') {
-    location.href = "musica.html";
-  }
-  else if(id == 'historico') {
-    location.href = "historico.html";
+    else {
+		if(id == 'home') {
+	      location.href = "index.html";
+	    }
+	    else if(id == 'musica') {
+	      location.href = "musica.html";
+	    }
+	    else if(id == 'historico') {
+	      location.href = "historico.html";
+	    }
+    }
   }
 }
 
@@ -701,4 +714,11 @@ function decode(removeNum) {
   if(removeNum == 26){
     rowCount = "Tiras_de_Milho";
   }
+}
+
+
+function addToPlay(idTabela, musica, artista, tempo) {
+	var recRow = '<li id="'+musica+'" class="icones_bebidas"><table><tr><td id="'+musica+'qtd" style="width:15%;"><a href="javascript:void(0);" onclick="Like('+rowCount+');"><img src="like_azul.png" class="add"/></a></td><td style="width:45%;" class="name">'+musica+'</td><td style="width:25%;" class="artist">'+artista+'</td><td style="width:15%;">'+tempo+'</td></tr></table></li>'; 
+    jQuery("#"+idTabela).append(recRow); 
+    
 }
