@@ -45,7 +45,6 @@ var lista_pro = []; /*guarda os pedidos atuais*/
 function addItem(idTabela,pedido,preço) {
   lista_pro.push(pedido);
   /*lista_pro.push(preço);*/
-  alert(lista_pro);
   var newRow = d.createElement('tr');
   /*newRow.insertCell(0).innerHTML = "-";*/
   newRow.insertCell(0).innerHTML = 1;
@@ -111,7 +110,6 @@ function deleteMsg(idTabela) {
 
 function emptyArray() {
   while(lista_pro.length > 0) {
-    alert(lista_pro);
     lista_pro.pop();
   }
 }
@@ -136,12 +134,9 @@ function storeArray() {
 }
 
 function getArray() {
-  alert("sadsf "+cnt);
   var storedData = sessionStorage.getItem(cnt);
   if (storedData) {
-    alert("enter");
     list = JSON.parse(storedData);
-    alert('list: '+list);
   }
 
 }
@@ -221,9 +216,11 @@ function addHist(idTabela, qtd, pedido, preço) {
   newRow.insertCell(1).innerHTML = pedido;
   newRow.insertCell(2).innerHTML = preço;
   d.getElementById(idTabela).appendChild(newRow);
-  valor1 += parseFloat(preço);
-  total('historico_par', valor1);
-  return false;
+  if(idTabela == "historicotab") {
+	  valor1 += parseFloat(preço);
+	  total('historico_par', valor1);
+	}
+
 }
 
 /*function seeHist() {
@@ -762,7 +759,7 @@ function addSong(musica, artista,tempo){
   for(i=0;i<size;i++) {
     /*alert("i "+sessionStorage.key(i));*/
     if(sessionStorage.key(i) == musica) {
-      /*alert("repetido");*/
+      alert("Música já existente na playlist");
       return;
     }
   }
@@ -807,6 +804,13 @@ function like(linha) {
     var related = JSON.parse(sessionStorage.getItem(rowCount)); 
     var gostos = related[2];
     gostos +=1;
+    sessionStorage.setItem(rowCount,JSON.stringify([related[0],related[1],gostos]));
+  }
+  else {
+  	image.src = "like_preto.png";
+    var related = JSON.parse(sessionStorage.getItem(rowCount)); 
+    var gostos = related[2];
+    gostos -=1;
     sessionStorage.setItem(rowCount,JSON.stringify([related[0],related[1],gostos]));
   }
 }

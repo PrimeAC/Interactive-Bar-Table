@@ -324,14 +324,12 @@ a {
 
 .tabela{
 	max-width: 85%;
-	margin-top: 2%;
-	width: 48%;
-	
-	margin-left: auto;
-
-	overflow-y: scroll;
-
-	height: 250px;
+    margin-top: 2%;
+    width: 40%;
+    margin-right: auto;
+    margin-left: auto;
+    overflow-y: scroll;
+    height: 250px;
 }
 
 
@@ -395,7 +393,7 @@ table#historicotab td {
 	margin-left: auto;
 	margin-right: auto;
 	font-size: 40px;
-	color: white;
+	color: #333;
 
 }
 
@@ -416,8 +414,12 @@ table#historicotab td {
 
 #historico_par {
 	font-size: 60px;
-	padding-left: 75%;
-	color: white;
+	color: #333;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 2%; 
+	display: flex;
+	justify-content: space-between;
 }
 /*historico*/
 
