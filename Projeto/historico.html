@@ -10,7 +10,7 @@
   <script src="javascript.js"></script> <!--importa o codigo javascript do ficheiro javascript.js-->
 
   </head>
-  <body onload="seeHist()">
+  <body onload=" seeProd(); seeHist()">
 
   <!--para criar a barra fixa no topo-->
   	<div id="barra">
@@ -64,22 +64,41 @@
 		</a>
   	</div>
   	<!--fim da barra fixa-->
+  	<div id="TitulosH">
+  		<p class="historicoTitulos" style="float: left">Ultimo pedido:</p>
+  		<p class="historicoTitulos">Todos os pedidos:</p>
+  	</div>
 
-    <!--inicio tabela historico-->
-    <div id="tabela" onclick="deleteAllStorage()">
-      <table id="historicotab"  align="center">
-        <tr id="table_header">
-          <th style="width: 15%">Qtd</th>
-          <th style="width: 65%">Artigos</th>		
-          <th style="width: 20%">Preço</th>
-        </tr>
-      <!--</table>
-    </div>
-    <div id="tabela10">
-      <table id="historicotab1" align="center">-->
-        
-      </table>
-    </div>
+	  	<div class="tabela" onclick="deleteAllStorage()" style="float:left;">
+	      <table id="prodtab" align="center">
+	        <tr id="table_header">
+	          <th style="width: 15%">Qtd</th>
+	          <th style="width: 65%">Artigos</th>		
+	          <th style="width: 20%">Preço</th>
+	        </tr>
+	      <!--</table>
+	    </div>
+	    <div id="tabela10">
+	      <table id="historicotab1" align="center">-->
+	        
+	      </table>
+	    </div>
+
+	    <!--inicio tabela historico-->
+	    <div class="tabela" onclick="deleteAllStorage()">
+	      <table id="historicotab"  align="center">
+	        <tr id="table_header">
+	          <th style="width: 15%">Qtd</th>
+	          <th style="width: 65%">Artigos</th>		
+	          <th style="width: 20%">Preço</th>
+	        </tr>
+	      <!--</table>
+	    </div>
+	    <div id="tabela10">
+	      <table id="historicotab1" align="center">-->
+	        
+	      </table>
+	  	</div>
     <!--fim tabela historico-->
     <p id="historico_par" onclick="listAllItems()">Total:</p>
 
