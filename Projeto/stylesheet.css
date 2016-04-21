@@ -321,15 +321,19 @@ a {
 
 
 /*historico*/
-#tabela{
+
+.tabela{
 	max-width: 85%;
-	margin-top: 5%;
-	width: 100%;
-	margin-right: auto;
+	margin-top: 2%;
+	width: 48%;
+	
 	margin-left: auto;
+
 	overflow-y: scroll;
+
 	height: 250px;
 }
+
 
 /*#tabela10 {
 	overflow-y: scroll;
@@ -338,6 +342,26 @@ a {
 	margin-right: auto;
 	margin-left: auto;
 }*/
+
+#prodtab {
+	width: 100%;
+	opacity: 0.75;
+	
+}
+
+table#prodtab th	{
+    background-color: #333;
+    color: white;
+    height: 50%;
+}
+
+table#prodtab td {
+	background-color:white;
+	color:#333;
+	padding: 0.7%;
+}
+
+
 
 #historicotab {
 	width: 100%;
@@ -367,6 +391,21 @@ table#historicotab td {
 	padding: 0.7%;
 }
 
+.historicoTitulos {
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 40px;
+	color: white;
+
+}
+
+#TitulosH {
+	margin-top: 2%;
+	display: flex;
+    justify-content: space-between;
+
+}
+
 .primeira_col {
 	text-align: center;
 }
@@ -376,9 +415,8 @@ table#historicotab td {
 }
 
 #historico_par {
-	font-family: Arial;
 	font-size: 60px;
-	padding-left: 55%;
+	padding-left: 75%;
 	color: white;
 }
 /*historico*/

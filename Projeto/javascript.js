@@ -111,9 +111,11 @@ function deleteMsg(idTabela) {
 
 function emptyArray() {
   while(lista_pro.length > 0) {
+    alert(lista_pro);
     lista_pro.pop();
   }
 }
+
 var cnt = 0;
 var lista_pro_t;
 function storeArray() {
@@ -153,10 +155,39 @@ function total(id,valor) {
 
 
 /*session storage*/
+function seeProd() {
+  var prod_hist = sessionStorage.getItem(0);
 
+  if (prod_hist) {
+    list = JSON.parse(prod_hist);
+    var len = list.length;
+    for(i=0; i < len ; i++) {
+      if (list[i] =="Café" || list[i] =="Amendioins" || list[i] =="Tremoços") {
+        addHist('prodtab', 1, list[i], "1.00€");
+      }
+      else if(list[i] =="Cachorro_Quente" || list[i] =="Bifana" || list[i] =="Prego_no_Pão") {
+        addHist('prodtab', 1, list[i], "4.00€");
+      }
+      else if (list[i] =="Hamburger") {
+        addHist('prodtab', 1, list[i], "6.00€");
+      }
+      else if (list[i] =="Cheeseburger") {
+        addHist('prodtab', 1, list[i], "6.50€");
+      }
+      else if (list[i] =="Coca-Cola" || list[i] =="Ice-Tea") {
+        addHist('prodtab', 1, list[i], "1.50€");
+      }
+      else {
+        addHist('prodtab', 1, list[i], "2.00€");
+      }
+    }
+  }
+  
+}
 
 function seeHist() {
   var prod_hist = sessionStorage.getItem('lista_hist');
+
   if (prod_hist) {
     list = JSON.parse(prod_hist);
     var len = list.length;
