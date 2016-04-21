@@ -15,7 +15,7 @@
   <script src="jquery.js">></script> 
 
   </head>
-  <body>
+  <body onload="seeSong()">
 
   <!--para criar a barra fixa no topo-->
   	<div id="barra">
@@ -43,7 +43,7 @@
 			    	</table>
 		  	</div>
 		</a>
-		<a href="musica.html">
+		<!--<a href="musica.html">-->
 		  	<div class="icones" id="musica" style="border-color: #006df0;">
 		  		<table  class="header_table">
 			  			<tr>
@@ -54,7 +54,7 @@
 		    		</tr>	
 		    	</table>
 		  	</div>
-		</a>
+		<!--</a>-->
 		<a href="historico.html">
 		  	<div class="icones" id="historico">
 		  		<table  class="header_table">
@@ -104,7 +104,7 @@
 			  		</button>
 
 			  		<ul class="list">
-			  			<li onclick="addToPlay('play', '7 Years', 'Lukas Graham', '4:00')" class="icones_bebidas">
+			  			<li onclick="addSong('7_Years', 'Lukas Graham', '4:00')" class="icones_bebidas">
 			  				<table>
 			  					<tr>
 			  						<td id="add"><img src="add.png"/></td>
@@ -114,7 +114,7 @@
 						  		</tr>
 						  	</table>
 				  		</li>
-				  		<li onclick="addToPlay('play', 'Makeup', 'AGIR', '4:00')" class="icones_bebidas">
+				  		<li onclick="addSong('Makeup', 'AGIR', '4:00')" class="icones_bebidas">
 				  			<table>
 			  					<tr>
 			  						<td id="add"><img src="add.png"/></td>
@@ -123,7 +123,7 @@
 						  			<td class="time">4:00</td>
 						  	</table>
 				  		</li>
-				  		<li onclick="" class="icones_bebidas">
+				  		<li onclick="addSong('Faded', 'Alan Walker', '3:33')" class="icones_bebidas">
 				  			<table>
 			  					<tr>
 			  						<td id="add"><img src="add.png"/></td>
@@ -133,7 +133,7 @@
 						  		</tr>
 						  	</table>
 				  		</li>
-				  		<li onclick="" class="icones_bebidas">
+				  		<li onclick="addSong('Amnesia', '5 Seconds of Summer', '4:12')" class="icones_bebidas">
 				  			<table>
 			  					<tr>
 			  						<td id="add"><img src="add.png"/></td>
@@ -143,7 +143,7 @@
 						  		</tr>
 						  	</table>
 				  		</li>
-				  		<li onclick="" class="icones_bebidas">
+				  		<li onclick="addSong('Lonely', 'Akon', '4:24')" class="icones_bebidas">
 				  			<table>
 			  					<tr>
 			  						<td id="add"><img src="add.png"/></td>
@@ -153,7 +153,7 @@
 						  		</tr>
 						  	</table>
 				  		</li>
-				  		<li onclick="" class="icones_bebidas">
+				  		<li onclick="addSong('That_s_How_You_Know', 'Nico & Vinz', '4:04')" class="icones_bebidas">
 				  			<table>
 			  					<tr>
 			  						<td id="add"><img src="add.png"/></td>
@@ -163,7 +163,7 @@
 						  		</tr>
 						  	</table>
 				  		</li>
-				  		<li onclick="" class="icones_bebidas">
+				  		<li onclick="addSong('Hollow', 'Tory Kelly', '3:40')" class="icones_bebidas">
 				  			<table>
 			  					<tr>
 			  						<td id="add"><img src="add.png"/></td>
@@ -173,7 +173,7 @@
 						  		</tr>
 						  	</table>
 				  		</li>
-				  		<li onclick="" class="icones_bebidas">
+				  		<li onclick="addSong('Rock_Botom', 'Hailee Steinfeld', '3:37')" class="icones_bebidas">
 				  			<table>
 			  					<tr>
 			  						<td id="add"><img src="add.png"/></td>
@@ -183,7 +183,7 @@
 						  		</tr>
 						  	</table>
 				  		</li>
-				  		<li onclick="" class="icones_bebidas">
+				  		<li onclick="addSong('We_Belong_Together', 'Mariah Carey', '3:25')" class="icones_bebidas">
 				  			<table>
 			  					<tr>
 			  						<td id="add"><img src="add.png"/></td>
@@ -193,7 +193,7 @@
 						  		</tr>
 						  	</table>
 				  		</li>
-				  		<li onclick="" class="icones_bebidas">
+				  		<li onclick="addSong('Take_On_Me', 'a-ha', '3:48')" class="icones_bebidas">
 				  			<table>
 			  					<tr>
 			  						<td id="add"><img src="add.png"/></td>
@@ -203,7 +203,7 @@
 						  		</tr>
 						  	</table>
 				  		</li>
-				  		<li onclick="" class="icones_bebidas">
+				  		<li onclick="addSong('She_Will_Be_Loved', 'Maroon 5', '4:27')" class="icones_bebidas">
 				  			<table>
 			  					<tr>
 			  						<td id="add"><img src="add.png"/></td>
@@ -213,7 +213,7 @@
 						  		</tr>
 						  	</table>
 				  		</li>
-				  		<li onclick="" class="icones_bebidas">
+				  		<li onclick="addSong('Thousand_Miles', 'Vanessa Carlton', '4:29')" class="icones_bebidas">
 				  			<table>
 			  					<tr>
 			  						<td id="add"><img src="add.png"/></td>
@@ -223,7 +223,7 @@
 						  		</tr>
 						  	</table>
 				  		</li>
-				  		<li onclick="" class="icones_bebidas">
+				  		<li onclick="addSong('The_Scientist', 'Coldplay', '4:25')" class="icones_bebidas">
 				  			<table>
 			  					<tr>
 			  						<td id="add"><img src="add.png"/></td>
@@ -233,7 +233,7 @@
 						  		</tr>
 						  	</table>
 				  		</li>
-				  		<li onclick="" class="icones_bebidas">
+				  		<li onclick="addSong('Big_Girls_Don_t_Cry', 'Fergie', '5:06')" class="icones_bebidas">
 				  			<table>
 			  					<tr>
 			  						<td id="add"><img src="add.png"/></td>
@@ -243,7 +243,7 @@
 						  		</tr>
 						  	</table>
 				  		</li>
-				  		<li onclick="" class="icones_bebidas">
+				  		<li onclick="addSong('Just_The_Way_You_Are', 'Bruno Mars', '4:02')" class="icones_bebidas">
 				  			<table>
 			  					<tr>
 			  						<td id="add"><img src="add.png"/></td>
@@ -252,7 +252,7 @@
 						  			<td class="time">4:02</td>
 						  	</table>
 				  		</li>
-				  		<li onclick="" class="icones_bebidas">
+				  		<li onclick="addSong('Animals', 'Martin Garrix', '3:12')" class="icones_bebidas">
 				  			<table>
 			  					<tr>
 			  						<td id="add"><img src="add.png"/></td>

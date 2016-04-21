@@ -718,7 +718,220 @@ function decode(removeNum) {
 
 
 function addToPlay(idTabela, musica, artista, tempo) {
-	var recRow = '<li id="'+musica+'" class="icones_bebidas"><table><tr><td id="'+musica+'qtd" style="width:15%;"><a href="javascript:void(0);" onclick="Like('+rowCount+');"><img src="add.png" class="add"/></a></td><td style="width:45%;" class="name">'+musica+'</td><td style="width:25%;" class="artist">'+artista+'</td><td style="width:15%;">'+tempo+'</td></tr></table></li>'; 
-    jQuery("#"+idTabela).append(recRow); 
+  encode(musica);
+  embelezaMusica(musica);
+	var recRow = '<li id="'+musica+'" class="icones_bebidas"><table><tr><td style="width:15%;"><a href="javascript:void(0);" onclick="like('+rowCount+');"><img src="like_preto.png" id="'+musica+'qtd" class="add"/></a></td><td style="width:45%;" class="name">'+song+'</td><td style="width:25%;" class="artist">'+artista+'</td><td style="width:15%;" class="time">'+tempo+'</td></tr></table></li>'; 
+  jQuery("#"+idTabela).append(recRow); 
     
+}
+
+function addSong(musica, artista,tempo){
+  var size = sessionStorage.length;
+  /*alert(size);*/
+  for(i=0;i<size;i++) {
+    /*alert("i "+sessionStorage.key(i));*/
+    if(sessionStorage.key(i) == musica) {
+      /*alert("repetido");*/
+      return;
+    }
+  }
+  /*alert("ooooo");*/
+  var music = [artista, tempo, 0];
+  sessionStorage.setItem(musica, JSON.stringify(music));
+  addToPlay('play',musica,artista,tempo);
+  alert("Música adicionada com sucesso.");
+}
+
+function seeSong() {
+  var size = sessionStorage.length;
+  /*alert("sjdoi"+size);*/
+  for(i=0;i<size;i++) {
+    if(sessionStorage.key(i) != "valor_prod" && sessionStorage.key(i) != "0" && sessionStorage.key(i) != "lista_hist") {
+      var nome = sessionStorage.key(i);
+      var related = JSON.parse(sessionStorage.getItem(nome));
+      var artista = related[0];
+      var tempo = related[1];
+      var gostos = related[2];
+      /*alert("este é "+artista+" "+gostos);*/
+      addToPlay('play',nome,artista,tempo);
+      if(gostos >= 1) {
+        like(nome);
+
+      }
+    }
+
+  }
+}
+
+
+function like(linha) {
+  /*alert(linha);*/
+  decodeMusic(linha);
+  /*alert(rowCount+'qtd');*/
+  var image = document.getElementById(rowCount+'qtd'); 
+  getFileNameFromPath(image.src);
+  /*alert("img: "+ary[ary.length - 1]);*/
+  if(ary[ary.length - 1] == "like_preto.png") { 
+    image.src = "like_azul.png";
+    var related = JSON.parse(sessionStorage.getItem(rowCount)); 
+    var gostos = related[2];
+    gostos +=1;
+    sessionStorage.setItem(rowCount,JSON.stringify([related[0],related[1],gostos]));
+  }
+}
+
+function getFileNameFromPath(path) {
+  ary = path.split("/");
+  return ary[ary.length - 1];
+}
+
+
+function encode(musica) {
+  if(musica == "7_Years"){
+    rowCount = 1;
+  }
+  if(musica == "Makeup"){
+    rowCount = 2;
+  }
+  if(musica == "Faded"){
+    rowCount = 3;
+  }
+  if(musica == "Amnesia"){
+    rowCount = 4;
+  }
+  if(musica == "Lonely"){
+    rowCount = 5;
+  }
+  if(musica == "That_s_How_You_Know"){
+    rowCount = 6;
+  }
+  if(musica == "Hollow"){
+    rowCount = 7;
+  }
+  if(musica == "Rock_Botom"){
+    rowCount = 8;
+  }
+  if(musica == "We_Belong_Together"){
+    rowCount = 9;
+  }
+  if(musica == "Take_On_Me"){
+    rowCount = 10;
+  }
+  if(musica == "She_Will_Be_Loved"){
+    rowCount = 11;
+  }
+  if(musica == "Thousand_Miles"){
+    rowCount = 12;
+  }
+  if(musica == "The_Scientist"){
+    rowCount = 13;
+  }
+  if(musica == "Big_Girls_Don_t_Cry"){
+    rowCount = 14;
+  }
+  if(musica == "Just_The_Way_You_Are"){
+    rowCount = 15;
+  }
+  if(musica == "Animals"){
+    rowCount = 16;
+  }
+}
+
+var song="";
+function embelezaMusica(musica) {  /*tira os _ e mete espaços para ficar mais bonito a imprimir*/
+  if(musica == "7_Years"){
+    song = "7 Years";
+    return;
+  }
+  if(musica == "That_s_How_You_Know"){
+    song = "That's How You Know";
+    return;
+  }
+  if(musica == "Rock_Botom"){
+    song = "Rock Botom";
+    return;
+  }
+  if(musica == "We_Belong_Together"){
+    song = "We Belong Together";
+    return;
+  }
+  if(musica == "Take_On_Me"){
+    song = "Take On Me";
+    return;
+  }
+  if(musica == "She_Will_Be_Loved"){
+    song = "She Will Be Loved";
+    return;
+  }
+  if(musica == "Thousand_Miles"){
+    song = "Thousand Miles";
+    return;
+  }
+  if(musica == "The_Scientist"){
+    song = "The Scientist";
+    return;
+  }
+  if(musica == "Big_Girls_Don_t_Cry"){
+    song = "Big Girls Don't Cry";
+    return;
+  }
+  if(musica == "Just_The_Way_You_Are"){
+    song = "Just The Way You Are";
+    return;
+  }
+  else {
+    song = musica;
+  }
+}
+
+
+function decodeMusic(musica) {
+  if(musica == 1){
+    rowCount = "7_Years";
+  }
+  if(musica == 2){
+    rowCount = "Makeup";
+  }
+  if(musica == 3){
+    rowCount = "Faded";
+  }
+  if(musica == 4){
+    rowCount = "Amnesia";
+  }
+  if(musica == 5){
+    rowCount = "Lonely";
+  }
+  if(musica == 6){
+    rowCount = "That_s_How_You_Know";
+  }
+  if(musica == 7){
+    rowCount = "Hollow";
+  }
+  if(musica == 8){
+    rowCount = "Rock_Botom";
+  }
+  if(musica == 9){
+    rowCount = "We_Belong_Together";
+  }
+  if(musica == 10){
+    rowCount = "Take_On_Me";
+  }
+  if(musica == 11){
+    rowCount = "She_Will_Be_Loved";
+  }
+  if(musica == 12){
+    rowCount = "Thousand_Miles";
+  }
+  if(musica == 13){
+    rowCount = "The_Scientist";
+  }
+  if(musica == 14){
+    rowCount = "Big_Girls_Don_t_Cry";
+  }
+  if(musica == 15){
+    rowCount = "Just_The_Way_You_Are";
+  }
+  if(musica == 16){
+    rowCount = "Animals";
+  }
 }
