@@ -1,0 +1,4 @@
+AuthName "Área restrita"
+AuthType Basic
+AuthUserFile /IIPM-Labs/website/prototipo%20funcional%201/.htpasswd
+require valid-user
