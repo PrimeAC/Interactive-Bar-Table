@@ -7,17 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--<adapt the page to the dispositive-->
   <meta charset="UTF-8">
 
-  <script type="text/javascript">
-      function toggleFooter(id) { 
-        if(document.getElementById(id).style.height == "4.5%") {
-          document.getElementById(id).style.height = "12.5%";
-        }
+  <script src="javascript.js"></script> <!--importa o codigo javascript do ficheiro javascript.js-->
+  <!--<script src="http://listjs.com/no-cdn/list.js"></script> -->
+  <script src="list.js"></script>
 
-        else {
-          document.getElementById(id).style.height = "4.5%";
-        }
-      }
-  </script>
+  <script src="jquery.js">></script> 
 
   </head>
   <body>
@@ -120,7 +114,7 @@
 
 	<!--inicio da barra de musica no inferior-->
   	<div id="rodape">
-  		<img id="reticencias" onclick="toggleFooter('rodape')" src="ellipsis.png">
+  		<img id="reticencias" onclick="toggleFooter('rodape');songPlaying()" src="ellipsis.png">
   		<table id="rodape_tab">
   			<tr>
   				<td id="coluna_img"><img src="coluna.png"></td>

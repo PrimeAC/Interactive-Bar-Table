@@ -768,13 +768,18 @@ function addSong(musica, artista,tempo){
   sessionStorage.setItem(musica, JSON.stringify(music));
   addToPlay('play',musica,artista,tempo);
   alert("Música adicionada com sucesso.");
+  if(sessionStorage.getItem("playing") == null) {
+    embelezaMusica(musica);
+    sessionStorage.setItem("playing",JSON.stringify([song,artista,tempo]));
+    alert("primeiro");
+  }
 }
 
 function seeSong() {
   var size = sessionStorage.length;
   /*alert("sjdoi"+size);*/
   for(i=0;i<size;i++) {
-    if(sessionStorage.key(i) != "valor_prod" && sessionStorage.key(i) != "0" && sessionStorage.key(i) != "lista_hist") {
+    if(sessionStorage.key(i) != "valor_prod" && sessionStorage.key(i) != "0" && sessionStorage.key(i) != "lista_hist" && sessionStorage.key(i) != "playing") {
       var nome = sessionStorage.key(i);
       var related = JSON.parse(sessionStorage.getItem(nome));
       var artista = related[0];
@@ -968,5 +973,17 @@ function decodeMusic(musica) {
   }
   if(musica == 16){
     rowCount = "Animals";
+  }
+}
+
+function songPlaying() {
+  var aux = sessionStorage.getItem("playing");
+  if(aux != null) {
+    /*alert(aux);*/
+    var aux2 = JSON.parse(aux);
+    /*alert(aux2);*/
+    document.getElementById("rod_musica").innerHTML = aux2[0];
+    document.getElementById("rod_artista").innerHTML = aux2[1];
+    document.getElementById("rod_tempo").innerHTML = aux2[2];
   }
 }
