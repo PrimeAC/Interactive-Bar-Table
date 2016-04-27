@@ -44,11 +44,8 @@ var d = document;
 var lista_pro = []; /*guarda os pedidos atuais*/
 function addItem(idTabela,pedido,preço) {
   lista_pro.push(pedido);
-  /*lista_pro.push(preço);*/
   var newRow = d.createElement('tr');
-  /*newRow.insertCell(0).innerHTML = "-";*/
   newRow.insertCell(0).innerHTML = 1;
-  /*newRow.insertCell(2).innerHTML = "+";*/
   newRow.insertCell(1).innerHTML = pedido;
   newRow.insertCell(2).innerHTML = 'X';
   d.getElementById(idTabela).appendChild(newRow);
@@ -63,7 +60,6 @@ function deleteList(idTabela) {
   var row_numb = tab.rows.length; 
   valor = 0 ;
   sessionStorage.setItem('valor_prod',0);
-  /*alert("ola");*/
   total('header_produtos1', valor); 
   for ( var i = 0; i < row_numb; ) {
     tab.deleteRow(i);
@@ -74,7 +70,7 @@ function deleteList(idTabela) {
 /*divs dos produtos a funcionar com procura*/
 function Search(id) { 
   var options = {
-    valueNames: [ 'name', 'type', 'price', 'description' , 'artist']
+    valueNames: [ 'name', 'type', 'price', 'description' , 'artist', 'likes']
   };
   if (id == "bebidas") {
     var userList = new List('bebidas', options);
@@ -157,7 +153,7 @@ function seeProd() {
     list = JSON.parse(prod_hist);
     var len = list.length;
     for(i=0; i < len ; i++) {
-      if (list[i] =="Café" || list[i] =="Amendioins" || list[i] =="Tremoços") {
+      if (list[i] =="Café" || list[i] =="Amendoins" || list[i] =="Tremoços") {
         addHist('prodtab', 1, list[i], "1.00€");
       }
       else if(list[i] =="Cachorro_Quente" || list[i] =="Bifana" || list[i] =="Prego_no_Pão") {
@@ -223,109 +219,22 @@ function addHist(idTabela, qtd, pedido, preço) {
 
 }
 
-/*function seeHist() {
-  valor2 = sessionStorage.getItem('lista_hist');
-  if(valor2 > 0) {
-    var valor3 = parseFloat(valor2); 
-  }
-  else{
-    var valor3 = 0;
-  }
-  alert('val '+valor3);
-  var valor1 = 0;
-  if (prod_hist) {
-    list = JSON.parse(prod_hist);
-    var len = list.length;
-    for(i=0; i < len ; i++) {
-
-      var aux =document.getElementById(pedido+'qtd');
-      alert("aux "+aux);
-      if(aux != null) {
-        var atual = document.getElementById(pedido+'qtd').innerHTML;
-        document.getElementById(pedido+'qtd').innerHTML = parseFloat(atual)+1;
-        valor1 += parseFloat(preço);
-        valor3 += valor1;
-        var valor_prod = sessionStorage.setItem('valor_prod', valor3);
-        total('header_produtos1', valor3);
-      }
-    }
-      else {
-
-        var recRow = '<tr id="'+pedido+'"><td id="'+pedido+'qtd">'+rowQtd+'</td><td>'+pedido+'</td><td><a href="javascript:void(0);" onclick="removeRow('+rowCount+');">X</a></td></tr>'; 
-        jQuery('#lista_produtos1').append(recRow); 
-        valor1 += parseFloat(preço);
-        valor3 += valor1;
-        var valor_prod = sessionStorage.setItem('valor_prod', valor3);
-        total('header_produtos1', valor3);
-      }
-  
-}
-
-function addHist(idTabela, pedido,preço) { 
-  
-  valor2 = sessionStorage.getItem('lista_hist');
-  if (valor2) {
-    list = JSON.parse(prod_hist);
-    var len = list.length;
-    for(i=0; i < len ; i++) {
-      if(valor2 > 0) {
-        var valor3 = parseFloat(valor2); 
-      }
-      else{
-        var valor3 = 0;
-      }
-
-      alert('val '+valor3);
-      var valor1 = 0;
-      var aux =document.getElementById(pedido+'qtd');
-      alert("aux "+aux);
-
-      if(aux != null) {
-        var atual = document.getElementById(pedido+'qtd').innerHTML;
-        document.getElementById(pedido+'qtd').innerHTML = parseFloat(atual)+1;
-        valor1 += parseFloat(preço);
-        valor3 += valor1;
-        var valor_prod = sessionStorage.setItem('valor_prod', valor3);
-        total('header_produtos1', valor3);
-      }
-      else {
-
-        var recRow = '<tr id="'+pedido+'"><td id="'+pedido+'qtd">'+rowQtd+'</td><td>'+pedido+'</td><td><a href="javascript:void(0);" onclick="removeRow('+rowCount+');">X</a></td></tr>'; 
-        jQuery('#lista_produtos1').append(recRow); 
-        valor1 += parseFloat(preço);
-        valor3 += valor1;
-        var valor_prod = sessionStorage.setItem('valor_prod', valor3);
-        total('header_produtos1', valor3);
-      }
-    }
-  }
-}*/
-
 
 function addStorage(pedido, preço) {
   var preço_p = sessionStorage.getItem(pedido);
   var preço_p1 = 0;
   var preço_p2 = 0;
   var len = sessionStorage.length;
-  /*alert("storage: "+ produto);*/
-  /*alert(sessionStorage.getItem(pedido));*/
   if (preço_p == null) {
     sessionStorage.setItem(pedido, preço);
-    /*alert("len: " + len);*/
   }
   else {
-    /*alert("else");*/
-    /*alert("len: " + len);*/
     for (var i = 0; i < len; ++i) {  
       key = sessionStorage.key(i);
-      /*alert("key: " + key);*/ 
       if (key == pedido) {
         preço_p1 = parseFloat(preço);
-        /*alert("preço_p1: " + preço_p1);*/
         preço_p2 = parseFloat(preço_p);
-        /*alert("preço_p2: " + preço_p2);*/
         preço_p2 += preço_p1;
-        /*alert("preço_p2: " + preço_p2);*/
         sessionStorage.setItem(pedido, preço_p2); //saves to the database, key/value
       } 
     }
@@ -348,65 +257,16 @@ function listAllItems(){
 /*session storage*/
 
 function end() {
-  alert("entrei");
-  location.href="index.html";
-  deleteAllStorage();
+  setTimeout(function() { deleteAllStorage(); location.href = "index.html"; }, 10000);
 }
-
-
-
-
-
-
-
-
-
-
 
 
 var rowCount = 1;
 var rowQtd = 1; 
-/*function addMoreRows(idTabela, pedido,preço) { 
-  alert('rowCount0: '+rowCount);
-  alert('rowQtd '+rowQtd);
-  if(lista_pro.length != 0) {
-    for(i=0;i<lista_pro.length;i++) {
-      if(lista_pro[i] == pedido) {
-        rowQtd++;
-        alert('rowQtd '+rowQtd);
-        alert('rowCount2: '+rowCount);
-        var recRow = '<tr id="rowCount'+rowCount+'"><td>'+rowQtd+'</td><td>'+pedido+'</td><td><a href="javascript:void(0);" onclick="removeRow('+rowCount+');">Delete</a></td></tr>'; 
-        alert("Y");
-        jQuery("#rowQtd").html("as");
-        alert("X");
-      }
-      else {
-        rowCount ++;
-        alert('rowCount1: '+rowCount);
-        var recRow = '<tr id="rowCount'+rowCount+'"><td>'+rowQtd+'</td><td>'+pedido+'</td><td><a href="javascript:void(0);" onclick="removeRow('+rowCount+');">Delete</a></td></tr>'; 
-        jQuery('#lista_produtos1').append(recRow); 
-      }
-    }
-  }
-  else {
-    lista_pro.push(pedido);
-    alert(lista_pro);
-    alert('primeiro');
-    rowCount ++;
-    var recRow = '<tr id="rowCount'+rowCount+'"><td>'+rowQtd+'</td><td>'+pedido+'</td><td><a href="javascript:void(0);" onclick="removeRow('+rowCount+');">Delete</a></td></tr>'; 
-    jQuery('#lista_produtos1').append(recRow);
-  } 
-}
 
-function removeRow(removeNum) {
-alert("remover "+removeNum);
-  jQuery('#rowCount'+removeNum).remove(); 
-} */
 
 var valor2 = 0; /*valor do pedido*/
 function addMoreRows(idTabela, pedido,preço) { 
-  /*var quantidade = 0;*/
-  /*var flag = 0;*/
   valor2 = sessionStorage.getItem('valor_prod');
   if(valor2 > 0) {
     var valor3 = parseFloat(valor2); 
@@ -416,119 +276,104 @@ function addMoreRows(idTabela, pedido,preço) {
   }
   var valor1 = 0;
   lista_pro.push(pedido);
-  /*alert(lista_pro + lista_pro.length);*/ 
- /* for(i=0;i<lista_pro.length;i++) {
-    if(lista_pro[i] == pedido) {
-      quantidade++;
-      flag = 1;*/
-      var aux =document.getElementById(pedido+'qtd');
-      if(aux != null) {
-        var atual = document.getElementById(pedido+'qtd').innerHTML;
-        document.getElementById(pedido+'qtd').innerHTML = parseFloat(atual)+1;
-        valor1 += parseFloat(preço);
-        valor3 += valor1;
-        var valor_prod = sessionStorage.setItem('valor_prod', valor3);
-        total('header_produtos1', valor3);
-      }
-      else {
-        if(pedido == "Água"){
-          rowCount = 1;
-        }
-        if(pedido == "Coca-Cola"){
-          rowCount = 2;
-        }
-        if(pedido == "Ice-Tea"){
-          rowCount = 3;
-        }
-        if(pedido == "Café"){
-          rowCount = 4;
-        }
-        if(pedido == "Absinto"){
-          rowCount = 5;
-        }
-        if(pedido == "Vodka_Laranja"){
-          rowCount = 6;
-        }
-        if(pedido == "Vodka_Limão"){
-          rowCount = 7;
-        }
-        if(pedido == "Vodka_Cola"){
-          rowCount = 8;
-        }
-        if(pedido == "Rum"){
-          rowCount = 9;
-        }
-        if(pedido == "Somersby_de_Maçã"){
-          rowCount = 10;
-        }
-        if(pedido == "Somersby_Frutos_Vermelhos"){
-          rowCount = 11;
-        }
-        if(pedido == "Tequila"){
-          rowCount = 12;
-        }
-        if(pedido == "Whisky"){
-          rowCount = 13;
-        }
-        if(pedido == "Whisky_Cola"){
-          rowCount = 14;
-        }
-        if(pedido == "Vinho_Branco"){
-          rowCount = 15;
-        }
-        if(pedido == "Vinho_Tinto"){
-          rowCount = 16;
-        }
-        if(pedido == "Hamburger"){
-          rowCount = 17;
-        }
-        if(pedido == "Cheeseburger"){
-          rowCount = 18;
-        }
-        if(pedido == "Cachorro_Quente"){
-          rowCount = 19;
-        }
-        if(pedido == "Bifana"){
-          rowCount = 20;
-        }
-        if(pedido == "Torradas"){
-          rowCount = 21;
-        }
-        if(pedido == "Prego_no_Pão"){
-          rowCount = 22;
-        }
-        if(pedido == "Amendoins"){
-          rowCount = 23;
-        }
-        if(pedido == "Tremoços"){
-          rowCount = 24;
-        }
-        if(pedido == "Lays_Originais"){
-          rowCount = 25;
-        }
-        if(pedido == "Tiras_de_Milho"){
-          rowCount = 26;
-        }
 
-        var recRow = '<tr id="'+pedido+'"><td><a href="javascript:void(0);" onclick="decrementItem('+rowCount+');">-</a></td><td id="'+pedido+'qtd">'+rowQtd+'</td><td>'+pedido+'</td><td><a href="javascript:void(0);" onclick="removeRow('+rowCount+');">X</a></td></tr>'; 
-        jQuery('#lista_produtos1').append(recRow); 
-        valor1 += parseFloat(preço);
-        valor3 += valor1;
-        var valor_prod = sessionStorage.setItem('valor_prod', valor3);
-        total('header_produtos1', valor3);
-      }
-      
-    /*}
-  }*/
-  /*if(flag == 0) {
-    alert('primeiro do tipo');
-    rowCount = pedido;
-    var recRow = '<tr id="'+pedido+'"><td id="'+pedido+'qtd">'+rowQtd+'</td><td>'+pedido+'</td><td><a href="javascript:void(0);" onclick="removeRow('+rowCount+');">X</a></td></tr>'; 
-    jQuery('#lista_produtos1').append(recRow); 
+  var aux =document.getElementById(pedido+'qtd');
+  if(aux != null) {
+    var atual = document.getElementById(pedido+'qtd').innerHTML;
+    document.getElementById(pedido+'qtd').innerHTML = parseFloat(atual)+1;
     valor1 += parseFloat(preço);
-    valor2 += valor1;
-    total('header_produtos1', valor2);
-  } */
+    valor3 += valor1;
+    var valor_prod = sessionStorage.setItem('valor_prod', valor3);
+    total('header_produtos1', valor3);
+  }
+  else {
+    if(pedido == "Água"){
+      rowCount = 1;
+    }
+    if(pedido == "Coca-Cola"){
+      rowCount = 2;
+    }
+    if(pedido == "Ice-Tea"){
+      rowCount = 3;
+    }
+    if(pedido == "Café"){
+      rowCount = 4;
+    }
+    if(pedido == "Absinto"){
+      rowCount = 5;
+    }
+    if(pedido == "Vodka_Laranja"){
+      rowCount = 6;
+    }
+    if(pedido == "Vodka_Limão"){
+      rowCount = 7;
+    }
+    if(pedido == "Vodka_Cola"){
+      rowCount = 8;
+    }
+    if(pedido == "Rum"){
+      rowCount = 9;
+    }
+    if(pedido == "Somersby_de_Maçã"){
+      rowCount = 10;
+    }
+    if(pedido == "Somersby_Frutos_Vermelhos"){
+      rowCount = 11;
+    }
+    if(pedido == "Tequila"){
+      rowCount = 12;
+    }
+    if(pedido == "Whisky"){
+      rowCount = 13;
+    }
+    if(pedido == "Whisky_Cola"){
+      rowCount = 14;
+    }
+    if(pedido == "Vinho_Branco"){
+      rowCount = 15;
+    }
+    if(pedido == "Vinho_Tinto"){
+      rowCount = 16;
+    }
+    if(pedido == "Hamburger"){
+      rowCount = 17;
+    }
+    if(pedido == "Cheeseburger"){
+      rowCount = 18;
+    }
+    if(pedido == "Cachorro_Quente"){
+      rowCount = 19;
+    }
+    if(pedido == "Bifana"){
+      rowCount = 20;
+    }
+    if(pedido == "Torradas"){
+      rowCount = 21;
+    }
+    if(pedido == "Prego_no_Pão"){
+      rowCount = 22;
+    }
+    if(pedido == "Amendoins"){
+      rowCount = 23;
+    }
+    if(pedido == "Tremoços"){
+      rowCount = 24;
+    }
+    if(pedido == "Lays_Originais"){
+      rowCount = 25;
+    }
+    if(pedido == "Tiras_de_Milho"){
+      rowCount = 26;
+    }
+
+    var recRow = '<tr id="'+pedido+'"><td><a href="javascript:void(0);" onclick="decrementItem('+rowCount+');">-</a></td><td id="'+pedido+'qtd">'+rowQtd+'</td><td>'+pedido+'</td><td><a href="javascript:void(0);" onclick="removeRow('+rowCount+');">X</a></td></tr>'; 
+    jQuery('#lista_produtos1').prepend(recRow); /*adiciona no inicio da lista*/
+    valor1 += parseFloat(preço);
+    valor3 += valor1;
+    var valor_prod = sessionStorage.setItem('valor_prod', valor3);
+    total('header_produtos1', valor3);
+  }
+
 }
 
 
@@ -745,71 +590,111 @@ function decode(removeNum) {
 }
 
 
-function addToPlay(idTabela, musica, artista, tempo) {
+function addToPlay(idTabela, musica, artista, tempo, gostos) {
   encode(musica);
   embelezaMusica(musica);
-	var recRow = '<li id="'+musica+'" class="icones_bebidas"><table><tr><td style="width:15%;"><a href="javascript:void(0);" onclick="like('+rowCount+');"><img src="like_preto.png" id="'+musica+'qtd" class="add"/></a></td><td style="width:45%;" class="name">'+song+'</td><td style="width:25%;" class="artist">'+artista+'</td><td style="width:15%;" class="time">'+tempo+'</td></tr></table></li>'; 
+  if(gostos == 0) { 
+	 var recRow = '<li id="'+musica+'" class="icones_bebidas"><table><tr><td id="'+musica+'like" class="likes">'+gostos+'</td><td style="width:15%;"><a href="javascript:void(0);" onclick="like('+rowCount+');"><img src="like_preto.png" id="'+musica+'img" class="add"/></a></td><td style="width:45%;" class="name">'+song+'</td><td style="width:25%;" class="artist">'+artista+'</td><td style="width:15%;" class="time">'+tempo+'</td></tr></table></li>'; 
+  }
+  else if(gostos >= 1) {
+    var recRow = '<li id="'+musica+'" class="icones_bebidas"><table><tr><td id="'+musica+'like" class="likes">'+gostos+'</td><td style="width:15%;"><a href="javascript:void(0);" onclick="like('+rowCount+');"><img src="like_azul.png" id="'+musica+'img" class="add"/></a></td><td style="width:45%;" class="name">'+song+'</td><td style="width:25%;" class="artist">'+artista+'</td><td style="width:15%;" class="time">'+tempo+'</td></tr></table></li>';
+  }
+  else if(gostos == "a_tocar" ) {
+    var recRow = '<li id="'+musica+'" class="icones_bebidas"><table><tr><td id="'+musica+'like" class="likes">0</td><td style="width:15%;"><img src="coluna_preta.png" id="'+musica+'img" class="add"/></td><td style="width:45%;" class="name">'+song+'</td><td style="width:25%;" class="artist">'+artista+'</td><td style="width:15%;" class="time">'+tempo+'</td></tr></table></li>';
+  }
   jQuery("#"+idTabela).append(recRow); 
     
 }
 
 function addSong(musica, artista,tempo){
   var size = sessionStorage.length;
-  /*alert(size);*/
   for(i=0;i<size;i++) {
-    /*alert("i "+sessionStorage.key(i));*/
     if(sessionStorage.key(i) == musica) {
       alert("Música já existente na playlist");
       return;
     }
   }
-  /*alert("ooooo");*/
   var music = [artista, tempo, 0];
   sessionStorage.setItem(musica, JSON.stringify(music));
-  addToPlay('play',musica,artista,tempo);
   alert("Música adicionada com sucesso.");
-  if(sessionStorage.getItem("playing") == null) {
+  if(sessionStorage.getItem("playing") == null || JSON.parse(sessionStorage.getItem("playing"))[0] == "Música 1" ) {
     embelezaMusica(musica);
-    sessionStorage.setItem("playing",JSON.stringify([song,artista,tempo]));
-    alert("primeiro");
+    sessionStorage.setItem("playing",JSON.stringify([song,artista,tempo,musica]));
+    sessionStorage.setItem("lista_rep",JSON.stringify([musica]));
+    addToPlay('play',musica,artista,tempo,'a_tocar');
+    var tempo_actual = new Date();
+    var horas = tempo_actual.getHours();
+    var minutos = tempo_actual.getMinutes();
+    var segundos = tempo_actual.getSeconds();
+    var conta = parseInt(segundos)+ 30;
+    if(conta >= 60) {
+      segundos = conta - 60;
+      if(minutos < 59) {
+        minutos += 1;
+      }
+      else{
+        minutos = 0;
+        if(horas < 23) {
+          horas += 1;
+        }
+        else{
+          horas =0;
+        }
+      }
+    }
+    else {
+      segundos += 30;
+    }
+    sessionStorage.setItem("tempo",JSON.stringify([horas, minutos, segundos]));
+    songPlaying();
+    return;
+  }
+  if(sessionStorage.getItem("lista_rep") != null) {
+    var aux = JSON.parse(sessionStorage.getItem("lista_rep"));
+    aux.push(musica);
+    sessionStorage.setItem("lista_rep",JSON.stringify(aux));
+    addToPlay('play',musica,artista,tempo,0);
   }
 }
 
 function seeSong() {
+  var nome1 = 0;
+  var aux = sessionStorage.getItem("playing");
+  if(aux != null) {
+    var aux1 = JSON.parse(aux);
+    var nome1 = aux1[3];  /*vai buscar o id da musica*/
+    var artista = aux1[1];
+    var tempo = aux1[2];
+    addToPlay('play',nome1,artista,tempo,'a_tocar');
+  }
   var size = sessionStorage.length;
-  /*alert("sjdoi"+size);*/
   for(i=0;i<size;i++) {
-    if(sessionStorage.key(i) != "valor_prod" && sessionStorage.key(i) != "0" && sessionStorage.key(i) != "lista_hist" && sessionStorage.key(i) != "playing") {
+    if(sessionStorage.key(i) != "valor_prod" && sessionStorage.key(i) != "0" && sessionStorage.key(i) != "lista_hist" && sessionStorage.key(i) != "playing" && sessionStorage.key(i) != "lista_rep" && sessionStorage.key(i) != nome1) {
       var nome = sessionStorage.key(i);
       var related = JSON.parse(sessionStorage.getItem(nome));
       var artista = related[0];
       var tempo = related[1];
       var gostos = related[2];
-      /*alert("este é "+artista+" "+gostos);*/
-      addToPlay('play',nome,artista,tempo);
-      if(gostos >= 1) {
-        like(nome);
-
-      }
+      addToPlay('play',nome,artista,tempo,gostos);
+      
     }
 
   }
+  
 }
 
 
 function like(linha) {
-  /*alert(linha);*/
   decodeMusic(linha);
-  /*alert(rowCount+'qtd');*/
-  var image = document.getElementById(rowCount+'qtd'); 
+  var image = document.getElementById(rowCount+'img'); 
   getFileNameFromPath(image.src);
-  /*alert("img: "+ary[ary.length - 1]);*/
   if(ary[ary.length - 1] == "like_preto.png") { 
     image.src = "like_azul.png";
     var related = JSON.parse(sessionStorage.getItem(rowCount)); 
     var gostos = related[2];
     gostos +=1;
     sessionStorage.setItem(rowCount,JSON.stringify([related[0],related[1],gostos]));
+    upLine(rowCount);
   }
   else {
   	image.src = "like_preto.png";
@@ -817,12 +702,170 @@ function like(linha) {
     var gostos = related[2];
     gostos -=1;
     sessionStorage.setItem(rowCount,JSON.stringify([related[0],related[1],gostos]));
+    downLine(rowCount);
   }
 }
 
 function getFileNameFromPath(path) {
   ary = path.split("/");
   return ary[ary.length - 1];
+}
+
+function upLine(idLinha) {
+  var max = 0;
+  var flag = 0;
+  var pos_like = 0;
+  var pos_inserir = 0;   /*guarda a posiçao onde o elemento que foi feito like sera inserido*/
+  var aux = JSON.parse(sessionStorage.getItem("lista_rep"));
+  for(i=1;i<aux.length;i++) {
+    if(aux[i] == idLinha) {
+      pos_like = i;    /*posiçao onde foi feito o like*/
+    }
+  }
+  var a_mudar = JSON.parse(sessionStorage.getItem(aux[pos_like]));  //string guardada com a key do nome da musica em que foi feito like
+  for(i=pos_like-1; i>=1; i--) {
+    var related = JSON.parse(sessionStorage.getItem(aux[i]));  //string guardada com a key do nome da musica
+    if(a_mudar[2] > related[2]) {
+      pos_inserir = i;
+    }
+    
+  }
+  /*chamar uma funçao que altere as posiçoes*/
+  var nova = [];  /*lista que vai guardar as novas posiçoes*/
+  var related = JSON.parse(sessionStorage.getItem(aux[pos_like-1]));  //string guardada com a key do nome da musica anterior
+  if(pos_like >1 && a_mudar[2] > related[2]) {
+    for (i = 0; i < aux.length; i++) {
+      if(i < pos_inserir) {
+        nova[i] = aux[i];
+      }
+      else if(i == pos_inserir) {
+        nova[i] = aux[pos_like];
+      }
+      else {
+        if(i <= pos_like ) {
+          nova[i] = aux[i-1];
+        }
+        else {
+          nova[i] = aux[i];
+        }
+      }
+    }
+  sessionStorage.setItem("lista_rep",JSON.stringify(nova));
+  refreshPlaylist();
+  }
+}
+
+function downLine(idLinha) {
+  var max = 0;
+  var flag = 0;
+  var pos_like = 0;
+  var pos_inserir = 0;   /*guarda a posiçao onde o elemento que foi feito like sera inserido*/
+  var aux = JSON.parse(sessionStorage.getItem("lista_rep"));
+  for(i=1;i<aux.length;i++) {
+    if(aux[i] == idLinha) {
+      pos_like = i;    /*posiçao onde foi feito o dislike*/
+    }
+  }
+  var a_mudar = JSON.parse(sessionStorage.getItem(aux[pos_like]));  //string guardada com a key do nome da musica em que foi feito like
+  for(i=pos_like+1; i<aux.length; i++) {
+    var related = JSON.parse(sessionStorage.getItem(aux[i]));  //string guardada com a key do nome da musica
+    if(a_mudar[2] < related[2]) {
+      pos_inserir = i;
+    }
+    
+  }
+  /*chamar uma funçao que altere as posiçoes*/
+  var nova = [];  /*lista que vai guardar as novas posiçoes*/
+  var related = JSON.parse(sessionStorage.getItem(aux[pos_like+1]));  //string guardada com a key do nome da proxima musica
+  if(pos_like < aux.length-1 && a_mudar[2] < related[2]) {
+    for (i = 0; i < aux.length; i++) {
+      if(i < pos_like) {
+        nova[i] = aux[i];
+      }
+      else if(i == pos_inserir) {
+        nova[i] = aux[pos_like];
+      }
+      else {
+        if(i <= pos_inserir ) {
+          nova[i] = aux[i+1];
+        }
+        else {
+          nova[i] = aux[i];
+        }
+      }
+    }
+  sessionStorage.setItem("lista_rep",JSON.stringify(nova));
+  refreshPlaylist();
+  }
+}
+
+function refreshPlaylist() {
+  var lista = JSON.parse(sessionStorage.getItem('lista_rep'));
+  if(lista != null && lista != "") {
+    for(i=0;i<lista.length;i++) {
+      jQuery('#'+lista[i]).remove();
+    }
+    for(i=0;i<lista.length;i++) {
+      var related = JSON.parse(sessionStorage.getItem(lista[i]));
+      var artista = related[0];
+      var tempo = related[1];
+      var gostos = related[2];
+      if(i>0) {
+        addToPlay('play',lista[i],artista,tempo,gostos);
+      }
+      else {
+        addToPlay('play',lista[i],artista,tempo,'a_tocar');
+      }
+    }
+  }
+}
+
+function newSongPlaying() {
+  var aux = JSON.parse(sessionStorage.getItem('lista_rep'));
+  var a_tocar = JSON.parse(sessionStorage.getItem('playing'));
+  for(i=0;i<sessionStorage.length;i++){
+    if(aux[0] == sessionStorage.key(i)) {
+      sessionStorage.removeItem(aux[0]);  /*apaga a musica do storage*/
+    }
+  }
+  jQuery('#'+aux[0]).remove();  /*elimina o primeiro elemento da playlist*/
+  aux.splice(0, 1);  /*elimina o elemento na posiçao zero da lista de reproduçao*/
+  sessionStorage.setItem('lista_rep', JSON.stringify(aux));
+  if(aux != null && aux != "") {  
+    var related = JSON.parse(sessionStorage.getItem(aux[0]));
+    embelezaMusica(aux[0]);
+    sessionStorage.setItem('playing', JSON.stringify([song, related[0], related[1], aux[0]]));
+    refreshPlaylist();
+    songPlaying();
+    var tempo_actual = new Date();
+    var horas = tempo_actual.getHours();
+    var minutos = tempo_actual.getMinutes();
+    var segundos = tempo_actual.getSeconds();
+    var conta = parseInt(segundos)+ 30;
+    if(conta >= 60) {
+      segundos = conta - 60;
+      if(minutos < 59) {
+        minutos += 1;
+      }
+      else{
+        minutos = 0;
+        if(horas < 23) {
+          horas += 1;
+        }
+        else{
+          horas =0;
+        }
+      }
+    }
+    else {
+      segundos += 30;
+    }
+    sessionStorage.setItem("tempo",JSON.stringify([horas, minutos, segundos]));
+  }
+  else {
+    sessionStorage.setItem('playing', JSON.stringify(["Música 1", "Artista 1", "Tempo 1", "Música 1"]));
+    songPlaying();
+  }
 }
 
 
@@ -979,11 +1022,24 @@ function decodeMusic(musica) {
 function songPlaying() {
   var aux = sessionStorage.getItem("playing");
   if(aux != null) {
-    /*alert(aux);*/
     var aux2 = JSON.parse(aux);
-    /*alert(aux2);*/
     document.getElementById("rod_musica").innerHTML = aux2[0];
     document.getElementById("rod_artista").innerHTML = aux2[1];
     document.getElementById("rod_tempo").innerHTML = aux2[2];
   }
+}
+
+
+function seeTime() {
+  var tempo_fim = JSON.parse(sessionStorage.getItem("tempo"));
+  if(tempo_fim != null) {
+    var time = new Date();
+    var horas = time.getHours();
+    var minutos = time.getMinutes();
+    var segundos = time.getSeconds();
+    if(horas == tempo_fim[0] && minutos == tempo_fim[1] && segundos == tempo_fim[2]) {
+      newSongPlaying();
+    }
+  }
+  setTimeout(seeTime,1000);  /*verifica as horas de segundo em segundo*/
 }

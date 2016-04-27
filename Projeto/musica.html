@@ -15,7 +15,7 @@
   <script src="jquery.js">></script> 
 
   </head>
-  <body onload="seeSong()">
+  <body onload="refreshPlaylist();seeTime()">
 
   <!--para criar a barra fixa no topo-->
   	<div id="barra">
@@ -85,7 +85,7 @@
 			</td>
 			<td>
 				<div id="bebidas">
-			  		<input class="search" placeholder="Search" onclick="Search('bebidas')" />
+			  		<input class="search" placeholder="Search" data-order="likes" onclick="Search('bebidas')" />
 			  		<button class="sort" data-sort="name" onclick="Search('bebidas')">
 			  			Ordenar por música
 			  		</button>
