@@ -1,9 +1,11 @@
 function toggleFooter(id) { 
   if(document.getElementById(id).style.height == "4.5%") {
+    document.getElementById("reticencias").src="downarrow.png";
     document.getElementById(id).style.height = "12.5%";
   }
 
   else {
+    document.getElementById("reticencias").src="uparrow.png";
     document.getElementById(id).style.height = "4.5%";
   }
 }
