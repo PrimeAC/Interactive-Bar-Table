@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BarISTa</title>
+  <link rel="shortcut icon" href="topLogo.png" type="image/x-png"/> <!--insere um icon no topo do separador-->
+  <link rel="stylesheet" href="stylesheet.css" type="text/css"/> <!--redireciona para o documento com o css-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--<adapt the page to the dispositive-->
+  <meta charset="UTF-8">
+
+
+  <script src="javascript.js"></script> <!--importa o codigo javascript do ficheiro javascript.js-->
+
+  </head>
+  <body>
+
+  <!--para criar a barra fixa no topo-->
+  	<div id="barra">
+  		<a href="index.html">
+		  	<div class="icones" id="home" style="border-color: #006df0;">
+			  	<table class="header_table">
+		  			<tr>
+		  				<td><img class = "imagem_icone" src="home.png"/></td>
+		    		</tr>
+		    		<tr>
+		    			<td><b>Home</b></td>
+		    		</tr>	
+		    	</table>	
+		  	</div>
+		</a>
+  	  	<a href="menu.html">
+	  	  	<div class="icones" id="menu">
+		  	  		<table class="header_table">
+				  		<tr>
+				  			<td><img class = "imagem_icone" src="menu.png"/></td>
+				    	</tr>
+			    		<tr> 
+			    			<td>Menu</td>
+			    		</tr>	
+			    	</table>
+		  	</div>
+		</a>
+		<a href="musica.html">
+		  	<div class="icones" id="musica">
+		  		<table class="header_table">
+			  			<tr>
+			  				<td><img class = "imagem_icone" src="musica.png"/></td>
+			    		</tr>
+		    		<tr> 
+		    			<td>Música</td>
+		    		</tr>	
+		    	</table>
+		  	</div>
+		</a>
+		<a href="historico.html">
+		  	<div class="icones" id="historico">
+		  		<table class="header_table">
+			  			<tr >
+			  				<td><img class = "imagem_icone" src="historico.png"/></td>
+			    		</tr>
+		    		<tr> 
+		    			<td>Histórico</td>
+		    		</tr>	
+		    	</table>
+		  	</div>
+		</a>
+  	</div>
+  	<!--fim da barra fixa-->
+  	<table id="ola">
+  		<tr>
+  			<td>
+			  	<div id="tabela_pagamento">
+			      <table id="historicotab"  align="center">
+			        <tr id="table_header">
+			          <th>Qtd</th>
+			          <th>Artigos</th>		
+			          <th>Preço</th>
+			        </tr>
+			        <tr>
+			          <td class="primeira_col">1</td>
+			          <td>1</td>		
+			          <td class="terceira_col">1</td>
+			        </tr>
+			        <tr>
+			          <td class="primeira_col">a</td>
+			          <td>b</td>		
+			          <td class="terceira_col">c</td>
+			        </tr>
+			        <tr>
+			          <td class="primeira_col">d</td>
+			          <td>e</td>		
+			          <td class="terceira_col">f</td>
+			        </tr>
+			        <tr>
+			          <td class="primeira_col">1</td>
+			          <td>1</td>		
+			          <td class="terceira_col">1</td>
+			        </tr>
+
+			        <tr>
+			          <td class="primeira_col">i</td>
+			          <td>j</td>		
+			          <td class="terceira_col">k</td>
+			        </tr>
+			        <tr>
+			          <td class="primeira_col">l</td>
+			          <td>m</td>		
+			          <td class="terceira_col">n</td>
+			        </tr>
+			        <tr>
+			          <td class="primeira_col">1</td>
+			          <td>1</td>		
+			          <td class="terceira_col">1</td>
+			        </tr>
+			        <tr>
+			          <td class="primeira_col">o</td>
+			          <td></td>		
+			          <td class="terceira_col"></td>
+			        </tr>
+			        <tr>
+			          <td class="primeira_col"></td>
+			          <td>p</td>		
+			          <td class="terceira_col"></td>
+			        </tr>
+			         <tr>
+			          <td class="primeira_col">1</td>
+			          <td>1</td>		
+			          <td class="terceira_col">1</td>
+			        </tr>
+			        <tr>
+			          <td class="primeira_col"></td>
+			          <td>r</td>		
+			          <td class="terceira_col"></td>
+			        </tr>
+			        <tr>
+			          <td class="primeira_col">fe</td>
+			          <td>f</td>		
+			          <td class="terceira_col">f</td>
+			        </tr> 
+			      </table>
+			    </div>
+			</td>
+		</tr>
+		<tr>
+			<td id="historico_par">Total:</td>
+		</tr>
+	</table>
+
+    <table id="opcoes_pagamento">
+    	<tr>
+    		<td class="icones_pagamento">Dinheiro</td>
+    	</tr>
+    	<tr>
+    		<td class="icones_pagamento">Crédito/Débito</td>
+    	</tr>
+    </table>
+    <!--fim tabela historico-->
+  
+  	<!--inicio da barra de musica no inferior-->
+  	<div id="rodape">
+  		<img id="reticencias" onclick="toggleFooter('rodape')" src="ellipsis.png">
+  		<table id="rodape_tab">
+  			<tr>
+  				<td id="coluna_img"><img src="coluna.png"></td>
+		  		<td><div class="rod_elementos" id="rod_musica">Música 1</div></td>
+		  		<td><div class="rod_elementos" id="rod_artista">Artista 1</div></td>
+		  		<td><div class="rod_elementos" id="rod_tempo">Tempo 1</div></td>
+		  	</tr>
+		</table>
+  	</div>
+  	<!--fim da barra de musica no inferior-->
+
+  </body>
+ </html>
