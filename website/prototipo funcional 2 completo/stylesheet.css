@@ -1,0 +1,658 @@
+/*barra fixa no topo*/
+body {
+	margin: 0;
+	font-family: 'Myriad Set Pro Medium', 'Myriad Pro', 'Lucida Grande', Helvetica, 
+	Arial,sans-serif;
+	overflow-x: hidden;
+	background-image: url("mesa.jpg");
+
+}
+
+.header_table{
+	text-align: center;
+	color: white; 
+}
+
+
+a {
+	text-decoration: none;
+	color: white;
+}
+#barra {
+	background-color: #333;
+	opacity: 0.7;
+	padding: 1%;
+	display: flex;
+    justify-content: space-between;
+}
+
+.icones {
+
+	border-style: solid;
+	border-width: 5px;
+	border-color: white;
+	border-radius: 25px;
+	text-align: center;
+
+}
+
+.imagem_icone {
+	height: 50%;
+	width: 50%;
+	border-radius: 5px;
+	text-align: center;
+	padding-top: 2%;
+}
+
+
+#home {
+	float: left;
+}
+#menu {
+	float: left;
+}
+#musica {
+	float: left;
+}
+
+#menu:hover {
+	cursor: pointer;
+}
+#home:hover {
+	cursor: pointer;
+}
+#historico:hover {
+	cursor: pointer;
+}
+#musica:hover {
+	cursor: pointer;
+}
+
+/*barra fixa no topo*/
+
+/*slogan*/
+#slogan {
+	margin-left: 40%;
+	font-size: 500%;
+	color: #333;
+	margin-top: 2em;
+}
+/*slogan*/
+
+/*inicio barra ajuda/pagamento*/
+
+#buttons {
+	padding: 1%;
+	display: flex;
+    justify-content: space-between;
+    margin-top: 8%;
+    margin-left: 2.65%;
+    margin-right: 2.65%;
+}
+
+#ajuda {
+	float: left;
+	background-color: white;
+}
+
+#ajuda1 {
+	color: black;
+}
+
+#pagamento {
+	float:left;
+	background-color: #006df0;
+}
+
+#paga1 {
+	font-size: 150%;
+	color: white;
+}
+
+.button_icone {
+	height:100%;
+	width:100%;
+	border-radius: 5px;
+	text-align: center;
+	padding-top: 2%;
+}
+
+/*fim barra ajuda/pagamento*/
+
+/*barra fixa da musica em baixo*/
+#rodape {
+	position: fixed;
+	bottom:0;
+	width: 100%;
+	height: 4.5%;
+	background-color: #333;
+	opacity: 0.7;
+}
+
+#reticencias {
+	display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+#reticencias:hover {
+	cursor: pointer;
+}
+
+#rodape_tab {
+	width:100%;
+	text-align:center; 
+	color: white;
+}
+
+#coluna_img {
+	width: 3%;
+}
+
+#coluna_img img {
+	width: 100%;
+}
+
+.rod_elementos {
+	font-size: 175%;
+	color: white;
+}
+
+#rod_musica {
+	border-right: 1px solid white;
+}
+
+#rod_artista {
+	border-right: 1px solid white;
+}
+
+/*barra fixa da musica em baixo*/
+
+/*menu*/
+
+#submenu {
+	width:100%; 
+	height:12.7cm;
+	text-align: center;
+	font-size: 250%;
+	color: white;
+	padding-right: 0.6cm;
+	padding-left: 0.5cm;
+	border-right: 2px solid white;
+}
+
+.icones_menu {
+	border-style: solid;
+	border-width: 5px;
+	border-color: white;
+	border-radius: 25px;
+	padding: 1cm;
+	text-align: center;
+	background-color: #333;
+	opacity: 0.7;
+	cursor:pointer;
+}
+
+#produtos{
+	width:100%;
+	height: 12.7cm;
+	text-align: center;
+	font-size: 150%;
+	color: white;
+	border-right: 2px solid white;
+}
+
+#produtos td {
+	padding-left: 1cm;
+	padding-right: 1cm;
+}
+
+#beb {
+	background-color: #006df0;
+}
+
+#bebidas {
+	display: block;
+	overflow-y: scroll;
+	height: 12.7cm;
+}
+
+#comida {
+	display: none;
+	overflow-y: scroll;
+	height: 12.7cm;
+}
+
+#header_produtos {
+	width: 100%;
+	color: white;
+	text-align: center;
+}
+
+.icones_bebidas {
+	border-style: solid;
+	border-width: 5px;
+	border-color: white;
+	border-radius: 25px;
+	padding: 1cm;
+	text-align: center;
+	background-color: #333;
+	opacity: 0.7;
+	cursor:pointer;
+}
+
+#lista_produtos {
+	width:100%;
+	height: 10cm;
+	text-align: center;
+	color: white;
+	overflow-y: scroll;
+	float: left;
+
+}
+
+#lista_produtos1 {
+	width: 100%;
+}
+
+#lista_produtos1 tr { /*para a lista com javascript*/
+	border-style: solid;
+	border-width: 5px;
+	border-color: white;
+	border-radius: 25px;
+	text-align: center;
+	color: #333;
+	font-size: 135%;
+	background-color: #eee;
+	opacity: 0.7;
+}
+
+#lista_produtos1 a { /*para a lista com jquery*/
+	font-size: 100%;
+	color: #333;
+}
+
+
+.icones_lista {
+	border-style: solid;
+	border-width: 5px;
+	border-color: white;
+	border-radius: 25px;
+	padding: 0.3cm;
+	text-align: center;
+	background-color: #333;
+	opacity: 0.7;
+}
+
+#add {
+	width: 25%;
+	cursor:pointer;
+}
+#qtd {
+	width: 25%;
+}
+#less {
+	width: 25%;
+	cursor:pointer;
+}
+#item {
+	width:100%;
+}
+#rmv {
+	width: 25%;
+	cursor:pointer;
+} 
+
+#img_menu {
+	width: 30%;
+}
+
+#td_img {
+	width: 15%;
+}
+
+#add {
+	width: 15%;
+}
+#add img {
+	width: 30%;
+}
+/*menu*/
+
+
+
+/*historico*/
+
+.tabela{
+	max-width: 85%;
+    margin-top: 2%;
+    width: 40%;
+    margin-right: auto;
+    margin-left: auto;
+    overflow-y: scroll;
+    height: 250px;
+}
+
+
+/*#tabela10 {
+	overflow-y: scroll;
+	height: 250px;
+	max-width: 85%;
+	margin-right: auto;
+	margin-left: auto;
+}*/
+
+#prodtab {
+	width: 100%;
+	opacity: 0.75;
+	
+}
+
+table#prodtab th	{
+    background-color: #333;
+    color: white;
+    height: 50%;
+}
+
+table#prodtab td {
+	background-color:white;
+	color:#333;
+	padding: 0.7%;
+}
+
+
+
+#historicotab {
+	width: 100%;
+	opacity: 0.75;
+	
+}
+
+/*#historicotab1 {
+	width: 100%;
+	opacity: 0.75;
+}*/
+table#historicotab th	{
+    background-color: #333;
+    color: white;
+    height: 50%;
+}
+
+/*table#historicotab1 td {
+	background-color:white;
+	color:#333;
+	padding: 0.7%;
+}*/
+
+table#historicotab td {
+	background-color:white;
+	color:#333;
+	padding: 0.7%;
+}
+
+.historicoTitulos {
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 40px;
+	color: #333;
+
+}
+
+#TitulosH {
+	margin-top: 2%;
+	display: flex;
+    justify-content: space-between;
+
+}
+
+.primeira_col {
+	text-align: center;
+}
+
+.terceira_col {
+	text-align: center;
+}
+
+#historico_par {
+	font-size: 60px;
+	color: #333;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 2%; 
+	display: flex;
+	justify-content: space-between;
+}
+/*historico*/
+
+/*pagamento*/
+#frase1 {
+	margin-top:2em;
+	text-align: center;
+	font-size: 200%;
+}
+
+#frase2 {
+	margin-top:1.5em;
+	text-align: center;
+	font-size: 400%;
+	color: #006df0;
+}
+
+#frase3 {
+	margin-top:3em;
+	text-align: center;
+	font-size: 200%;
+}
+
+#pay {
+	background-color: white;
+	margin-top: 1em;
+	margin-left: auto;
+	margin-right: auto;
+	opacity: 0.7;
+	width: 5%;
+}
+
+/*pagamento*/
+
+/*ajuda*/
+#voltar {
+	float:left;
+	background-color: #333;
+	opacity: 0.7;
+}
+
+#voltar1 {
+	font-size: 200%;
+	color:white;
+}
+
+#colorful1 {
+	text-align: center;
+	width: 10%;
+}
+
+#tabela1 {
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 85%;
+	margin-top: 5%;
+}
+
+#back {
+	padding: 1%;
+	display: flex;
+    justify-content: space-between;
+    margin-top: 3%;
+    margin-left: 2.65%;
+    margin-right: 2.65%;
+}
+/*ajuda*/
+
+/*cancelar/confirmar*/
+#conf_can {
+	width: 100%;
+}
+#confirmar{
+	background-color: green;
+	width: 50%;
+	cursor: pointer;
+}
+
+#cancelar {
+	background-color: red;
+	float:left;
+	margin-left: 10%;
+	width: 50%;
+	cursor: pointer;
+}
+
+/*cancelar/confirmar*/
+
+
+/*lista com procura*/
+
+.list {
+  font-family:Arial,sans-serif;
+  margin:0;
+  padding:20px 0 0;
+}
+.list > li {
+  display:block;
+  background-color: #eee;
+  padding:10px;
+  box-shadow: inset 0 1px 0 #fff;
+  margin-bottom: 2%;
+}
+
+.list > li:active {
+	background-color: #bfbfbf;
+}
+.avatar {
+  max-width: 150px;
+}
+img {
+  max-width: 100%;
+}
+h3 {
+  font-size: 16px;
+  margin:0 0 0.3rem;
+  font-weight: normal;
+  font-weight:bold;
+}
+p {
+  margin:0;
+}
+
+input {
+  border:solid 1px #ccc;
+  border-radius: 5px;
+  padding:7px 14px;
+  margin-bottom:10px
+}
+input:focus {
+  outline:none;
+  border-color:#aaa;
+}
+.sort {
+  padding:8px 30px;
+  border-radius: 6px;
+  border:none;
+  display:inline-block;
+  color:#fff;
+  text-decoration: none;
+  background-color: #28a8e0;
+  height:30px;
+}
+.sort:hover {
+  text-decoration: none;
+  background-color:#1b8aba;
+}
+.sort:focus {
+  outline:none;
+}
+.sort:after {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  content:"";
+  position: relative;
+  top:-10px;
+  right:-5px;
+}
+.sort.asc:after {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #fff;
+  content:"";
+  position: relative;
+  top:13px;
+  right:-5px;
+}
+.sort.desc:after {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #fff;
+  content:"";
+  position: relative;
+  top:-10px;
+  right:-5px;
+}
+
+.type {
+	display: none;
+}
+
+.name {
+	font-weight: bold;
+	font-size: 125%;
+}
+
+.icones_bebidas > table {
+	width: 100%;
+}
+
+tr .price {
+	text-align: right;
+}
+
+tr .name {
+	text-align: left;
+}
+tr .artist {
+	text-align: left;
+}
+/*lista com procura*/
+
+
+/*musica*/
+tr .time {
+	text-align: right;
+	width: 20%;
+}
+
+tr .artist {
+	margin-left: auto;
+	width: 40%;
+}
+
+.artist {
+	font-weight: bold;
+	font-size: 125%;
+}
+
+.time {
+	font-weight: bold;
+	font-size: 125%;
+}
+
+.likes {
+	display: none;
+}
+
+/*musica*/
