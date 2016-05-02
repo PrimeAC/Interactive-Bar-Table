@@ -85,6 +85,13 @@ function Search(id) {
 /*divs dos produtos a funcionar com procura*/
 
 function confirmationMsg(idTabela) {
+  if(sessionStorage.getItem("num_pedidos") != null && sessionStorage.getItem("num_pedidos") != "") {
+    var num = parseInt(sessionStorage.getItem("num_pedidos")) + lista_pro.length;
+    sessionStorage.setItem("num_pedidos", num);
+  }
+  else {
+    sessionStorage.setItem("num_pedidos", lista_pro.length);
+  }
   var tab = document.getElementById(idTabela);
   var row_numb = tab.rows.length;
   if (row_numb > 0) {
@@ -602,7 +609,7 @@ function addToPlay(idTabela, musica, artista, tempo, gostos) {
     var recRow = '<li id="'+musica+'" class="icones_bebidas"><table><tr><td id="'+musica+'like" class="likes">'+gostos+'</td><td style="width:15%;"><a href="javascript:void(0);" onclick="like('+rowCount+');"><img src="like_azul.png" id="'+musica+'img" class="add"/></a></td><td style="width:45%;" class="name">'+song+'</td><td style="width:25%;" class="artist">'+artista+'</td><td style="width:15%;" class="time">'+tempo+'</td></tr></table></li>';
   }
   else if(gostos == "a_tocar" ) {
-    var recRow = '<li id="'+musica+'" class="icones_bebidas"><table><tr><td id="'+musica+'like" class="likes">0</td><td style="width:15%;"><img src="coluna_preta.png" id="'+musica+'img" class="add"/></td><td style="width:45%;" class="name">'+song+'</td><td style="width:25%;" class="artist">'+artista+'</td><td style="width:15%;" class="time">'+tempo+'</td></tr></table></li>';
+    var recRow = '<li id="'+musica+'" class="icones_bebidas"><table><tr><td style="width:15%;"><img src="coluna_preta.png" id="'+musica+'img" class="add"/></td><td style="width:45%;" class="name">'+song+'</td><td style="width:25%;" class="artist">'+artista+'</td><td style="width:15%;" class="time">'+tempo+'</td></tr></table></li>';
   }
   jQuery("#"+idTabela).append(recRow); 
     
@@ -687,6 +694,7 @@ function seeSong() {
 
 
 function like(linha) {
+  var num = sessionStorage.getItem("num_pedidos");
   decodeMusic(linha);
   var image = document.getElementById(rowCount+'img'); 
   getFileNameFromPath(image.src);
@@ -694,7 +702,7 @@ function like(linha) {
     image.src = "like_azul.png";
     var related = JSON.parse(sessionStorage.getItem(rowCount)); 
     var gostos = related[2];
-    gostos +=1;
+    gostos +=( Math.floor(num/5) + 1);      /*de cinco em 5 produtos comprados pelo cliente os seu likes incrementam 1*/
     sessionStorage.setItem(rowCount,JSON.stringify([related[0],related[1],gostos]));
     upLine(rowCount);
   }
@@ -702,10 +710,14 @@ function like(linha) {
   	image.src = "like_preto.png";
     var related = JSON.parse(sessionStorage.getItem(rowCount)); 
     var gostos = related[2];
-    gostos -=1;
+    gostos -=( Math.floor(num/5) + 1);     /*de cinco em 5 produtos comprados pelo cliente os seu dislikes incrementam 1*/
+    if(gostos < 0) {
+      gostos = 0;
+    }
     sessionStorage.setItem(rowCount,JSON.stringify([related[0],related[1],gostos]));
     downLine(rowCount);
   }
+  document.getElementById(rowCount+"like").innerHTML = gostos;
 }
 
 function getFileNameFromPath(path) {
@@ -1039,8 +1051,10 @@ function seeTime() {
     var horas = time.getHours();
     var minutos = time.getMinutes();
     var segundos = time.getSeconds();
+    console.log("a ver tempo");
     if(horas == tempo_fim[0] && minutos == tempo_fim[1] && segundos == tempo_fim[2]) {
       newSongPlaying();
+      console.log("mudei musica");
     }
   }
   setTimeout(seeTime,1000);  /*verifica as horas de segundo em segundo*/
