@@ -1051,10 +1051,8 @@ function seeTime() {
     var horas = time.getHours();
     var minutos = time.getMinutes();
     var segundos = time.getSeconds();
-    console.log("a ver tempo");
     if(horas == tempo_fim[0] && minutos == tempo_fim[1] && segundos == tempo_fim[2]) {
       newSongPlaying();
-      console.log("mudei musica");
     }
   }
   setTimeout(seeTime,1000);  /*verifica as horas de segundo em segundo*/
