@@ -15,7 +15,7 @@
   <script src="jquery.js">></script> 
 
   </head>
-  <body onload="refreshPlaylist();seeTime()">
+  <body onload="refreshPlaylist();seeTime();seeImage()">
 
   <!--para criar a barra fixa no topo-->
   	<div id="barra">
@@ -104,158 +104,158 @@
 			  		</button>
 
 			  		<ul class="list">
-			  			<li onclick="addSong('7_Years', 'Lukas Graham', '4:00')" class="icones_bebidas">
+			  			<li  class="icones_bebidas">
 			  				<table>
 			  					<tr>
-			  						<td id="add"><img src="add.png"/></td>
+			  						<td id="add"><img src="add.png" id="1" onclick="addSong('7_Years', 'Lukas Graham', '4:00' , '1')" /></td>
 						  			<td class="name">7 Years</td>
 						  			<td class="artist">Lukas Graham</td>
 						  			<td class="time">4:00</td>
 						  		</tr>
 						  	</table>
 				  		</li>
-				  		<li onclick="addSong('Makeup', 'AGIR', '4:00')" class="icones_bebidas">
+				  		<li  class="icones_bebidas">
 				  			<table>
 			  					<tr>
-			  						<td id="add"><img src="add.png"/></td>
+			  						<td id="add"><img src="add.png" id="2" onclick="addSong('Makeup', 'AGIR', '4:00' , '2')"/></td>
 			  						<td class="name">Makeup</td>
 						  			<td class="artist">AGIR</td>
 						  			<td class="time">4:00</td>
 						  	</table>
 				  		</li>
-				  		<li onclick="addSong('Faded', 'Alan Walker', '3:33')" class="icones_bebidas">
+				  		<li  class="icones_bebidas">
 				  			<table>
 			  					<tr>
-			  						<td id="add"><img src="add.png"/></td>
+			  						<td id="add"><img src="add.png" id="3" onclick="addSong('Faded', 'Alan Walker', '3:33' , '3')"/></td>
 			  						<td class="name">Faded</td>
 						  			<td class="artist">Alan Walker</td>
 						  			<td class="time">3:33</td>
 						  		</tr>
 						  	</table>
 				  		</li>
-				  		<li onclick="addSong('Amnesia', '5 Seconds of Summer', '4:12')" class="icones_bebidas">
+				  		<li  class="icones_bebidas">
 				  			<table>
 			  					<tr>
-			  						<td id="add"><img src="add.png"/></td>
+			  						<td id="add"><img src="add.png" id="4" onclick="addSong('Amnesia', '5 Seconds of Summer', '4:12' , '4')"/></td>
 						  			<td class="name">Amnesia</td>
 						  			<td class="artist">5 Seconds of Summer</td>
 						  			<td class="time">4:12</td>
 						  		</tr>
 						  	</table>
 				  		</li>
-				  		<li onclick="addSong('Lonely', 'Akon', '4:24')" class="icones_bebidas">
+				  		<li  class="icones_bebidas">
 				  			<table>
 			  					<tr>
-			  						<td id="add"><img src="add.png"/></td>
+			  						<td id="add"><img src="add.png" id="5" onclick="addSong('Lonely', 'Akon', '4:24' , '5')"/></td>
 						  			<td class="name">Lonely</td>
 						  			<td class="artist">Akon</td>
 						  			<td class="time">4:24</td>
 						  		</tr>
 						  	</table>
 				  		</li>
-				  		<li onclick="addSong('That_s_How_You_Know', 'Nico & Vinz', '4:04')" class="icones_bebidas">
+				  		<li  class="icones_bebidas">
 				  			<table>
 			  					<tr>
-			  						<td id="add"><img src="add.png"/></td>
+			  						<td id="add"><img src="add.png" id="6" onclick="addSong('That_s_How_You_Know', 'Nico & Vinz', '4:04' , '6')"/></td>
 			  						<td class="name">That's How You Know</td>
 						  			<td class="artist">Nico & Vinz</td>
 						  			<td class="time">4:04</td>
 						  		</tr>
 						  	</table>
 				  		</li>
-				  		<li onclick="addSong('Hollow', 'Tory Kelly', '3:40')" class="icones_bebidas">
+				  		<li  class="icones_bebidas">
 				  			<table>
 			  					<tr>
-			  						<td id="add"><img src="add.png"/></td>
+			  						<td id="add"><img src="add.png" id="7" onclick="addSong('Hollow', 'Tory Kelly', '3:40' , '7')"/></td>
 			  						<td class="name">Hollow</td>
 						  			<td class="artist">Tory Kelly</td>
 						  			<td class="time">3:40</td>
 						  		</tr>
 						  	</table>
 				  		</li>
-				  		<li onclick="addSong('Rock_Botom', 'Hailee Steinfeld', '3:37')" class="icones_bebidas">
+				  		<li  class="icones_bebidas">
 				  			<table>
 			  					<tr>
-			  						<td id="add"><img src="add.png"/></td>
-			  						<td class="name">Rock Botom</td>
+			  						<td id="add"><img src="add.png" id="8" onclick="addSong('Rock_Botom', 'Hailee Steinfeld', '3:37' , '8')"/></td>
+			  						<td class="name">Rock Botom</td> 
 						  			<td class="artist">Hailee Steinfeld</td>
 						  			<td class="time">3:37</td>
 						  		</tr>
 						  	</table>
 				  		</li>
-				  		<li onclick="addSong('We_Belong_Together', 'Mariah Carey', '3:25')" class="icones_bebidas">
+				  		<li  class="icones_bebidas">
 				  			<table>
 			  					<tr>
-			  						<td id="add"><img src="add.png"/></td>
+			  						<td id="add"><img src="add.png" id="9" onclick="addSong('We_Belong_Together', 'Mariah Carey', '3:25' , '9')"/></td>
 			  						<td class="name">We Belong Together</td>
 						  			<td class="artist">Mariah Carey</td>
 						  			<td class="time">3:25</td>
 						  		</tr>
 						  	</table>
 				  		</li>
-				  		<li onclick="addSong('Take_On_Me', 'a-ha', '3:48')" class="icones_bebidas">
+				  		<li  class="icones_bebidas">
 				  			<table>
 			  					<tr>
-			  						<td id="add"><img src="add.png"/></td>
+			  						<td id="add"><img src="add.png" id="10" onclick="addSong('Take_On_Me', 'a-ha', '3:48' , '10')"/></td>
 			  						<td class="name">Take On Me</td>
 						  			<td class="artist">a-ha</td>
 						  			<td class="time">3:48</td>
 						  		</tr>
 						  	</table>
 				  		</li>
-				  		<li onclick="addSong('She_Will_Be_Loved', 'Maroon 5', '4:27')" class="icones_bebidas">
+				  		<li  class="icones_bebidas">
 				  			<table>
 			  					<tr>
-			  						<td id="add"><img src="add.png"/></td>
+			  						<td id="add"><img src="add.png" id="11" onclick="addSong('She_Will_Be_Loved', 'Maroon 5', '4:27' , '11')"/></td>
 						  			<td class="name">She Will Be Loved</td>
 						  			<td class="artist">Maroon 5</td>
 						  			<td class="time">4:27</td>
 						  		</tr>
 						  	</table>
 				  		</li>
-				  		<li onclick="addSong('Thousand_Miles', 'Vanessa Carlton', '4:29')" class="icones_bebidas">
+				  		<li  class="icones_bebidas">
 				  			<table>
 			  					<tr>
-			  						<td id="add"><img src="add.png"/></td>
+			  						<td id="add"><img src="add.png" id="12" onclick="addSong('Thousand_Miles', 'Vanessa Carlton', '4:29' , '12')"/></td>
 			  						<td class="name">Thousand Miles</td>
 						  			<td class="artist">Vanessa Carlton</td>
 						  			<td class="time">4:29</td>
 						  		</tr>
 						  	</table>
 				  		</li>
-				  		<li onclick="addSong('The_Scientist', 'Coldplay', '4:25')" class="icones_bebidas">
+				  		<li  class="icones_bebidas">
 				  			<table>
 			  					<tr>
-			  						<td id="add"><img src="add.png"/></td>
+			  						<td id="add"><img src="add.png" id="13" onclick="addSong('The_Scientist', 'Coldplay', '4:25' , '13')"/></td>
 			  						<td class="name">The Scientist</td>
 						  			<td class="artist">Coldplay</td>
 						  			<td class="time">4:25</td>
 						  		</tr>
 						  	</table>
 				  		</li>
-				  		<li onclick="addSong('Big_Girls_Don_t_Cry', 'Fergie', '5:06')" class="icones_bebidas">
+				  		<li  class="icones_bebidas">
 				  			<table>
 			  					<tr>
-			  						<td id="add"><img src="add.png"/></td>
+			  						<td id="add"><img src="add.png" id="14" onclick="addSong('Big_Girls_Don_t_Cry', 'Fergie', '5:06' , '14')"/></td>
 			  						<td class="name">Big Girls Don't Cry</td>
 						  			<td class="artist">Fergie</td>
 						  			<td class="time">5:06</td>
 						  		</tr>
 						  	</table>
 				  		</li>
-				  		<li onclick="addSong('Just_The_Way_You_Are', 'Bruno Mars', '4:02')" class="icones_bebidas">
+				  		<li  class="icones_bebidas">
 				  			<table>
 			  					<tr>
-			  						<td id="add"><img src="add.png"/></td>
+			  						<td id="add"><img src="add.png" id="15" onclick="addSong('Just_The_Way_You_Are', 'Bruno Mars', '4:02' , '15')"/></td>
 			  						<td class="name">Just The Way You Are</td>
 						  			<td class="artist">Bruno Mars</td>
 						  			<td class="time">4:02</td>
 						  	</table>
 				  		</li>
-				  		<li onclick="addSong('Animals', 'Martin Garrix', '3:12')" class="icones_bebidas">
+				  		<li  class="icones_bebidas">
 				  			<table>
 			  					<tr>
-			  						<td id="add"><img src="add.png"/></td>
+			  						<td id="add"><img src="add.png" id="16" onclick="addSong('Animals', 'Martin Garrix', '3:12' , '16')"/></td>
 			  						<td class="name">Animals</td>
 						  			<td class="artist">Martin Garrix</td>
 						  			<td class="time">3:12</td>

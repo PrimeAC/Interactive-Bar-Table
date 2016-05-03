@@ -599,6 +599,33 @@ function decode(removeNum) {
 }
 
 
+function seeImage() {
+  for(i=1;i<17;i++) {
+    var image=document.getElementById(i);
+    if(sessionStorage.getItem(i) == null || sessionStorage.getItem(i) == "add.png") {
+      image.src = "add.png";
+    }
+    else {
+      image.src = "check.png";
+    }
+  }
+}
+
+
+function changeImage(id) {
+  var image = document.getElementById(id);
+  if (image.src.match("add")) {
+      image.src = "check.png";
+      sessionStorage.setItem(id, "check.png");
+  } 
+  else {
+    image.src = "add.png";
+    sessionStorage.setItem(id, "add.png");
+  }
+}
+
+
+
 function addToPlay(idTabela, musica, artista, tempo, gostos) {
   encode(musica);
   embelezaMusica(musica);
@@ -615,7 +642,7 @@ function addToPlay(idTabela, musica, artista, tempo, gostos) {
     
 }
 
-function addSong(musica, artista,tempo){
+function addSong(musica, artista,tempo,id){
   var size = sessionStorage.length;
   for(i=0;i<size;i++) {
     if(sessionStorage.key(i) == musica) {
@@ -623,6 +650,9 @@ function addSong(musica, artista,tempo){
       return;
     }
   }
+
+  changeImage(id);
+
   var music = [artista, tempo, 0];
   sessionStorage.setItem(musica, JSON.stringify(music));
   alert("Música adicionada com sucesso.");
@@ -630,6 +660,7 @@ function addSong(musica, artista,tempo){
     embelezaMusica(musica);
     sessionStorage.setItem("playing",JSON.stringify([song,artista,tempo,musica]));
     sessionStorage.setItem("lista_rep",JSON.stringify([musica]));
+    sessionStorage.setItem("checks",JSON.stringify([id]));
     addToPlay('play',musica,artista,tempo,'a_tocar');
     var tempo_actual = new Date();
     var horas = tempo_actual.getHours();
@@ -663,6 +694,11 @@ function addSong(musica, artista,tempo){
     aux.push(musica);
     sessionStorage.setItem("lista_rep",JSON.stringify(aux));
     addToPlay('play',musica,artista,tempo,0);
+  }
+  if(sessionStorage.getItem("checks") != null) {
+    var aux = JSON.parse(sessionStorage.getItem("checks"));
+    aux.push(id);
+    sessionStorage.setItem("checks",JSON.stringify(aux));
   }
 }
 
@@ -731,6 +767,7 @@ function upLine(idLinha) {
   var pos_like = 0;
   var pos_inserir = 0;   /*guarda a posiçao onde o elemento que foi feito like sera inserido*/
   var aux = JSON.parse(sessionStorage.getItem("lista_rep"));
+  var id = JSON.parse(sessionStorage.getItem("checks"));
   for(i=1;i<aux.length;i++) {
     if(aux[i] == idLinha) {
       pos_like = i;    /*posiçao onde foi feito o like*/
@@ -746,25 +783,31 @@ function upLine(idLinha) {
   }
   /*chamar uma funçao que altere as posiçoes*/
   var nova = [];  /*lista que vai guardar as novas posiçoes*/
+  var nova1 = []; /*lista que vai guardar as novas posiçoes de ids*/
   var related = JSON.parse(sessionStorage.getItem(aux[pos_like-1]));  //string guardada com a key do nome da musica anterior
   if(pos_like >1 && a_mudar[2] > related[2]) {
     for (i = 0; i < aux.length; i++) {
       if(i < pos_inserir) {
         nova[i] = aux[i];
+        nova1[i]=id[i];
       }
       else if(i == pos_inserir) {
         nova[i] = aux[pos_like];
+        nova1[i] = id[pos_like];
       }
       else {
         if(i <= pos_like ) {
           nova[i] = aux[i-1];
+          nova1[i] = id[i-1];
         }
         else {
           nova[i] = aux[i];
+          nova1[i] = id[i];
         }
       }
     }
   sessionStorage.setItem("lista_rep",JSON.stringify(nova));
+  sessionStorage.setItem("checks",JSON.stringify(nova1));
   refreshPlaylist();
   }
 }
@@ -775,6 +818,7 @@ function downLine(idLinha) {
   var pos_like = 0;
   var pos_inserir = 0;   /*guarda a posiçao onde o elemento que foi feito like sera inserido*/
   var aux = JSON.parse(sessionStorage.getItem("lista_rep"));
+  var id = JSON.parse(sessionStorage.getItem("checks"));
   for(i=1;i<aux.length;i++) {
     if(aux[i] == idLinha) {
       pos_like = i;    /*posiçao onde foi feito o dislike*/
@@ -790,25 +834,31 @@ function downLine(idLinha) {
   }
   /*chamar uma funçao que altere as posiçoes*/
   var nova = [];  /*lista que vai guardar as novas posiçoes*/
+  var nova1 = [];  /*lista que vai guardar as novas posiçoes de ids*/
   var related = JSON.parse(sessionStorage.getItem(aux[pos_like+1]));  //string guardada com a key do nome da proxima musica
   if(pos_like < aux.length-1 && a_mudar[2] < related[2]) {
     for (i = 0; i < aux.length; i++) {
       if(i < pos_like) {
         nova[i] = aux[i];
+        nova1[i] = id[i];
       }
       else if(i == pos_inserir) {
         nova[i] = aux[pos_like];
+        nova1[i] = id[pos_like];
       }
       else {
         if(i <= pos_inserir ) {
           nova[i] = aux[i+1];
+          nova1[i] = id[i+1];
         }
         else {
           nova[i] = aux[i];
+          nova1[i] = id[i];
         }
       }
     }
   sessionStorage.setItem("lista_rep",JSON.stringify(nova));
+  sessionStorage.setItem("checks",JSON.stringify(nova1));
   refreshPlaylist();
   }
 }
@@ -837,14 +887,23 @@ function refreshPlaylist() {
 function newSongPlaying() {
   var aux = JSON.parse(sessionStorage.getItem('lista_rep'));
   var a_tocar = JSON.parse(sessionStorage.getItem('playing'));
+  var id = JSON.parse(sessionStorage.getItem('checks'));
   for(i=0;i<sessionStorage.length;i++){
     if(aux[0] == sessionStorage.key(i)) {
       sessionStorage.removeItem(aux[0]);  /*apaga a musica do storage*/
     }
   }
+  for(i=0;i<sessionStorage.length;i++){
+    if(id[0] == sessionStorage.key(i)) {
+      changeImage(id[0]);
+      sessionStorage.removeItem(id[0]);  /*apaga a id do storage*/
+    }
+  }
   jQuery('#'+aux[0]).remove();  /*elimina o primeiro elemento da playlist*/
   aux.splice(0, 1);  /*elimina o elemento na posiçao zero da lista de reproduçao*/
+  id.splice(0, 1);
   sessionStorage.setItem('lista_rep', JSON.stringify(aux));
+  sessionStorage.setItem('checks', JSON.stringify(id));
   if(aux != null && aux != "") {  
     var related = JSON.parse(sessionStorage.getItem(aux[0]));
     embelezaMusica(aux[0]);
