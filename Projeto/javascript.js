@@ -88,10 +88,23 @@ function confirmationMsg(idTabela) {
   if(sessionStorage.getItem("num_pedidos") != null && sessionStorage.getItem("num_pedidos") != "") {
     var num = parseInt(sessionStorage.getItem("num_pedidos")) + lista_pro.length;
     sessionStorage.setItem("num_pedidos", num);
+    var int = Math.floor(num/5);
+    if(sessionStorage.getItem("inteiro") < int) {
+      var inteiro = int + 1;
+      alert("Agora os seus likes valem por "+inteiro);
+    } 
+    sessionStorage.setItem("inteiro", int);
   }
   else {
     sessionStorage.setItem("num_pedidos", lista_pro.length);
+    var int = Math.floor(lista_pro.length/5);
+    if(sessionStorage.getItem("inteiro") == null && int >= 1) {
+      var inteiro = int + 1;
+      alert("Agora os seus likes valem por "+inteiro);
+    }
+    sessionStorage.setItem("inteiro", int);
   }
+  
   var tab = document.getElementById(idTabela);
   var row_numb = tab.rows.length;
   if (row_numb > 0) {
@@ -1110,6 +1123,7 @@ function seeTime() {
     var horas = time.getHours();
     var minutos = time.getMinutes();
     var segundos = time.getSeconds();
+    console.log("tempo");
     if(horas == tempo_fim[0] && minutos == tempo_fim[1] && segundos == tempo_fim[2]) {
       newSongPlaying();
     }
