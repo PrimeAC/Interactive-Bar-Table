@@ -1124,7 +1124,7 @@ function seeTime() {
     var minutos = time.getMinutes();
     var segundos = time.getSeconds();
     console.log("tempo");
-    if(horas == tempo_fim[0] && minutos == tempo_fim[1] && segundos == tempo_fim[2]) {
+    if(horas >= tempo_fim[0] && minutos >= tempo_fim[1] && segundos >= tempo_fim[2]) {
       newSongPlaying();
     }
   }
