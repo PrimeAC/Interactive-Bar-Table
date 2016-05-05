@@ -1,15 +1,21 @@
+var myVar=0;
 function toggleFooter(id) { 
   if(document.getElementById(id).style.height == "4.5%") {
     document.getElementById("reticencias").src="downarrow.png";
     document.getElementById(id).style.height = "12.5%";
+    myVar = setTimeout(auxiliar,5000);
   }
 
   else {
     document.getElementById("reticencias").src="uparrow.png";
     document.getElementById(id).style.height = "4.5%";
+    clearTimeout(myVar);
   }
 }
 
+function auxiliar() {
+  toggleFooter("rodape");
+}
 
 function changeDiv(id1,id2)
 {
@@ -205,7 +211,7 @@ function seeHist() {
     list = JSON.parse(prod_hist);
     var len = list.length;
     for(i=0; i < len ; i++) {
-      if (list[i] =="Café" || list[i] =="Amendioins" || list[i] =="Tremoços") {
+      if (list[i] =="Café" || list[i] =="Amendoins" || list[i] =="Tremoços") {
         addHist('historicotab', 1, list[i], "1.00€");
       }
       else if(list[i] =="Cachorro_Quente" || list[i] =="Bifana" || list[i] =="Prego_no_Pão") {
@@ -626,15 +632,21 @@ function seeImage() {
 
 
 function changeImage(id) {
+  /*alert(document.getElementById(id));*/
   var image = document.getElementById(id);
-  if (image.src.match("add")) {
-      image.src = "check.png";
-      sessionStorage.setItem(id, "check.png");
-  } 
-  else {
-    image.src = "add.png";
-    sessionStorage.setItem(id, "add.png");
+  if(image != null) {
+    if (image.src.match("add")) {
+        image.src = "check.png";
+        sessionStorage.setItem(id, "check.png");
+    } 
+    else {
+      image.src = "add.png";
+      sessionStorage.setItem(id, "add.png");
+    }
   }
+  /*else {
+    alert("era null");
+  }*/
 }
 
 
@@ -1123,7 +1135,6 @@ function seeTime() {
     var horas = time.getHours();
     var minutos = time.getMinutes();
     var segundos = time.getSeconds();
-    console.log("tempo");
     if(horas >= tempo_fim[0] && minutos >= tempo_fim[1] && segundos >= tempo_fim[2]) {
       newSongPlaying();
     }
