@@ -101,7 +101,11 @@ a {
 
 #pagamento {
 	float:left;
-	background-color: #006df0;
+	background-color: grey;
+}
+
+#pagamento:active {
+	cursor: pointer;
 }
 
 #paga1 {

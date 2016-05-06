@@ -397,7 +397,7 @@ function addMoreRows(idTabela, pedido,preço) {
       rowCount = 26;
     }
 
-    var recRow = '<tr id="'+pedido+'"><td><a href="javascript:void(0);" onclick="decrementItem('+rowCount+');">-</a></td><td id="'+pedido+'qtd">'+rowQtd+'</td><td>'+pedido+'</td><td><a href="javascript:void(0);" onclick="removeRow('+rowCount+');">X</a></td></tr>'; 
+    var recRow = '<tr id="'+pedido+'"><td><a href="javascript:void(0);" onclick="decrementItem('+rowCount+');" style="color: red;">-</a></td><td id="'+pedido+'qtd">'+rowQtd+'</td><td>'+pedido+'</td><td><a href="javascript:void(0);" onclick="removeRow('+rowCount+');" style="color: red;">X</a></td></tr>'; 
     jQuery('#lista_produtos1').prepend(recRow); /*adiciona no inicio da lista*/
     valor1 += parseFloat(preço);
     valor3 += valor1;
@@ -500,7 +500,7 @@ function decrementItem(removeNum) {
   for(i=0;i<lista_pro.length;) {
     if(lista_pro[i] == rowCount) {
       lista_pro.splice(i, 1);
-      if (rowCount =="Café" || rowCount =="Amendioins" || rowCount =="Tremoços") {
+      if (rowCount =="Café" || rowCount =="Amendoins" || rowCount =="Tremoços") {
         a_eliminar += 1.00;
         break;
       }
@@ -690,7 +690,6 @@ function addSong(musica, artista,tempo,id){
 
   var music = [artista, tempo, 0];
   sessionStorage.setItem(musica, JSON.stringify(music));
-  alert("Música adicionada com sucesso.");
   if(sessionStorage.getItem("playing") == null || JSON.parse(sessionStorage.getItem("playing"))[0] == "Música 1" ) {
     embelezaMusica(musica);
     sessionStorage.setItem("playing",JSON.stringify([song,artista,tempo,musica]));
@@ -1153,8 +1152,10 @@ function seeTime() {
 }
 
 function payment() {
-  if (confirm('Tem a certeza que deseja efetuar o pagamento?')) {
-    location.href = "pagamento.html";
+  if(sessionStorage.getItem("lista_hist") != null && sessionStorage.getItem("lista_hist") != "") {  
+    if (confirm('Tem a certeza que deseja efetuar o pagamento?')) {
+      location.href = "pagamento.html";
+    }
   }
 }
 
@@ -1168,5 +1169,12 @@ function productsMissingToLike() {
         return;
       }
     }
+  }
+}
+
+
+function seePay() {
+  if(sessionStorage.getItem("lista_hist") != null && sessionStorage.getItem("lista_hist") != "") {
+    document.getElementById("pagamento").style.backgroundColor = "#006df0";
   }
 }
