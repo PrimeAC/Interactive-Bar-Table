@@ -14,7 +14,7 @@
   <script src="jquery.js">></script> 
 
   </head>
-  <body onload="refresh();seeTime()">
+  <body onload="refresh();seeTime();productsMissingToLike()">
 
   <!--para criar a barra fixa no topo-->
   	<div id="barra">
@@ -98,7 +98,7 @@
 			  						<td id="add"><img src="add.png" onclick="addMoreRows('lista_produtos1','Água','2.00')"/></td>
 			  						<td id="td_img"><img src="agua.png" id="img_menu"/></td>
 						  			<td class="name">Água</td>
-						  			<td class="type">sem alcool</td>
+						  			<td class="type">Sem alcool</td>
 						  			<td class="price">2.00€</td>
 						  		</tr>
 						  	</table>
@@ -109,7 +109,7 @@
 			  						<td id="add"><img src="add.png" onclick="addMoreRows('lista_produtos1','Coca-Cola','1.50')"/></td>
 			  						<td id="td_img"><img src="coca-cola.png" id="img_menu"/></td>
 						  			<td class="name">Coca-Cola</td>
-						  			<td class="type">sem alcool</td>
+						  			<td class="type">Sem alcool</td>
 						  			<td class="price">1.50€</td>
 						  		</tr>
 						  	</table>
@@ -408,8 +408,8 @@
 			  	<div>
 			  		<table id="conf_can">
 						<tr>
-							<td><div class="icones_lista" id="cancelar" onclick="deleteMsg('lista_produtos1')"><b>Cancelar</b></div></td>
-							<td><div class="icones_lista" id="confirmar" onclick="confirmationMsg('lista_produtos1')"><b>Confirmar</b></div></td>
+							<td><div class="icones_lista" id="cancelar" onclick="deleteMsg('lista_produtos1')" style="background-color: grey;"><b>Cancelar</b></div></td>
+							<td><div class="icones_lista" id="confirmar" onclick="confirmationMsg('lista_produtos1')" style="background-color: grey;"><b>Confirmar</b></div></td>
 						</tr>
 			  		</table>
 			  	</div>	
