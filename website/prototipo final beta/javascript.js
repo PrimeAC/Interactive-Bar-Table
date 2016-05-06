@@ -71,6 +71,7 @@ function deleteList(idTabela) {
   total('header_produtos1', valor); 
   for ( var i = 0; i < row_numb; ) {
     tab.deleteRow(i);
+    row_numb-=1;
   } 
 
 }
@@ -182,22 +183,22 @@ function seeProd() {
     var len = list.length;
     for(i=0; i < len ; i++) {
       if (list[i] =="Café" || list[i] =="Amendoins" || list[i] =="Tremoços") {
-        addHist('prodtab', 1, list[i], "1.00€");
+        addHist('prodtab', list[i], "1.00€");
       }
       else if(list[i] =="Cachorro_Quente" || list[i] =="Bifana" || list[i] =="Prego_no_Pão") {
-        addHist('prodtab', 1, list[i], "4.00€");
+        addHist('prodtab', list[i], "4.00€");
       }
       else if (list[i] =="Hamburger") {
-        addHist('prodtab', 1, list[i], "6.00€");
+        addHist('prodtab', list[i], "6.00€");
       }
       else if (list[i] =="Cheeseburger") {
-        addHist('prodtab', 1, list[i], "6.50€");
+        addHist('prodtab', list[i], "6.50€");
       }
       else if (list[i] =="Coca-Cola" || list[i] =="Ice-Tea") {
-        addHist('prodtab', 1, list[i], "1.50€");
+        addHist('prodtab', list[i], "1.50€");
       }
       else {
-        addHist('prodtab', 1, list[i], "2.00€");
+        addHist('prodtab', list[i], "2.00€");
       }
     }
   }
@@ -212,33 +213,32 @@ function seeHist() {
     var len = list.length;
     for(i=0; i < len ; i++) {
       if (list[i] =="Café" || list[i] =="Amendoins" || list[i] =="Tremoços") {
-        addHist('historicotab', 1, list[i], "1.00€");
+        addHist('historicotab', list[i], "1.00€");
       }
       else if(list[i] =="Cachorro_Quente" || list[i] =="Bifana" || list[i] =="Prego_no_Pão") {
-        addHist('historicotab', 1, list[i], "4.00€");
+        addHist('historicotab', list[i], "4.00€");
       }
       else if (list[i] =="Hamburger") {
-        addHist('historicotab', 1, list[i], "6.00€");
+        addHist('historicotab', list[i], "6.00€");
       }
       else if (list[i] =="Cheeseburger") {
-        addHist('historicotab', 1, list[i], "6.50€");
+        addHist('historicotab', list[i], "6.50€");
       }
       else if (list[i] =="Coca-Cola" || list[i] =="Ice-Tea") {
-        addHist('historicotab', 1, list[i], "1.50€");
+        addHist('historicotab', list[i], "1.50€");
       }
       else {
-        addHist('historicotab', 1, list[i], "2.00€");
+        addHist('historicotab', list[i], "2.00€");
       }
     }
   }
   
 }
 var valor1 = 0;
-function addHist(idTabela, qtd, pedido, preço) {
+function addHist(idTabela, pedido, preço) {
   var newRow = d.createElement('tr');
-  newRow.insertCell(0).innerHTML = qtd;
-  newRow.insertCell(1).innerHTML = pedido;
-  newRow.insertCell(2).innerHTML = preço;
+  newRow.insertCell(0).innerHTML = pedido;
+  newRow.insertCell(1).innerHTML = preço;
   d.getElementById(idTabela).appendChild(newRow);
   if(idTabela == "historicotab") {
 	  valor1 += parseFloat(preço);
@@ -397,7 +397,7 @@ function addMoreRows(idTabela, pedido,preço) {
       rowCount = 26;
     }
 
-    var recRow = '<tr id="'+pedido+'"><td><a href="javascript:void(0);" onclick="decrementItem('+rowCount+');">-</a></td><td id="'+pedido+'qtd">'+rowQtd+'</td><td>'+pedido+'</td><td><a href="javascript:void(0);" onclick="removeRow('+rowCount+');">X</a></td></tr>'; 
+    var recRow = '<tr id="'+pedido+'"><td><a href="javascript:void(0);" onclick="decrementItem('+rowCount+');" style="color: red;">-</a></td><td id="'+pedido+'qtd">'+rowQtd+'</td><td>'+pedido+'</td><td><a href="javascript:void(0);" onclick="removeRow('+rowCount+');" style="color: red;">X</a></td></tr>'; 
     jQuery('#lista_produtos1').prepend(recRow); /*adiciona no inicio da lista*/
     valor1 += parseFloat(preço);
     valor3 += valor1;
@@ -500,7 +500,7 @@ function decrementItem(removeNum) {
   for(i=0;i<lista_pro.length;) {
     if(lista_pro[i] == rowCount) {
       lista_pro.splice(i, 1);
-      if (rowCount =="Café" || rowCount =="Amendioins" || rowCount =="Tremoços") {
+      if (rowCount =="Café" || rowCount =="Amendoins" || rowCount =="Tremoços") {
         a_eliminar += 1.00;
         break;
       }
@@ -690,7 +690,6 @@ function addSong(musica, artista,tempo,id){
 
   var music = [artista, tempo, 0];
   sessionStorage.setItem(musica, JSON.stringify(music));
-  alert("Música adicionada com sucesso.");
   if(sessionStorage.getItem("playing") == null || JSON.parse(sessionStorage.getItem("playing"))[0] == "Música 1" ) {
     embelezaMusica(musica);
     sessionStorage.setItem("playing",JSON.stringify([song,artista,tempo,musica]));
@@ -1153,8 +1152,10 @@ function seeTime() {
 }
 
 function payment() {
-  if (confirm('Tem a certeza que deseja efetuar o pagamento?')) {
-    location.href = "pagamento.html";
+  if(sessionStorage.getItem("lista_hist") != null && sessionStorage.getItem("lista_hist") != "") {  
+    if (confirm('Tem a certeza que deseja efetuar o pagamento?')) {
+      location.href = "pagamento.html";
+    }
   }
 }
 
@@ -1168,5 +1169,12 @@ function productsMissingToLike() {
         return;
       }
     }
+  }
+}
+
+
+function seePay() {
+  if(sessionStorage.getItem("lista_hist") != null && sessionStorage.getItem("lista_hist") != "") {
+    document.getElementById("pagamento").style.backgroundColor = "#006df0";
   }
 }
