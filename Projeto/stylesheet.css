@@ -632,6 +632,13 @@ tr .artist {
 
 
 /*musica*/
+.phrase {
+    font-size: 25px;
+    color: #333;
+    float: right;
+    margin-right: 15%;
+}
+
 tr .time {
 	text-align: right;
 	width: 20%;

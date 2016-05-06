@@ -15,7 +15,7 @@
   <script src="jquery.js">></script> 
 
   </head>
-  <body onload="refreshPlaylist();seeTime();seeImage()">
+  <body onload="refreshPlaylist();seeTime();seeImage();number()">
 
   <!--para criar a barra fixa no topo-->
   	<div id="barra">
@@ -89,7 +89,9 @@
 			  		<button class="sort" data-sort="name" onclick="Search('bebidas')">
 			  			Ordenar por música
 			  		</button>
-  		
+
+			  		<p id="numlikes" class="phrase"> O seu like vale por 1! </p>
+  					
 			  		<ul class="list" id="play">
 			  			
 			  		</ul>
@@ -102,6 +104,7 @@
 			  		<button class="sort" data-sort="name" onclick="Search('comida')"> <!--procurar por ordem alfabetica-->
 			  			Ordenar por música
 			  		</button>
+
 
 			  		<ul class="list">
 			  			<li  class="icones_bebidas">

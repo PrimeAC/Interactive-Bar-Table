@@ -111,7 +111,7 @@ function confirmationMsg(idTabela) {
     }
     sessionStorage.setItem("inteiro", int);
   }
-  
+
   var tab = document.getElementById(idTabela);
   var row_numb = tab.rows.length;
   if (row_numb > 0) {
@@ -119,6 +119,7 @@ function confirmationMsg(idTabela) {
     location.href="historico.html";
     storeArray();
     deleteList(idTabela);
+    
   }
 }
 
@@ -1177,4 +1178,10 @@ function seePay() {
   if(sessionStorage.getItem("lista_hist") != null && sessionStorage.getItem("lista_hist") != "") {
     document.getElementById("pagamento").style.backgroundColor = "#006df0";
   }
+}
+
+function number() {
+  valor = parseFloat(sessionStorage.getItem("inteiro")) + 1;
+  var please= "O seu like vale por " + valor + "!";
+  document.getElementById('numlikes').innerHTML = please;
 }
