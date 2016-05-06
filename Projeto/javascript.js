@@ -71,6 +71,7 @@ function deleteList(idTabela) {
   total('header_produtos1', valor); 
   for ( var i = 0; i < row_numb; ) {
     tab.deleteRow(i);
+    row_numb-=1;
   } 
 
 }
@@ -182,22 +183,22 @@ function seeProd() {
     var len = list.length;
     for(i=0; i < len ; i++) {
       if (list[i] =="Café" || list[i] =="Amendoins" || list[i] =="Tremoços") {
-        addHist('prodtab', 1, list[i], "1.00€");
+        addHist('prodtab', list[i], "1.00€");
       }
       else if(list[i] =="Cachorro_Quente" || list[i] =="Bifana" || list[i] =="Prego_no_Pão") {
-        addHist('prodtab', 1, list[i], "4.00€");
+        addHist('prodtab', list[i], "4.00€");
       }
       else if (list[i] =="Hamburger") {
-        addHist('prodtab', 1, list[i], "6.00€");
+        addHist('prodtab', list[i], "6.00€");
       }
       else if (list[i] =="Cheeseburger") {
-        addHist('prodtab', 1, list[i], "6.50€");
+        addHist('prodtab', list[i], "6.50€");
       }
       else if (list[i] =="Coca-Cola" || list[i] =="Ice-Tea") {
-        addHist('prodtab', 1, list[i], "1.50€");
+        addHist('prodtab', list[i], "1.50€");
       }
       else {
-        addHist('prodtab', 1, list[i], "2.00€");
+        addHist('prodtab', list[i], "2.00€");
       }
     }
   }
@@ -212,33 +213,32 @@ function seeHist() {
     var len = list.length;
     for(i=0; i < len ; i++) {
       if (list[i] =="Café" || list[i] =="Amendoins" || list[i] =="Tremoços") {
-        addHist('historicotab', 1, list[i], "1.00€");
+        addHist('historicotab', list[i], "1.00€");
       }
       else if(list[i] =="Cachorro_Quente" || list[i] =="Bifana" || list[i] =="Prego_no_Pão") {
-        addHist('historicotab', 1, list[i], "4.00€");
+        addHist('historicotab', list[i], "4.00€");
       }
       else if (list[i] =="Hamburger") {
-        addHist('historicotab', 1, list[i], "6.00€");
+        addHist('historicotab', list[i], "6.00€");
       }
       else if (list[i] =="Cheeseburger") {
-        addHist('historicotab', 1, list[i], "6.50€");
+        addHist('historicotab', list[i], "6.50€");
       }
       else if (list[i] =="Coca-Cola" || list[i] =="Ice-Tea") {
-        addHist('historicotab', 1, list[i], "1.50€");
+        addHist('historicotab', list[i], "1.50€");
       }
       else {
-        addHist('historicotab', 1, list[i], "2.00€");
+        addHist('historicotab', list[i], "2.00€");
       }
     }
   }
   
 }
 var valor1 = 0;
-function addHist(idTabela, qtd, pedido, preço) {
+function addHist(idTabela, pedido, preço) {
   var newRow = d.createElement('tr');
-  newRow.insertCell(0).innerHTML = qtd;
-  newRow.insertCell(1).innerHTML = pedido;
-  newRow.insertCell(2).innerHTML = preço;
+  newRow.insertCell(0).innerHTML = pedido;
+  newRow.insertCell(1).innerHTML = preço;
   d.getElementById(idTabela).appendChild(newRow);
   if(idTabela == "historicotab") {
 	  valor1 += parseFloat(preço);

@@ -524,9 +524,6 @@ table#historicotab td {
   margin-bottom: 2%;
 }
 
-.list > li:active {
-	background-color: #bfbfbf;
-}
 .avatar {
   max-width: 150px;
 }
