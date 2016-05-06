@@ -493,13 +493,13 @@ table#historicotab td {
 	width: 100%;
 }
 #confirmar{
-	background-color: green;
+	/*background-color: green;*/
 	width: 50%;
 	cursor: pointer;
 }
 
 #cancelar {
-	background-color: red;
+	/*background-color: red;*/
 	float:left;
 	margin-left: 10%;
 	width: 50%;

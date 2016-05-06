@@ -78,7 +78,7 @@ function deleteList(idTabela) {
 /*divs dos produtos a funcionar com procura*/
 function Search(id) { 
   var options = {
-    valueNames: [ 'name', 'type', 'price', 'description' , 'artist', 'likes']
+    valueNames: [ 'name', 'price', 'description' , 'artist']
   };
   if (id == "bebidas") {
     var userList = new List('bebidas', options);
@@ -305,6 +305,9 @@ function addMoreRows(idTabela, pedido,preço) {
   var valor1 = 0;
   lista_pro.push(pedido);
 
+  document.getElementById("confirmar").style.backgroundColor = "green";
+  document.getElementById("cancelar").style.backgroundColor = "red";
+
   var aux =document.getElementById(pedido+'qtd');
   if(aux != null) {
     var atual = document.getElementById(pedido+'qtd').innerHTML;
@@ -412,7 +415,7 @@ function removeRow(removeNum) {
   for(i=0;i<lista_pro.length;) {
     if(lista_pro[i] == rowCount) {
       lista_pro.splice(i, 1);
-      if (rowCount =="Café" || rowCount =="Amendioins" || rowCount =="Tremoços") {
+      if (rowCount =="Café" || rowCount =="Amendoins" || rowCount =="Tremoços") {
         a_eliminar += 1.00;
       }
       else if(rowCount =="Cachorro_Quente" || rowCount =="Bifana" || rowCount =="Prego_no_Pão") {
@@ -437,7 +440,11 @@ function removeRow(removeNum) {
   }
   valor2 = sessionStorage.getItem('valor_prod');
   totalNeg('header_produtos1', a_eliminar, valor2); 
-  jQuery('#'+rowCount).remove(); 
+  jQuery('#'+rowCount).remove();
+  if(lista_pro.length == 0) {
+    document.getElementById("confirmar").style.backgroundColor = "grey";
+    document.getElementById("cancelar").style.backgroundColor = "grey";
+  } 
 } 
 
 
@@ -531,7 +538,10 @@ function decrementItem(removeNum) {
   }
   valor2 = sessionStorage.getItem('valor_prod');
   totalNeg('header_produtos1', a_eliminar, valor2); 
-   
+  if(lista_pro.length == 0) {
+    document.getElementById("confirmar").style.backgroundColor = "grey";
+    document.getElementById("cancelar").style.backgroundColor = "grey";
+  } 
 }
 
 
@@ -1140,4 +1150,23 @@ function seeTime() {
     }
   }
   setTimeout(seeTime,1000);  /*verifica as horas de segundo em segundo*/
+}
+
+function payment() {
+  if (confirm('Tem a certeza que deseja efetuar o pagamento?')) {
+    location.href = "pagamento.html";
+  }
+}
+
+function productsMissingToLike() {
+  var aux = sessionStorage.getItem("num_pedidos");
+  if(aux != null) {
+    for(i=aux; i <= aux+5; i++) {
+      if(i > aux && i%5 == 0) {
+        var conta1 = i - aux;
+        alert("Faltam-lhe "+conta1+" produtos para os seus likes valerem mais 1");
+        return;
+      }
+    }
+  }
 }
