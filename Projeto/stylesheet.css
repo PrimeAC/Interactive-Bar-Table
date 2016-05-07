@@ -425,6 +425,16 @@ table#historicotab td {
 	display: flex;
 	justify-content: space-between;
 }
+
+#repetir {
+	color: white;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 2%; 
+	display: flex;
+	justify-content: space-between;
+	background-color: #333;
+}
 /*historico*/
 
 /*pagamento*/
@@ -491,6 +501,16 @@ table#historicotab td {
     margin-right: 2.65%;
 }
 /*ajuda*/
+
+/*repetir pedido*/
+#back1 {
+	padding: 1%;
+	display: flex;
+    justify-content: space-between;
+    margin-top: 2%;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 /*cancelar/confirmar*/
 #conf_can {
@@ -633,10 +653,11 @@ tr .artist {
 
 /*musica*/
 .phrase {
-    font-size: 25px;
+    font-size: 200%;
     color: #333;
     float: right;
     margin-right: 15%;
+    text-decoration: underline;
 }
 
 tr .time {

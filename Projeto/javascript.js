@@ -207,6 +207,14 @@ function seeProd() {
 }
 
 function seeHist() {
+  var tab = document.getElementById("historicotab");
+  var row_numb = tab.rows.length;
+  for(i=1; i< row_numb;) {
+    tab.deleteRow(i);
+    row_numb-=1;
+  }
+  total('historico_par', 0);
+
   var prod_hist = sessionStorage.getItem('lista_hist');
 
   if (prod_hist) {
@@ -678,7 +686,7 @@ function addToPlay(idTabela, musica, artista, tempo, gostos) {
     
 }
 
-function addSong(musica, artista,tempo,id){
+function addSong(musica, artista,tempo,id, gostos){
   var size = sessionStorage.length;
   for(i=0;i<size;i++) {
     if(sessionStorage.key(i) == musica) {
@@ -688,8 +696,12 @@ function addSong(musica, artista,tempo,id){
   }
 
   changeImage(id);
-
-  var music = [artista, tempo, 0];
+  if(gostos > 0) {
+    var music = [artista, tempo, gostos, 'outro'];
+  }
+  else {
+    var music = [artista, tempo, gostos,'meu'];
+  }
   sessionStorage.setItem(musica, JSON.stringify(music));
   if(sessionStorage.getItem("playing") == null || JSON.parse(sessionStorage.getItem("playing"))[0] == "Música 1" ) {
     embelezaMusica(musica);
@@ -728,7 +740,12 @@ function addSong(musica, artista,tempo,id){
     var aux = JSON.parse(sessionStorage.getItem("lista_rep"));
     aux.push(musica);
     sessionStorage.setItem("lista_rep",JSON.stringify(aux));
-    addToPlay('play',musica,artista,tempo,0);
+    if(sessionStorage.getItem(musica)[3] == 'meu') {
+      addToPlay('play',musica,artista,tempo,0);
+    }
+    else {
+      otherTableAdd('play',musica,artista,tempo,gostos);
+    }
   }
   if(sessionStorage.getItem("checks") != null) {
     var aux = JSON.parse(sessionStorage.getItem("checks"));
@@ -737,13 +754,13 @@ function addSong(musica, artista,tempo,id){
   }
 }
 
-function seeSong() {
+/*function seeSong() {
   var nome1 = 0;
   var aux = sessionStorage.getItem("playing");
   if(aux != null) {
     var aux1 = JSON.parse(aux);
-    var nome1 = aux1[3];  /*vai buscar o id da musica*/
-    var artista = aux1[1];
+    var nome1 = aux1[3]; */ /*vai buscar o id da musica*/
+    /*var artista = aux1[1];
     var tempo = aux1[2];
     addToPlay('play',nome1,artista,tempo,'a_tocar');
   }
@@ -761,7 +778,7 @@ function seeSong() {
 
   }
   
-}
+}*/
 
 
 function like(linha) {
@@ -774,7 +791,7 @@ function like(linha) {
     var related = JSON.parse(sessionStorage.getItem(rowCount)); 
     var gostos = related[2];
     gostos +=( Math.floor(num/5) + 1);      /*de cinco em 5 produtos comprados pelo cliente os seu likes incrementam 1*/
-    sessionStorage.setItem(rowCount,JSON.stringify([related[0],related[1],gostos]));
+    sessionStorage.setItem(rowCount,JSON.stringify([related[0],related[1],gostos,'meu']));
     upLine(rowCount);
   }
   else {
@@ -785,7 +802,7 @@ function like(linha) {
     if(gostos < 0) {
       gostos = 0;
     }
-    sessionStorage.setItem(rowCount,JSON.stringify([related[0],related[1],gostos]));
+    sessionStorage.setItem(rowCount,JSON.stringify([related[0],related[1],gostos, 'outro']));
     downLine(rowCount);
   }
   document.getElementById(rowCount+"like").innerHTML = gostos;
@@ -909,8 +926,14 @@ function refreshPlaylist() {
       var artista = related[0];
       var tempo = related[1];
       var gostos = related[2];
+      var tipo = related[3];
       if(i>0) {
-        addToPlay('play',lista[i],artista,tempo,gostos);
+        if(tipo == 'meu') {
+          addToPlay('play',lista[i],artista,tempo,gostos);
+        }
+        else {
+          otherTableAdd('play',lista[i],artista,tempo,gostos);
+        }
       }
       else {
         addToPlay('play',lista[i],artista,tempo,'a_tocar');
@@ -1171,6 +1194,10 @@ function productsMissingToLike() {
       }
     }
   }
+  else {
+    alert("Faltam-lhe 5 produtos para os seus likes valerem mais 1");
+    return;
+  }
 }
 
 
@@ -1182,6 +1209,50 @@ function seePay() {
 
 function number() {
   valor = parseFloat(sessionStorage.getItem("inteiro")) + 1;
-  var please= "O seu like vale por " + valor + "!";
-  document.getElementById('numlikes').innerHTML = please;
+  if(sessionStorage.getItem("inteiro") != null) {
+    var please= "O seu like vale por " + valor + "!";
+    document.getElementById('numlikes').innerHTML = please;
+  }
+  else {
+    var please= "O seu like vale por 1!";
+    document.getElementById('numlikes').innerHTML = please;
+  }
+}
+
+
+function repeatLastOrder() {
+  var aux = JSON.parse(sessionStorage.getItem("0"));
+  if(aux != null) {
+    for(i = 0; i < aux.length; i++) {
+      lista_pro.push(aux[i]);
+    }
+    alert('Pedido efetuado com sucesso!');
+    var num = parseInt(sessionStorage.getItem("num_pedidos")) + lista_pro.length;
+    storeArray();
+    valor1 = 0;
+    seeHist();
+    sessionStorage.setItem("num_pedidos", num);
+  }
+
+}
+
+
+function barMusic() {
+  var aux = sessionStorage.getItem("lista_rep");
+  if(aux == null) {
+    addSong('7_Years', 'Lukas Graham', '4:00' , '1',0);
+    addSong('Makeup', 'AGIR', '4:00' , '2', 6);
+    addSong('Faded', 'Alan Walker', '3:33' , '3', 6);
+    addSong('Amnesia', '5 Seconds of Summer', '4:12' , '4',5);
+    addSong('That_s_How_You_Know', 'Nico & Vinz', '4:04' , '6', 4);
+    addSong('Hollow', 'Tory Kelly', '3:40' , '7',2);
+    /*refreshPlaylist();*/
+  }
+}
+
+function otherTableAdd(idTabela, musica, artista, tempo, gostos) {
+  encode(musica);
+  embelezaMusica(musica);
+  var recRow = '<li id="'+musica+'" class="icones_bebidas"><table><tr><td id="'+musica+'like" class="likes">'+gostos+'</td><td style="width:15%;"><a href="javascript:void(0);" onclick="like('+rowCount+');"><img src="like_preto.png" id="'+musica+'img" class="add"/></a></td><td style="width:45%;" class="name">'+song+'</td><td style="width:25%;" class="artist">'+artista+'</td><td style="width:15%;" class="time">'+tempo+'</td></tr></table></li>'; 
+  jQuery("#"+idTabela).append(recRow);
 }

@@ -83,7 +83,7 @@
         
       </table>
     </div>
-
+    
     <!--inicio tabela historico-->
     <div class="tabela">
       <table id="historicotab"  align="center">
@@ -100,7 +100,16 @@
   	</div>
     <!--fim tabela historico-->
     <div style="display: flex;justify-content: space-between;">
-    	<p style="margin-left: auto;margin-right: auto;"> </p>
+    	<div id="back1">
+        <div class="icones" id="voltar">
+          <table id="repeatTable"  onclick="repeatLastOrder()">
+            <tr>
+              <td><img class = "button_icone" src="replay-arrow.png"/></td>
+              <td id="voltar1"><b>Repetir último pedido</b></td>
+            </tr>
+          </table>  
+        </div>
+    </div>
     	<p id="historico_par">Total:</p>
     </div>
 
