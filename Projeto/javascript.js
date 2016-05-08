@@ -91,7 +91,7 @@ function Search(id) {
 
 /*divs dos produtos a funcionar com procura*/
 
-/*function confirmationMsg(idTabela) {
+function confirmationMsg(idTabela) {
   if(sessionStorage.getItem("num_pedidos") != null && sessionStorage.getItem("num_pedidos") != "") {
     var num = parseInt(sessionStorage.getItem("num_pedidos")) + lista_pro.length;
     sessionStorage.setItem("num_pedidos", num);
@@ -121,7 +121,7 @@ function Search(id) {
     deleteList(idTabela);
     
   }
-}*/
+}
 
 function deleteMsg(idTabela) {
   var tab = document.getElementById(idTabela);
@@ -1216,14 +1216,13 @@ function repeatLastOrder() {
     for(i = 0; i < aux.length; i++) {
       lista_pro.push(aux[i]);
     }
-    alert('Pedido efetuado com sucesso!');
+    Alert1.render("Pedido efectuado com sucesso!");
     var num = parseInt(sessionStorage.getItem("num_pedidos")) + lista_pro.length;
     storeArray();
     valor1 = 0;
     seeHist();
     sessionStorage.setItem("num_pedidos", num);
   }
-
 }
 
 
@@ -1246,11 +1245,6 @@ function otherTableAdd(idTabela, musica, artista, tempo, gostos) {
   var recRow = '<li id="'+musica+'" class="icones_bebidas"><table><tr><td id="'+musica+'like" class="likes">'+gostos+'</td><td style="width:15%;"><a href="javascript:void(0);" onclick="like('+rowCount+');"><img src="like_preto.png" id="'+musica+'img" class="add"/></a></td><td style="width:45%;" class="name">'+song+'</td><td style="width:25%;" class="artist">'+artista+'</td><td style="width:15%;" class="time">'+tempo+'</td></tr></table></li>'; 
   jQuery("#"+idTabela).append(recRow);
 }
-
-
-
-
-
 
 function deletePost(id){
   var db_id = id.replace("post_", "");
@@ -1286,6 +1280,33 @@ function CustomConfirm(){
 }
 var Confirm = new CustomConfirm();
 
+function CustomConfirm1(){
+  if(sessionStorage.getItem("lista_hist") != null && sessionStorage.getItem("lista_hist") != "") {  
+    this.render = function(dialog){
+    var winW = window.innerWidth;
+    var winH = window.innerHeight;
+    var dialogoverlay = document.getElementById('dialogoverlay');
+    var dialogbox = document.getElementById('dialogbox');
+    dialogoverlay.style.display = "block";
+    dialogoverlay.style.height = winH+"px";
+    dialogbox.style.left = (winW/2) - (550 * .5)+"px";
+    dialogbox.style.top = "100px";
+    dialogbox.style.display = "block";
+
+    document.getElementById('dialogboxhead').innerHTML = "Repetir último pedido";
+    document.getElementById('dialogboxbody').innerHTML = dialog;
+    document.getElementById('dialogboxfoot').innerHTML = '<button onclick="Confirm1.yes()">Sim</button> <button onclick="Confirm1.no()">Não</button>';
+    }
+    this.no = function(){
+    document.getElementById('dialogbox').style.display = "none";
+    document.getElementById('dialogoverlay').style.display = "none";
+    }
+    this.yes = function(){
+      repeatLastOrder();
+    }
+  }
+}
+var Confirm1 = new CustomConfirm1();
 
 function CustomAlert(){
   var a=productsMissingToLike();
@@ -1338,35 +1359,4 @@ function CustomAlert1(){
   }
 }
 var Alert1 = new CustomAlert1();
-
-
-
-function confirmationMsg(idTabela) {
-  if(sessionStorage.getItem("num_pedidos") != null && sessionStorage.getItem("num_pedidos") != "") {
-    var num = parseInt(sessionStorage.getItem("num_pedidos")) + lista_pro.length;
-    sessionStorage.setItem("num_pedidos", num);
-    var int = Math.floor(num/5);
-    if(sessionStorage.getItem("inteiro") < int) {
-      var inteiro = int + 1;
-      Alert1.render("Agora os seus likes valem por "+inteiro , 1);
-    } 
-    sessionStorage.setItem("inteiro", int);
-  }
-  else {
-    sessionStorage.setItem("num_pedidos", lista_pro.length);
-    var int = Math.floor(lista_pro.length/5);
-    if(sessionStorage.getItem("inteiro") == null && int >= 1) {
-      var inteiro = int + 1;
-      Alert1.render("Agora os seus likes valem por "+inteiro, 1);
-    }
-    sessionStorage.setItem("inteiro", int);
-  }
-
-  var tab = document.getElementById(idTabela);
-  var row_numb = tab.rows.length;
-  if (row_numb > 0) {
-    Alert1.render('Pedido efetuado com sucesso!' , idTabela);
-  }
-}
-
 
