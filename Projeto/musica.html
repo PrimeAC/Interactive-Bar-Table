@@ -12,10 +12,10 @@
   <!--<script src="http://listjs.com/no-cdn/list.js"></script> -->
   <script src="list.js"></script>
 
-  <script src="jquery.js">></script> 
+  <script src="jquery.js"></script> 
 
   </head>
-  <body onload="refreshPlaylist();seeTime();seeImage();number();">
+  <body onload="refreshPlaylist();seeTime();seeImage();number(); barMusic();">
 
   <!--para criar a barra fixa no topo-->
   	<div id="barra">
@@ -272,6 +272,15 @@
 
 	  	</tr>
     </table>
+
+    <div id="dialogoverlay"></div>
+	<div id="dialogbox">
+	  <div>
+	    <div id="dialogboxhead"></div>
+	    <div id="dialogboxbody"></div>
+	    <div id="dialogboxfoot"></div>
+	  </div>
+	</div>
 
   	<!--inicio da barra de musica no inferior-->
   	<div id="rodape">
