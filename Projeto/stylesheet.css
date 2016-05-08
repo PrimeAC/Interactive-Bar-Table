@@ -466,8 +466,14 @@ table#historicotab td {
 	width: 5%;
 }
 
+#total_aPagar {
+	margin-top:1.5em;
+	font-size: 60px;
+	color: #333;
 /*pagamento*/
 
+	text-align: center;
+}
 /*ajuda*/
 #voltar {
 	float:left;

@@ -251,11 +251,17 @@ function addHist(idTabela, pedido, preço) {
   d.getElementById(idTabela).appendChild(newRow);
   if(idTabela == "historicotab") {
 	  valor1 += parseFloat(preço);
+    sessionStorage.setItem("aPagar", valor1);
 	  total('historico_par', valor1);
 	}
 
 }
 
+function getTotal(){
+  if(essionStorage.getItem("aPagar") != null){
+    document.getElementById("total_aPagar").innerHTML = "A pagar: "+ sessionStorage.getItem("aPagar") + " €";
+  }
+}
 
 function addStorage(pedido, preço) {
   var preço_p = sessionStorage.getItem(pedido);
