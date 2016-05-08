@@ -91,7 +91,7 @@ function Search(id) {
 
 /*divs dos produtos a funcionar com procura*/
 
-function confirmationMsg(idTabela) {
+/*function confirmationMsg(idTabela) {
   if(sessionStorage.getItem("num_pedidos") != null && sessionStorage.getItem("num_pedidos") != "") {
     var num = parseInt(sessionStorage.getItem("num_pedidos")) + lista_pro.length;
     sessionStorage.setItem("num_pedidos", num);
@@ -121,7 +121,7 @@ function confirmationMsg(idTabela) {
     deleteList(idTabela);
     
   }
-}
+}*/
 
 function deleteMsg(idTabela) {
   var tab = document.getElementById(idTabela);
@@ -1175,28 +1175,18 @@ function seeTime() {
   setTimeout(seeTime,1000);  /*verifica as horas de segundo em segundo*/
 }
 
-function payment() {
-  if(sessionStorage.getItem("lista_hist") != null && sessionStorage.getItem("lista_hist") != "") {  
-    if (confirm('Tem a certeza que deseja efetuar o pagamento?')) {
-      location.href = "pagamento.html";
-    }
-  }
-}
-
 function productsMissingToLike() {
   var aux = sessionStorage.getItem("num_pedidos");
   if(aux != null) {
     for(i=aux; i <= aux+5; i++) {
       if(i > aux && i%5 == 0) {
         var conta1 = i - aux;
-        alert("Faltam-lhe "+conta1+" produtos para os seus likes valerem mais 1");
-        return;
+        return conta1;
       }
     }
   }
   else {
-    alert("Faltam-lhe 5 produtos para os seus likes valerem mais 1");
-    return;
+    return 5;
   }
 }
 
@@ -1256,3 +1246,127 @@ function otherTableAdd(idTabela, musica, artista, tempo, gostos) {
   var recRow = '<li id="'+musica+'" class="icones_bebidas"><table><tr><td id="'+musica+'like" class="likes">'+gostos+'</td><td style="width:15%;"><a href="javascript:void(0);" onclick="like('+rowCount+');"><img src="like_preto.png" id="'+musica+'img" class="add"/></a></td><td style="width:45%;" class="name">'+song+'</td><td style="width:25%;" class="artist">'+artista+'</td><td style="width:15%;" class="time">'+tempo+'</td></tr></table></li>'; 
   jQuery("#"+idTabela).append(recRow);
 }
+
+
+
+
+
+
+function deletePost(id){
+  var db_id = id.replace("post_", "");
+  // Run Ajax request here to delete post from database
+  document.body.removeChild(document.getElementById(id));
+}
+
+function CustomConfirm(){
+  if(sessionStorage.getItem("lista_hist") != null && sessionStorage.getItem("lista_hist") != "") {  
+    this.render = function(dialog,op,id){
+    var winW = window.innerWidth;
+    var winH = window.innerHeight;
+    var dialogoverlay = document.getElementById('dialogoverlay');
+    var dialogbox = document.getElementById('dialogbox');
+    dialogoverlay.style.display = "block";
+    dialogoverlay.style.height = winH+"px";
+    dialogbox.style.left = (winW/2) - (550 * .5)+"px";
+    dialogbox.style.top = "100px";
+    dialogbox.style.display = "block";
+
+    document.getElementById('dialogboxhead').innerHTML = "Pagamento";
+    document.getElementById('dialogboxbody').innerHTML = dialog;
+    document.getElementById('dialogboxfoot').innerHTML = '<button onclick="Confirm.yes(\''+op+'\',\''+id+'\')">Sim</button> <button onclick="Confirm.no()">Não</button>';
+    }
+    this.no = function(){
+    document.getElementById('dialogbox').style.display = "none";
+    document.getElementById('dialogoverlay').style.display = "none";
+    }
+    this.yes = function(op,id){
+      location.href = "pagamento.html";
+    }
+  }
+}
+var Confirm = new CustomConfirm();
+
+
+function CustomAlert(){
+  var a=productsMissingToLike();
+  dialog="Faltam-lhe "+a+" produtos para os seus likes valerem mais 1";
+  this.render = function(){
+    var winW = window.innerWidth;
+    var winH = window.innerHeight;
+    var dialogoverlay = document.getElementById('dialogoverlay');
+    var dialogbox = document.getElementById('dialogbox');
+    dialogoverlay.style.display = "block";
+    dialogoverlay.style.height = winH+"px";
+    dialogbox.style.left = (winW/2) - (550 * .5)+"px";
+    dialogbox.style.top = "100px";
+    dialogbox.style.display = "block";
+    document.getElementById('dialogboxhead').innerHTML = "Produtos em falta";
+    document.getElementById('dialogboxbody').innerHTML = dialog;
+    document.getElementById('dialogboxfoot').innerHTML = '<button onclick="Alert.ok()">OK</button>';
+  }
+  this.ok = function(){
+    document.getElementById('dialogbox').style.display = "none";
+    document.getElementById('dialogoverlay').style.display = "none";
+  }
+}
+var Alert = new CustomAlert();
+
+
+function CustomAlert1(){
+  this.render = function(dialog,id){
+    var winW = window.innerWidth;
+    var winH = window.innerHeight;
+    var dialogoverlay = document.getElementById('dialogoverlay');
+    var dialogbox = document.getElementById('dialogbox');
+    dialogoverlay.style.display = "block";
+    dialogoverlay.style.height = winH+"px";
+    dialogbox.style.left = (winW/2) - (550 * .5)+"px";
+    dialogbox.style.top = "100px";
+    dialogbox.style.display = "block";
+    document.getElementById('dialogboxhead').innerHTML = "Pedido efetuado!";
+    document.getElementById('dialogboxbody').innerHTML = dialog;
+    document.getElementById('dialogboxfoot').innerHTML = '<button onclick="Alert1.ok()">OK</button>';
+  }
+  this.ok = function(){
+    document.getElementById('dialogbox').style.display = "none";
+    document.getElementById('dialogoverlay').style.display = "none";
+    if(id!=1) {
+      location.href="historico.html";
+      storeArray();
+      deleteList(id);    
+    }
+  }
+}
+var Alert1 = new CustomAlert1();
+
+
+
+function confirmationMsg(idTabela) {
+  if(sessionStorage.getItem("num_pedidos") != null && sessionStorage.getItem("num_pedidos") != "") {
+    var num = parseInt(sessionStorage.getItem("num_pedidos")) + lista_pro.length;
+    sessionStorage.setItem("num_pedidos", num);
+    var int = Math.floor(num/5);
+    if(sessionStorage.getItem("inteiro") < int) {
+      var inteiro = int + 1;
+      Alert1.render("Agora os seus likes valem por "+inteiro , 1);
+    } 
+    sessionStorage.setItem("inteiro", int);
+  }
+  else {
+    sessionStorage.setItem("num_pedidos", lista_pro.length);
+    var int = Math.floor(lista_pro.length/5);
+    if(sessionStorage.getItem("inteiro") == null && int >= 1) {
+      var inteiro = int + 1;
+      Alert1.render("Agora os seus likes valem por "+inteiro, 1);
+    }
+    sessionStorage.setItem("inteiro", int);
+  }
+
+  var tab = document.getElementById(idTabela);
+  var row_numb = tab.rows.length;
+  if (row_numb > 0) {
+    Alert1.render('Pedido efetuado com sucesso!' , idTabela);
+  }
+}
+
+
