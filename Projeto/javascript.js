@@ -90,7 +90,7 @@ function Search(id) {
 }
 
 /*divs dos produtos a funcionar com procura*/
-
+/*
 function confirmationMsg(idTabela) {
   if(sessionStorage.getItem("num_pedidos") != null && sessionStorage.getItem("num_pedidos") != "") {
     var num = parseInt(sessionStorage.getItem("num_pedidos")) + lista_pro.length;
@@ -121,7 +121,7 @@ function confirmationMsg(idTabela) {
     deleteList(idTabela);
     
   }
-}
+}*/
 
 function deleteMsg(idTabela) {
   var tab = document.getElementById(idTabela);
@@ -1212,13 +1212,19 @@ function number() {
 
 function repeatLastOrder() {
   var aux = JSON.parse(sessionStorage.getItem("0"));
+
   if(aux != null) {
     for(i = 0; i < aux.length; i++) {
       lista_pro.push(aux[i]);
     }
-    Alert1.render("Pedido efectuado com sucesso!");
-    Alert.render();
     var num = parseInt(sessionStorage.getItem("num_pedidos")) + lista_pro.length;
+    var a = alertNumLikes();
+    if(a != 0) {
+      Alert1.render('Pedido efetuado com sucesso! <p>Agora os seus likes valem por '+a+'</p>',1);
+    }
+    else {
+      Alert1.render('Pedido efetuado com sucesso!',1);
+    }
     storeArray();
     valor1 = 0;
     seeHist();
@@ -1403,7 +1409,6 @@ function confirmationMsg(idTabela) {
   }
 }
 
-/*var flag1=0;*/
 function alertNumLikes() {
   if(sessionStorage.getItem("num_pedidos") != null && sessionStorage.getItem("num_pedidos") != "") {
     var num = parseInt(sessionStorage.getItem("num_pedidos")) + lista_pro.length;
@@ -1411,13 +1416,10 @@ function alertNumLikes() {
     var int = Math.floor(num/5);
     if(sessionStorage.getItem("inteiro") < int) {
       var inteiro = int + 1;
-      /*alert("alterei");
-      flag1 = 1;*/
       sessionStorage.setItem("inteiro", int);
       return inteiro;
     }
     else {
-     /* flag1 = 0;*/
       return 0;
     } 
   }
@@ -1426,13 +1428,11 @@ function alertNumLikes() {
     var int = Math.floor(lista_pro.length/5);
     if(sessionStorage.getItem("inteiro") == null && int >= 1) {
       var inteiro = int + 1;
-      /*alert("alterei");
-      flag1 = 1;*/
       sessionStorage.setItem("inteiro", int);
       return inteiro;
     }
     else {
-      /*flag1 = 0;*/
+      sessionStorage.setItem("inteiro", int);
       return 0;
     }
   }
