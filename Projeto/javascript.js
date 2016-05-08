@@ -258,7 +258,7 @@ function addHist(idTabela, pedido, preço) {
 }
 
 function getTotal(){
-  if(essionStorage.getItem("aPagar") != null){
+  if(sessionStorage.getItem("aPagar") != null){
     document.getElementById("total_aPagar").innerHTML = "A pagar: "+ sessionStorage.getItem("aPagar") + " €";
   }
 }
