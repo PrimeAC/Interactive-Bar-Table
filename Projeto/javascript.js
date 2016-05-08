@@ -1334,7 +1334,9 @@ var Alert = new CustomAlert();
 
 
 function CustomAlert1(){
-  this.render = function(dialog,id){
+  var id1 = "";
+  this.render = function(dialog, id){
+    id1 = id;
     var winW = window.innerWidth;
     var winH = window.innerHeight;
     var dialogoverlay = document.getElementById('dialogoverlay');
@@ -1351,14 +1353,15 @@ function CustomAlert1(){
   this.ok = function(){
     document.getElementById('dialogbox').style.display = "none";
     document.getElementById('dialogoverlay').style.display = "none";
-    if(id!=1) {
+    if(id1 == 'lista_produtos1') {
       location.href="historico.html";
       storeArray();
-      deleteList(id);    
-    }
+      deleteList(id1); 
+    }   
   }
 }
 var Alert1 = new CustomAlert1();
+
 
 
 function CustomAlert2(){
@@ -1383,4 +1386,55 @@ function CustomAlert2(){
   }
 }
 var Alert2 = new CustomAlert2();
+
+
+function confirmationMsg(idTabela) {
+  var a = alertNumLikes();
+  var tab = document.getElementById(idTabela);
+  var row_numb = tab.rows.length;
+  if (row_numb > 0) {
+    if(a != 0) {
+      Alert1.render('Pedido efetuado com sucesso! <p>Agora os seus likes valem por '+a+'</p>','lista_produtos1');
+    }
+    else {
+      Alert1.render('Pedido efetuado com sucesso!','lista_produtos1');
+    }
+  }
+}
+
+/*var flag1=0;*/
+function alertNumLikes() {
+  if(sessionStorage.getItem("num_pedidos") != null && sessionStorage.getItem("num_pedidos") != "") {
+    var num = parseInt(sessionStorage.getItem("num_pedidos")) + lista_pro.length;
+    sessionStorage.setItem("num_pedidos", num);
+    var int = Math.floor(num/5);
+    if(sessionStorage.getItem("inteiro") < int) {
+      var inteiro = int + 1;
+      /*alert("alterei");
+      flag1 = 1;*/
+      sessionStorage.setItem("inteiro", int);
+      return inteiro;
+    }
+    else {
+     /* flag1 = 0;*/
+      return 0;
+    } 
+  }
+  else {
+    sessionStorage.setItem("num_pedidos", lista_pro.length);
+    var int = Math.floor(lista_pro.length/5);
+    if(sessionStorage.getItem("inteiro") == null && int >= 1) {
+      var inteiro = int + 1;
+      /*alert("alterei");
+      flag1 = 1;*/
+      sessionStorage.setItem("inteiro", int);
+      return inteiro;
+    }
+    else {
+      /*flag1 = 0;*/
+      return 0;
+    }
+  }
+}
+
 
