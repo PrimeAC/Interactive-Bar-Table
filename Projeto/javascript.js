@@ -1217,6 +1217,7 @@ function repeatLastOrder() {
       lista_pro.push(aux[i]);
     }
     Alert1.render("Pedido efectuado com sucesso!");
+    Alert.render();
     var num = parseInt(sessionStorage.getItem("num_pedidos")) + lista_pro.length;
     storeArray();
     valor1 = 0;
