@@ -90,49 +90,7 @@ function Search(id) {
 }
 
 /*divs dos produtos a funcionar com procura*/
-/*
-function confirmationMsg(idTabela) {
-  if(sessionStorage.getItem("num_pedidos") != null && sessionStorage.getItem("num_pedidos") != "") {
-    var num = parseInt(sessionStorage.getItem("num_pedidos")) + lista_pro.length;
-    sessionStorage.setItem("num_pedidos", num);
-    var int = Math.floor(num/5);
-    if(sessionStorage.getItem("inteiro") < int) {
-      var inteiro = int + 1;
-      alert("Agora os seus likes valem por "+inteiro);
-    } 
-    sessionStorage.setItem("inteiro", int);
-  }
-  else {
-    sessionStorage.setItem("num_pedidos", lista_pro.length);
-    var int = Math.floor(lista_pro.length/5);
-    if(sessionStorage.getItem("inteiro") == null && int >= 1) {
-      var inteiro = int + 1;
-      alert("Agora os seus likes valem por "+inteiro);
-    }
-    sessionStorage.setItem("inteiro", int);
-  }
 
-  var tab = document.getElementById(idTabela);
-  var row_numb = tab.rows.length;
-  if (row_numb > 0) {
-    alert('Pedido efetuado com sucesso!');
-    location.href="historico.html";
-    storeArray();
-    deleteList(idTabela);
-    
-  }
-}*/
-
-function deleteMsg(idTabela) {
-  var tab = document.getElementById(idTabela);
-  var row_numb = tab.rows.length;
-  if (row_numb > 0) {
-    if (confirm('Tem a certeza que deseja eliminar o pedido?')) {
-      emptyArray();
-      deleteList(idTabela);
-    }  
-  } 
-}
 
 function emptyArray() {
   while(lista_pro.length > 0) {
@@ -478,35 +436,7 @@ function refresh() {
   sessionStorage.setItem('valor_prod',0);
 }
 
-function changePage(id) {
-  if(id != 'menu') {
-    if(lista_pro.length > 0) {  
-      if(confirm('Tem a certeza que deseja mudar de página? Ao sair perderá o pedido atual.')) {
-        sessionStorage.setItem('valor_prod',0);
-        if(id == 'home') {
-	      location.href = "index.html";
-	    }
-	    else if(id == 'musica') {
-	      location.href = "musica.html";
-	    }
-	    else if(id == 'historico') {
-	      location.href = "historico.html";
-	    }
-      }
-    }
-    else {
-		if(id == 'home') {
-	      location.href = "index.html";
-	    }
-	    else if(id == 'musica') {
-	      location.href = "musica.html";
-	    }
-	    else if(id == 'historico') {
-	      location.href = "historico.html";
-	    }
-    }
-  }
-}
+
 
 
 function decrementItem(removeNum) { 
@@ -1445,3 +1375,98 @@ function alertNumLikes() {
 }
 
 
+
+function deleteMsg(idTabela) {
+  var tab = document.getElementById(idTabela);
+  var row_numb = tab.rows.length;
+  if (row_numb > 0) {
+    Confirm2.render('Tem a certeza que deseja eliminar o pedido?');  
+  } 
+}
+
+
+function CustomConfirm2(){ 
+  this.render = function(dialog){
+  var winW = window.innerWidth;
+  var winH = window.innerHeight;
+  var dialogoverlay = document.getElementById('dialogoverlay');
+  var dialogbox = document.getElementById('dialogbox');
+  dialogoverlay.style.display = "block";
+  dialogoverlay.style.height = winH+"px";
+  dialogbox.style.left = (winW/2) - (550 * .5)+"px";
+  dialogbox.style.top = "100px";
+  dialogbox.style.display = "block";
+
+  document.getElementById('dialogboxhead').innerHTML = "Cancelamento do pedido";
+  document.getElementById('dialogboxbody').innerHTML = dialog;
+  document.getElementById('dialogboxfoot').innerHTML = '<button onclick="Confirm2.yes()">Sim</button> <button onclick="Confirm2.no()">Não</button>';
+  }
+  this.no = function(){
+  document.getElementById('dialogbox').style.display = "none";
+  document.getElementById('dialogoverlay').style.display = "none";
+  }
+  this.yes = function(){
+    document.getElementById('dialogbox').style.display = "none";
+    document.getElementById('dialogoverlay').style.display = "none";
+    emptyArray();
+    deleteList('lista_produtos1');
+  }
+}
+var Confirm2 = new CustomConfirm2();
+
+
+function CustomConfirm3(){ 
+  this.render = function(dialog,id){
+  id1=id;
+  var winW = window.innerWidth;
+  var winH = window.innerHeight;
+  var dialogoverlay = document.getElementById('dialogoverlay');
+  var dialogbox = document.getElementById('dialogbox');
+  dialogoverlay.style.display = "block";
+  dialogoverlay.style.height = winH+"px";
+  dialogbox.style.left = (winW/2) - (550 * .5)+"px";
+  dialogbox.style.top = "100px";
+  dialogbox.style.display = "block";
+
+  document.getElementById('dialogboxhead').innerHTML = "Mudança de página";
+  document.getElementById('dialogboxbody').innerHTML = dialog;
+  document.getElementById('dialogboxfoot').innerHTML = '<button onclick="Confirm3.yes()">Sim</button> <button onclick="Confirm3.no()">Não</button>';
+  }
+  this.no = function(){
+  document.getElementById('dialogbox').style.display = "none";
+  document.getElementById('dialogoverlay').style.display = "none";
+  }
+  this.yes = function(){
+    sessionStorage.setItem('valor_prod',0);
+    if(id1 == 'home') {
+      location.href = "index.html";
+    }
+    else if(id1 == 'musica') {
+      location.href = "musica.html";
+    }
+    else if(id1 == 'historico') {
+      location.href = "historico.html";
+    }   
+  }
+}
+var Confirm3 = new CustomConfirm3();
+
+
+function changePage(id) {
+  if(id != 'menu') {
+    if(lista_pro.length > 0) {  
+      Confirm3.render('Tem a certeza que deseja mudar de página? Ao sair perderá o pedido atual.' , id);     
+    }
+    else {
+    if(id == 'home') {
+        location.href = "index.html";
+      }
+      else if(id == 'musica') {
+        location.href = "musica.html";
+      }
+      else if(id == 'historico') {
+        location.href = "historico.html";
+      }
+    }
+  }
+}
