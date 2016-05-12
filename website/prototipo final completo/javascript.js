@@ -91,48 +91,6 @@ function Search(id) {
 
 /*divs dos produtos a funcionar com procura*/
 
-function confirmationMsg(idTabela) {
-  if(sessionStorage.getItem("num_pedidos") != null && sessionStorage.getItem("num_pedidos") != "") {
-    var num = parseInt(sessionStorage.getItem("num_pedidos")) + lista_pro.length;
-    sessionStorage.setItem("num_pedidos", num);
-    var int = Math.floor(num/5);
-    if(sessionStorage.getItem("inteiro") < int) {
-      var inteiro = int + 1;
-      alert("Agora os seus likes valem por "+inteiro);
-    } 
-    sessionStorage.setItem("inteiro", int);
-  }
-  else {
-    sessionStorage.setItem("num_pedidos", lista_pro.length);
-    var int = Math.floor(lista_pro.length/5);
-    if(sessionStorage.getItem("inteiro") == null && int >= 1) {
-      var inteiro = int + 1;
-      alert("Agora os seus likes valem por "+inteiro);
-    }
-    sessionStorage.setItem("inteiro", int);
-  }
-
-  var tab = document.getElementById(idTabela);
-  var row_numb = tab.rows.length;
-  if (row_numb > 0) {
-    alert('Pedido efetuado com sucesso!');
-    location.href="historico.html";
-    storeArray();
-    deleteList(idTabela);
-    
-  }
-}
-
-function deleteMsg(idTabela) {
-  var tab = document.getElementById(idTabela);
-  var row_numb = tab.rows.length;
-  if (row_numb > 0) {
-    if (confirm('Tem a certeza que deseja eliminar o pedido?')) {
-      emptyArray();
-      deleteList(idTabela);
-    }  
-  } 
-}
 
 function emptyArray() {
   while(lista_pro.length > 0) {
@@ -251,11 +209,17 @@ function addHist(idTabela, pedido, preço) {
   d.getElementById(idTabela).appendChild(newRow);
   if(idTabela == "historicotab") {
 	  valor1 += parseFloat(preço);
+    sessionStorage.setItem("aPagar", valor1);
 	  total('historico_par', valor1);
 	}
 
 }
 
+function getTotal(){
+  if(sessionStorage.getItem("aPagar") != null){
+    document.getElementById("total_aPagar").innerHTML = "A pagar: "+ sessionStorage.getItem("aPagar") + " €";
+  }
+}
 
 function addStorage(pedido, preço) {
   var preço_p = sessionStorage.getItem(pedido);
@@ -472,35 +436,7 @@ function refresh() {
   sessionStorage.setItem('valor_prod',0);
 }
 
-function changePage(id) {
-  if(id != 'menu') {
-    if(lista_pro.length > 0) {  
-      if(confirm('Tem a certeza que deseja mudar de página? Ao sair perderá o pedido atual.')) {
-        sessionStorage.setItem('valor_prod',0);
-        if(id == 'home') {
-	      location.href = "index.html";
-	    }
-	    else if(id == 'musica') {
-	      location.href = "musica.html";
-	    }
-	    else if(id == 'historico') {
-	      location.href = "historico.html";
-	    }
-      }
-    }
-    else {
-		if(id == 'home') {
-	      location.href = "index.html";
-	    }
-	    else if(id == 'musica') {
-	      location.href = "musica.html";
-	    }
-	    else if(id == 'historico') {
-	      location.href = "historico.html";
-	    }
-    }
-  }
-}
+
 
 
 function decrementItem(removeNum) { 
@@ -690,11 +626,10 @@ function addSong(musica, artista,tempo,id, gostos){
   var size = sessionStorage.length;
   for(i=0;i<size;i++) {
     if(sessionStorage.key(i) == musica) {
-      alert("Música já existente na playlist");
-      return;
+      Alert2.render();
+      return ;
     }
   }
-
   changeImage(id);
   if(gostos > 0) {
     var music = [artista, tempo, gostos, 'outro'];
@@ -753,6 +688,7 @@ function addSong(musica, artista,tempo,id, gostos){
     sessionStorage.setItem("checks",JSON.stringify(aux));
   }
 }
+
 
 /*function seeSong() {
   var nome1 = 0;
@@ -1175,28 +1111,18 @@ function seeTime() {
   setTimeout(seeTime,1000);  /*verifica as horas de segundo em segundo*/
 }
 
-function payment() {
-  if(sessionStorage.getItem("lista_hist") != null && sessionStorage.getItem("lista_hist") != "") {  
-    if (confirm('Tem a certeza que deseja efetuar o pagamento?')) {
-      location.href = "pagamento.html";
-    }
-  }
-}
-
 function productsMissingToLike() {
   var aux = sessionStorage.getItem("num_pedidos");
   if(aux != null) {
     for(i=aux; i <= aux+5; i++) {
       if(i > aux && i%5 == 0) {
         var conta1 = i - aux;
-        alert("Faltam-lhe "+conta1+" produtos para os seus likes valerem mais 1");
-        return;
+        return conta1;
       }
     }
   }
   else {
-    alert("Faltam-lhe 5 produtos para os seus likes valerem mais 1");
-    return;
+    return 5;
   }
 }
 
@@ -1222,18 +1148,24 @@ function number() {
 
 function repeatLastOrder() {
   var aux = JSON.parse(sessionStorage.getItem("0"));
+
   if(aux != null) {
     for(i = 0; i < aux.length; i++) {
       lista_pro.push(aux[i]);
     }
-    alert('Pedido efetuado com sucesso!');
     var num = parseInt(sessionStorage.getItem("num_pedidos")) + lista_pro.length;
+    var a = alertNumLikes();
+    if(a != 0) {
+      Alert1.render('Pedido efetuado com sucesso! <p>Agora os seus likes valem por '+a+'</p>',1);
+    }
+    else {
+      Alert1.render('Pedido efetuado com sucesso!',1);
+    }
     storeArray();
     valor1 = 0;
     seeHist();
     sessionStorage.setItem("num_pedidos", num);
   }
-
 }
 
 
@@ -1255,4 +1187,286 @@ function otherTableAdd(idTabela, musica, artista, tempo, gostos) {
   embelezaMusica(musica);
   var recRow = '<li id="'+musica+'" class="icones_bebidas"><table><tr><td id="'+musica+'like" class="likes">'+gostos+'</td><td style="width:15%;"><a href="javascript:void(0);" onclick="like('+rowCount+');"><img src="like_preto.png" id="'+musica+'img" class="add"/></a></td><td style="width:45%;" class="name">'+song+'</td><td style="width:25%;" class="artist">'+artista+'</td><td style="width:15%;" class="time">'+tempo+'</td></tr></table></li>'; 
   jQuery("#"+idTabela).append(recRow);
+}
+
+function deletePost(id){
+  var db_id = id.replace("post_", "");
+  // Run Ajax request here to delete post from database
+  document.body.removeChild(document.getElementById(id));
+}
+
+function CustomConfirm(){
+  if(sessionStorage.getItem("lista_hist") != null && sessionStorage.getItem("lista_hist") != "") {  
+    this.render = function(dialog,op,id){
+    var winW = window.innerWidth;
+    var winH = window.innerHeight;
+    var dialogoverlay = document.getElementById('dialogoverlay');
+    var dialogbox = document.getElementById('dialogbox');
+    dialogoverlay.style.display = "block";
+    dialogoverlay.style.height = winH+"px";
+    dialogbox.style.left = (winW/2) - (550 * .5)+"px";
+    dialogbox.style.top = "100px";
+    dialogbox.style.display = "block";
+
+    document.getElementById('dialogboxhead').innerHTML = "Pagamento";
+    document.getElementById('dialogboxbody').innerHTML = dialog;
+    document.getElementById('dialogboxfoot').innerHTML = '<button onclick="Confirm.yes(\''+op+'\',\''+id+'\')">Sim</button> <button onclick="Confirm.no()">Não</button>';
+    }
+    this.no = function(){
+    document.getElementById('dialogbox').style.display = "none";
+    document.getElementById('dialogoverlay').style.display = "none";
+    }
+    this.yes = function(op,id){
+      location.href = "pagamento.html";
+    }
+  }
+}
+var Confirm = new CustomConfirm();
+
+function CustomConfirm1(){
+  if(sessionStorage.getItem("lista_hist") != null && sessionStorage.getItem("lista_hist") != "") {  
+    this.render = function(dialog){
+    var winW = window.innerWidth;
+    var winH = window.innerHeight;
+    var dialogoverlay = document.getElementById('dialogoverlay');
+    var dialogbox = document.getElementById('dialogbox');
+    dialogoverlay.style.display = "block";
+    dialogoverlay.style.height = winH+"px";
+    dialogbox.style.left = (winW/2) - (550 * .5)+"px";
+    dialogbox.style.top = "100px";
+    dialogbox.style.display = "block";
+
+    document.getElementById('dialogboxhead').innerHTML = "Repetir último pedido";
+    document.getElementById('dialogboxbody').innerHTML = dialog;
+    document.getElementById('dialogboxfoot').innerHTML = '<button onclick="Confirm1.yes()">Sim</button> <button onclick="Confirm1.no()">Não</button>';
+    }
+    this.no = function(){
+    document.getElementById('dialogbox').style.display = "none";
+    document.getElementById('dialogoverlay').style.display = "none";
+    }
+    this.yes = function(){
+      repeatLastOrder();
+    }
+  }
+}
+var Confirm1 = new CustomConfirm1();
+
+function CustomAlert(){
+  var a=productsMissingToLike();
+  dialog="Faltam-lhe "+a+" produtos para os seus likes valerem mais 1";
+  this.render = function(){
+    var winW = window.innerWidth;
+    var winH = window.innerHeight;
+    var dialogoverlay = document.getElementById('dialogoverlay');
+    var dialogbox = document.getElementById('dialogbox');
+    dialogoverlay.style.display = "block";
+    dialogoverlay.style.height = winH+"px";
+    dialogbox.style.left = (winW/2) - (550 * .5)+"px";
+    dialogbox.style.top = "100px";
+    dialogbox.style.display = "block";
+    document.getElementById('dialogboxhead').innerHTML = "Produtos em falta";
+    document.getElementById('dialogboxbody').innerHTML = dialog;
+    document.getElementById('dialogboxfoot').innerHTML = '<button onclick="Alert.ok()">OK</button>';
+  }
+  this.ok = function(){
+    document.getElementById('dialogbox').style.display = "none";
+    document.getElementById('dialogoverlay').style.display = "none";
+  }
+}
+var Alert = new CustomAlert();
+
+
+function CustomAlert1(){
+  var id1 = "";
+  this.render = function(dialog, id){
+    id1 = id;
+    var winW = window.innerWidth;
+    var winH = window.innerHeight;
+    var dialogoverlay = document.getElementById('dialogoverlay');
+    var dialogbox = document.getElementById('dialogbox');
+    dialogoverlay.style.display = "block";
+    dialogoverlay.style.height = winH+"px";
+    dialogbox.style.left = (winW/2) - (550 * .5)+"px";
+    dialogbox.style.top = "100px";
+    dialogbox.style.display = "block";
+    document.getElementById('dialogboxhead').innerHTML = "Pedido efetuado!";
+    document.getElementById('dialogboxbody').innerHTML = dialog;
+    document.getElementById('dialogboxfoot').innerHTML = '<button onclick="Alert1.ok()">OK</button>';
+  }
+  this.ok = function(){
+    document.getElementById('dialogbox').style.display = "none";
+    document.getElementById('dialogoverlay').style.display = "none";
+    if(id1 == 'lista_produtos1') {
+      location.href="historico.html";
+      storeArray();
+      deleteList(id1); 
+    }   
+  }
+}
+var Alert1 = new CustomAlert1();
+
+
+
+function CustomAlert2(){
+  dialog1="Música já existente na playlist!";
+  this.render = function(){
+    var winW = window.innerWidth;
+    var winH = window.innerHeight;
+    var dialogoverlay = document.getElementById('dialogoverlay');
+    var dialogbox = document.getElementById('dialogbox');
+    dialogoverlay.style.display = "block";
+    dialogoverlay.style.height = winH+"px";
+    dialogbox.style.left = (winW/2) - (550 * .5)+"px";
+    dialogbox.style.top = "100px";
+    dialogbox.style.display = "block";
+    document.getElementById('dialogboxhead').innerHTML = "Música repetida";
+    document.getElementById('dialogboxbody').innerHTML = dialog1;
+    document.getElementById('dialogboxfoot').innerHTML = '<button onclick="Alert2.ok()">OK</button>';
+  }
+  this.ok = function(){
+    document.getElementById('dialogbox').style.display = "none";
+    document.getElementById('dialogoverlay').style.display = "none";
+  }
+}
+var Alert2 = new CustomAlert2();
+
+
+function confirmationMsg(idTabela) {
+  var a = alertNumLikes();
+  var tab = document.getElementById(idTabela);
+  var row_numb = tab.rows.length;
+  if (row_numb > 0) {
+    if(a != 0) {
+      Alert1.render('Pedido efetuado com sucesso! <p>Agora os seus likes valem por '+a+'</p>','lista_produtos1');
+    }
+    else {
+      Alert1.render('Pedido efetuado com sucesso!','lista_produtos1');
+    }
+  }
+}
+
+function alertNumLikes() {
+  if(sessionStorage.getItem("num_pedidos") != null && sessionStorage.getItem("num_pedidos") != "") {
+    var num = parseInt(sessionStorage.getItem("num_pedidos")) + lista_pro.length;
+    sessionStorage.setItem("num_pedidos", num);
+    var int = Math.floor(num/5);
+    if(sessionStorage.getItem("inteiro") < int) {
+      var inteiro = int + 1;
+      sessionStorage.setItem("inteiro", int);
+      return inteiro;
+    }
+    else {
+      return 0;
+    } 
+  }
+  else {
+    sessionStorage.setItem("num_pedidos", lista_pro.length);
+    var int = Math.floor(lista_pro.length/5);
+    if(sessionStorage.getItem("inteiro") == null && int >= 1) {
+      var inteiro = int + 1;
+      sessionStorage.setItem("inteiro", int);
+      return inteiro;
+    }
+    else {
+      sessionStorage.setItem("inteiro", int);
+      return 0;
+    }
+  }
+}
+
+
+
+function deleteMsg(idTabela) {
+  var tab = document.getElementById(idTabela);
+  var row_numb = tab.rows.length;
+  if (row_numb > 0) {
+    Confirm2.render('Tem a certeza que deseja eliminar o pedido?');  
+  } 
+}
+
+
+function CustomConfirm2(){ 
+  this.render = function(dialog){
+  var winW = window.innerWidth;
+  var winH = window.innerHeight;
+  var dialogoverlay = document.getElementById('dialogoverlay');
+  var dialogbox = document.getElementById('dialogbox');
+  dialogoverlay.style.display = "block";
+  dialogoverlay.style.height = winH+"px";
+  dialogbox.style.left = (winW/2) - (550 * .5)+"px";
+  dialogbox.style.top = "100px";
+  dialogbox.style.display = "block";
+
+  document.getElementById('dialogboxhead').innerHTML = "Cancelamento do pedido";
+  document.getElementById('dialogboxbody').innerHTML = dialog;
+  document.getElementById('dialogboxfoot').innerHTML = '<button onclick="Confirm2.yes()">Sim</button> <button onclick="Confirm2.no()">Não</button>';
+  }
+  this.no = function(){
+  document.getElementById('dialogbox').style.display = "none";
+  document.getElementById('dialogoverlay').style.display = "none";
+  }
+  this.yes = function(){
+    document.getElementById('dialogbox').style.display = "none";
+    document.getElementById('dialogoverlay').style.display = "none";
+    emptyArray();
+    deleteList('lista_produtos1');
+  }
+}
+var Confirm2 = new CustomConfirm2();
+
+
+function CustomConfirm3(){ 
+  this.render = function(dialog,id){
+  id1=id;
+  var winW = window.innerWidth;
+  var winH = window.innerHeight;
+  var dialogoverlay = document.getElementById('dialogoverlay');
+  var dialogbox = document.getElementById('dialogbox');
+  dialogoverlay.style.display = "block";
+  dialogoverlay.style.height = winH+"px";
+  dialogbox.style.left = (winW/2) - (550 * .5)+"px";
+  dialogbox.style.top = "100px";
+  dialogbox.style.display = "block";
+
+  document.getElementById('dialogboxhead').innerHTML = "Mudança de página";
+  document.getElementById('dialogboxbody').innerHTML = dialog;
+  document.getElementById('dialogboxfoot').innerHTML = '<button onclick="Confirm3.yes()">Sim</button> <button onclick="Confirm3.no()">Não</button>';
+  }
+  this.no = function(){
+  document.getElementById('dialogbox').style.display = "none";
+  document.getElementById('dialogoverlay').style.display = "none";
+  }
+  this.yes = function(){
+    sessionStorage.setItem('valor_prod',0);
+    if(id1 == 'home') {
+      location.href = "index.html";
+    }
+    else if(id1 == 'musica') {
+      location.href = "musica.html";
+    }
+    else if(id1 == 'historico') {
+      location.href = "historico.html";
+    }   
+  }
+}
+var Confirm3 = new CustomConfirm3();
+
+
+function changePage(id) {
+  if(id != 'menu') {
+    if(lista_pro.length > 0) {  
+      Confirm3.render('Tem a certeza que deseja mudar de página? Ao sair perderá o pedido atual.' , id);     
+    }
+    else {
+    if(id == 'home') {
+        location.href = "index.html";
+      }
+      else if(id == 'musica') {
+        location.href = "musica.html";
+      }
+      else if(id == 'historico') {
+        location.href = "historico.html";
+      }
+    }
+  }
 }

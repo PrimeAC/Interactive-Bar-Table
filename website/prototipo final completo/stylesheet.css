@@ -108,6 +108,10 @@ a {
 	cursor: pointer;
 }
 
+#pagamento:hover {
+	cursor: pointer;
+}
+
 #paga1 {
 	font-size: 150%;
 	color: white;
@@ -241,8 +245,8 @@ a {
 	text-align: center;
 	background-color: #333;
 	opacity: 0.7;
-	cursor:pointer;
 }
+
 
 #lista_produtos {
 	width:100%;
@@ -435,6 +439,14 @@ table#historicotab td {
 	justify-content: space-between;
 	background-color: #333;
 }
+
+#repeatTable {
+	height: 100%;
+}
+
+#voltar:hover {
+	cursor: pointer;
+}
 /*historico*/
 
 /*pagamento*/
@@ -466,8 +478,14 @@ table#historicotab td {
 	width: 5%;
 }
 
+#total_aPagar {
+	margin-top:1.5em;
+	font-size: 60px;
+	color: #333;
 /*pagamento*/
 
+	text-align: center;
+}
 /*ajuda*/
 #voltar {
 	float:left;
@@ -680,6 +698,31 @@ tr .artist {
 	font-size: 125%;
 }
 
-
-
 /*musica*/
+
+#dialogoverlay{
+	display: none;
+	opacity: .8;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	background: #333;
+	width: 100%;
+	z-index: 10;
+}
+#dialogbox{
+	display: none;
+	position: fixed;
+	background: #FFF;
+	border-radius:25px; 
+	width:550px;
+	z-index: 10;
+}
+/*#dialogbox > div{ background:#FFF; margin:8px; }*/
+#dialogbox > div > #dialogboxhead{ background: #eee; font-size:19px; padding:10px; color:#006df0; border-top-left-radius: 18px;border-top-right-radius: 18px;}
+#dialogbox > div > #dialogboxbody{ background:#eee; padding:20px; color:#333; }
+#dialogbox > div > #dialogboxfoot{ background: #eee; padding:10px; text-align:right; border-bottom-left-radius: 18px;border-bottom-right-radius: 18px; }
+
+button:hover {
+	cursor: pointer;
+}
