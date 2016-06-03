@@ -8,6 +8,7 @@ No Installation required.
 
 # Contributors
 @brunoaosantos
+@ramp64
 
 # Execution
 Go to the directory  `Projeto`. <br />
