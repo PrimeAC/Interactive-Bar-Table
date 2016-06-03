@@ -10,7 +10,7 @@ No Installation required.
 @brunoaosantos
 
 # Execution
-Go to the directory  `Projeto`.
+Go to the directory  `Projeto`. <br />
 Open the following file: 
 * `index.html` 
 
